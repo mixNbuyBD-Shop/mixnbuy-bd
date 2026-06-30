@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MixNBuy BD | Smart Shopping Solution</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f8fafc;
+    color:#333;
+}
+
+header{
+    background:#0F172A;
+    color:#fff;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+}
+
+.logo span{
+    color:#00D084;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:30px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#00D084;
+}
+
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:80px 8%;
+    flex-wrap:wrap;
+    background:linear-gradient(135deg,#0F172A,#1E3A8A);
+    color:white;
+}
+
+.hero-text{
+    flex:1;
+    min-width:320px;
+}
+
+.hero-text h1{
+    font-size:55px;
+    line-height:1.2;
+}
+
+.hero-text span{
+    color:#00D084;
+}
+
+.hero-text p{
+    margin:20px 0;
+    font-size:18px;
+    opacity:.9;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 35px;
+    background:#00D084;
+    color:white;
+    text-decoration:none;
+    border-radius:40px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#00b56f;
+    transform:translateY(-3px);
+}
+
+.hero-image{
+    flex:1;
+    min-width:300px;
+    text-align:center;
+}
+
+.hero-image img{
+    width:90%;
+    max-width:500px;
+}
+
+section{
+    padding:80px 8%;
+}
+
+.title{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:50px;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card i{
+    font-size:50px;
+    color:#00D084;
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.about{
+    display:flex;
+    align-items:center;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.about img{
+    width:100%;
+    max-width:500px;
+}
+
+.about-text{
+    flex:1;
+}
+
+.about-text h2{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+footer{
+    background:#0F172A;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+@media(max-width:768px){
+
+.hero{
+text-align:center;
+}
+
+.hero-text h1{
+font-size:40px;
+}
+
+nav{
+display:none;
+}
+
+}
+</style>
+
+<script src="https://kit.fontawesome.com/6b2c6b7f16.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+Mix<span>N</span>Buy BD
+</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Products</a>
+<a href="#">Categories</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>Welcome to <span>MixNBuy BD</span></h1>
+
+<p>
+Your trusted online destination for quality products,
+affordable prices, and fast delivery all over Bangladesh.
+</p>
+
+<a href="https://www.facebook.com/MixNbuy.BD"
+   class="btn"
+   target="_blank"
+   rel="noopener noreferrer">
+   Shop Now
+</a>
+
+</div>
+
+<div class="hero-image">
+
+<img src="https://images.unsplash.com/photo-1674027392887-751d6396b710?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">Why Choose Us?</h2>
+
+<div class="services">
+
+<div class="card">
+<i class="fas fa-shipping-fast"></i>
+<h3>Fast Delivery</h3>
+<p>Quick nationwide delivery with reliable courier partners.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-tags"></i>
+<h3>Best Price</h3>
+<p>Competitive pricing with regular discounts and special offers.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-lock"></i>
+<h3>Secure Payment</h3>
+<p>Safe payment methods with trusted payment gateways.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-headset"></i>
+<h3>24/7 Support </h3> 
+📞+8801401637310 
+<p>Friendly customer support whenever you need assistance.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="about">
+
+<img src="https://images.unsplash.com/photo-1700190827495-f9d8eec1a08c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+
+<div class="about-text">
+
+<h2>About MixNBuy BD</h2>
+
+<p>
+MixNBuy BD is committed to providing customers with premium quality products,
+excellent customer service, and a seamless online shopping experience.
+Whether you're shopping for electronics, fashion, home essentials,
+or lifestyle products, we ensure quality and value in every purchase.
+</p>
+
+<br>
+
+<a href="#" class="btn">Learn More</a>
+
+</div>
+
+</section>
+
+<section class="contact-us">
+
+    <h2>Connect With Us</h2>
+    <p>Follow us on Facebook or chat with us on WhatsApp.</p>
+
+    <div class="social-buttons">
+
+        <a href="https://www.facebook.com/MixNbuy.BD"
+           target="_blank"
+           class="facebook">
+            <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+
+        <a href="https://wa.me/8801401637310"
+           target="_blank"
+           class="whatsapp">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+
+<h3>MixNBuy BD</h3>
+
+<p>© 2026 All Rights Reserved.</p>
+
+</footer>
+
+</body>
+</html>
