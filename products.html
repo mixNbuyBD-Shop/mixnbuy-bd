@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Products | MIXNBUY.BD</title>
+    <meta name="description" content="Browse all products at MIXNBUY.BD">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Products CSS -->
+    <link rel="stylesheet" href="css/products.css">
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+<!-- =========================================
+     TOP BAR
+========================================= -->
+<div class="topbar"><div class="container topbar-inner"><div class="topbar-message"><i class="bi bi-stars"></i> Welcome to MIXNBUY.BD</div><div class="topbar-links"><span><i class="bi bi-truck"></i> Fast Delivery</span><span><i class="bi bi-shield-check"></i> Secure Shopping</span><a href="track-order.html">Track Order</a></div></div></div>
+
+<!-- =========================================
+     HEADER
+========================================= -->
+<header class="site-header"><div class="container header-main"><a href="index.html" class="brand"><div class="brand-icon"><i class="bi bi-bag-heart-fill"></i></div><div class="brand-name">MIXN<span>BUY</span><small>.BD</small></div></a><form class="search-form" id="searchForm"><i class="bi bi-search"></i><input type="search" id="globalSearch" placeholder="Search products, brands & more..." autocomplete="off"><button type="submit">Search</button></form><div class="header-actions"><a href="track-order.html" class="header-action" title="Track Order"><i class="bi bi-box-seam"></i></a><a href="cart.html" class="header-action cart-action" title="Cart"><i class="bi bi-cart3"></i><span class="cart-count" data-cart-count>0</span></a><button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu"><i class="bi bi-list"></i></button></div></div><nav class="main-nav" id="mainNav"><div class="container nav-inner"><a href="index.html" class="nav-item"><i class="bi bi-house-door"></i> Home</a><a href="products.html" class="nav-item active"><i class="bi bi-grid"></i> All Products</a><a href="products.html?category=featured" class="nav-item"><i class="bi bi-stars"></i> Featured</a><a href="products.html?sort=price-low" class="nav-item"><i class="bi bi-tags"></i> Best Deals</a><a href="track-order.html" class="nav-item"><i class="bi bi-search"></i> Track Order</a></div></nav></header>
+
+<!-- =========================
+     PAGE HERO
+========================= -->
+<section class="products-page-header">
+
+    <div class="container">
+
+        <div class="products-breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="bi bi-chevron-right"></i>
+            <span>Products</span>
+        </div>
+
+        <div class="products-heading">
+
+            <div>
+                <span class="section-kicker">
+                    <i class="bi bi-bag-check"></i>
+                    SHOP ONLINE
+                </span>
+
+                <h1>All Products</h1>
+
+                <p>
+                    Discover quality products at great prices.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PRODUCTS AREA
+========================= -->
+<main class="products-section">
+
+    <div class="container">
+
+        <div class="products-layout">
+
+
+            <!-- =========================
+                 SIDEBAR
+            ========================= -->
+            <aside class="products-sidebar" id="productsSidebar">
+
+                <div class="sidebar-header">
+
+                    <h3>
+                        <i class="bi bi-funnel"></i>
+                        Filters
+                    </h3>
+
+                    <button
+                        type="button"
+                        id="clearFilters"
+                        class="clear-filters">
+                        Clear
+                    </button>
+
+                </div>
+
+
+                <!-- Search -->
+                <div class="filter-block">
+
+                    <label for="productSearch">
+                        Search
+                    </label>
+
+                    <div class="filter-search">
+
+                        <i class="bi bi-search"></i>
+
+                        <input
+                            type="search"
+                            id="productSearch"
+                            placeholder="Search products..."
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Categories -->
+                <div class="filter-block">
+
+                    <div class="filter-title">
+                        <span>Categories</span>
+                    </div>
+
+                    <div id="categoryList" class="category-filter-list">
+
+                        <div class="filter-loading">
+                            Loading categories...
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Stock -->
+                <div class="filter-block">
+
+                    <div class="filter-title">
+                        <span>Availability</span>
+                    </div>
+
+                    <label class="filter-checkbox">
+
+                        <input
+                            type="checkbox"
+                            id="inStockOnly"
+                        >
+
+                        <span>In Stock Only</span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- Featured -->
+                <div class="filter-block">
+
+                    <div class="filter-title">
+                        <span>Product Type</span>
+                    </div>
+
+                    <label class="filter-checkbox">
+
+                        <input
+                            type="checkbox"
+                            id="featuredOnly"
+                        >
+
+                        <span>Featured Products</span>
+
+                    </label>
+
+                </div>
+
+            </aside>
+
+
+            <!-- =========================
+                 PRODUCTS CONTENT
+            ========================= -->
+            <section class="products-content">
+
+
+                <!-- Toolbar -->
+                <div class="products-toolbar">
+
+                    <button
+                        type="button"
+                        id="mobileFilterBtn"
+                        class="mobile-filter-btn">
+
+                        <i class="bi bi-funnel"></i>
+                        Filters
+
+                    </button>
+
+
+                    <div class="products-result">
+
+                        <strong id="productCount">0</strong>
+                        <span>products found</span>
+
+                    </div>
+
+
+                    <div class="products-sort">
+
+                        <label for="sortProducts">
+                            Sort by:
+                        </label>
+
+                        <select id="sortProducts">
+
+                            <option value="default">
+                                Featured
+                            </option>
+
+                            <option value="newest">
+                                Newest
+                            </option>
+
+                            <option value="price-low">
+                                Price: Low to High
+                            </option>
+
+                            <option value="price-high">
+                                Price: High to Low
+                            </option>
+
+                            <option value="name-az">
+                                Name: A to Z
+                            </option>
+
+                            <option value="name-za">
+                                Name: Z to A
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Active Filters -->
+                <div
+                    id="activeFilters"
+                    class="active-filters hidden">
+                </div>
+
+
+                <!-- Loading -->
+                <div id="productsLoading" class="products-loading">
+
+                    <div class="loading-spinner"></div>
+
+                    <p>Loading products...</p>
+
+                </div>
+
+
+                <!-- Product Grid -->
+                <div
+                    id="productsGrid"
+                    class="products-grid">
+                </div>
+
+
+                <!-- Empty State -->
+                <div
+                    id="productsEmpty"
+                    class="products-empty hidden">
+
+                    <div class="empty-icon">
+                        <i class="bi bi-search"></i>
+                    </div>
+
+                    <h3>No products found</h3>
+
+                    <p>
+                        We couldn't find any products matching your search.
+                    </p>
+
+                    <button
+                        type="button"
+                        id="emptyClearBtn"
+                        class="btn-primary">
+                        View All Products
+                    </button>
+
+                </div>
+
+
+                <!-- Error -->
+                <div
+                    id="productsError"
+                    class="products-error hidden">
+
+                    <div class="error-icon">
+                        <i class="bi bi-exclamation-triangle"></i>
+                    </div>
+
+                    <h3>Something went wrong</h3>
+
+                    <p id="productsErrorMessage">
+                        Unable to load products.
+                    </p>
+
+                    <button
+                        type="button"
+                        id="retryProducts"
+                        class="btn-primary">
+                        <i class="bi bi-arrow-clockwise"></i>
+                        Try Again
+                    </button>
+
+                </div>
+
+
+                <!-- Pagination -->
+                <div
+                    id="productsPagination"
+                    class="products-pagination hidden">
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+<footer class="footer"><div class="container"><div class="footer-main"><div class="footer-brand"><a href="index.html" class="brand footer-logo"><div class="brand-icon"><i class="bi bi-bag-heart-fill"></i></div><div class="brand-name">MIXN<span>BUY</span><small>.BD</small></div></a><p>Your everyday destination for quality products, great prices and convenient shopping.</p><div class="social-links"><a href="https://www.facebook.com/MixNbuy.BD" aria-label="Facebook"><i class="bi bi-facebook"></i></a><a href="https://m.me/MixNbuy.BD" aria-label="Messenger"><i class="bi bi-messenger"></i></a><a href="mailto:MIXNBUY.BD@GMAIL.COM" aria-label="Email"><i class="bi bi-envelope"></i></a></div></div><div class="footer-column"><h3>Quick Links</h3><a href="index.html">Home</a><a href="products.html">All Products</a><a href="index.html#categories">Categories</a><a href="track-order.html">Track Order</a></div><div class="footer-column"><h3>Customer Care</h3><a href="#">Contact Us</a><a href="#">Delivery Information</a><a href="#">Return Policy</a><a href="#">Privacy Policy</a></div><div class="footer-column"><h3>Contact Us</h3><a href="tel:01401637310"><i class="bi bi-telephone"></i> 01401-637310</a><a href="mailto:MIXNBUY.BD@GMAIL.COM"><i class="bi bi-envelope"></i> MIXNBUY.BD@GMAIL.COM</a><a href="#"><i class="bi bi-geo-alt"></i> Jashore, Bangladesh</a></div></div><div class="footer-bottom"><span>© 2026 MIXNBUY.BD. All Rights Reserved.</span><span>Made for better shopping.</span></div></div></footer>
+
+<!-- =========================
+     SCRIPTS
+========================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/common.js"></script>
+
+<script src="js/products.js"></script>
+
+<script>document.addEventListener("DOMContentLoaded",()=>{const f=document.getElementById("searchForm"),i=document.getElementById("globalSearch");f?.addEventListener("submit",e=>{e.preventDefault();const q=i?.value.trim()||"";if(q)location.href=`products.html?search=${encodeURIComponent(q)}`});const b=document.getElementById("mobileMenuBtn"),n=document.getElementById("mainNav");b?.addEventListener("click",()=>{n?.classList.toggle("open");b.innerHTML=n?.classList.contains("open")?'<i class="bi bi-x-lg"></i>':'<i class="bi bi-list"></i>'})});</script>
+</body>
+</html>
