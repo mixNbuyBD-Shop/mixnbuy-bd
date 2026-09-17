@@ -1,940 +1,951 @@
-/* =========================================================
+/* =====================================================
    MIXNBUY.BD — CART PAGE
-========================================================= */
+===================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+(function () {
 
-    const $ = id => document.getElementById(id);
-
-    const CART_KEY = "mxb_cart";
-
-    let cart = [];
-    let deliveryCharge = 120;
-    let freeDeliveryMinimum = 2000;
+  "use strict";
 
 
-    /* =========================================
-       HELPERS
-    ========================================= */
+  /* ===================================================
+     CONFIG
+  =================================================== */
 
-    function money(value) {
-        const amount = Number(value || 0);
+  const $ = id => document.getElementById(id);
 
-        if (window.MXB?.money) {
-            return MXB.money(amount);
-        }
-
-        return `BDT ${amount.toLocaleString("en-BD", {
-            maximumFractionDigits: 2
-        })}`;
-    }
+  const CART_KEY = "mxb_cart";
 
 
-    function escapeHtml(value) {
-        if (window.MXB?.escape) {
-            return MXB.escape(String(value ?? ""));
-        }
+  /* ===================================================
+     HELPERS
+  =================================================== */
 
-        return String(value ?? "")
-            .replaceAll("&", "&amp;")
-            .replaceAll("<", "&lt;")
-            .replaceAll(">", "&gt;")
-            .replaceAll('"', "&quot;")
-            .replaceAll("'", "&#039;");
-    }
+  function money(value) {
 
+    const number = Number(value || 0);
 
-    function imageFor(item) {
+    return "BDT " +
+      number.toLocaleString("en-BD", {
+        maximumFractionDigits: 2
+      });
 
-        if (window.MXB?.productImage) {
-            return MXB.productImage(item);
-        }
-
-        if (item?.image_url) {
-            return item.image_url;
-        }
-
-        if (Array.isArray(item?.gallery) && item.gallery.length) {
-
-            const first = item.gallery[0];
-
-            if (typeof first === "string") {
-                return first;
-            }
-
-            if (first?.url) {
-                return first.url;
-            }
-
-            if (first?.image_url) {
-                return first.image_url;
-            }
-        }
-
-        return "assets/images/product-placeholder.svg";
-    }
+  }
 
 
-    function showToast(message) {
+  function escapeHtml(value) {
 
-        if (window.MXB?.toast) {
-            MXB.toast(message);
-            return;
-        }
+    return String(value ?? "").replace(
+      /[&<>"']/g,
+      char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      }[char])
+    );
 
-        const old = document.querySelector(".cart-toast");
-        old?.remove();
-
-        const toast = document.createElement("div");
-        toast.className = "cart-toast";
-        toast.textContent = message;
-
-        Object.assign(toast.style, {
-            position: "fixed",
-            left: "50%",
-            bottom: "25px",
-            transform: "translateX(-50%)",
-            zIndex: "9999",
-            padding: "12px 18px",
-            borderRadius: "10px",
-            background: "#172033",
-            color: "#fff",
-            fontSize: "12px",
-            fontWeight: "700",
-            boxShadow: "0 10px 30px rgba(0,0,0,.18)"
-        });
-
-        document.body.appendChild(toast);
-
-        setTimeout(() => toast.remove(), 2400);
-    }
+  }
 
 
-    function readCart() {
+  /* ===================================================
+     CART STORAGE
+  =================================================== */
 
-        try {
-            const raw = localStorage.getItem(CART_KEY);
-            const parsed = JSON.parse(raw || "[]");
+  function getCart() {
 
-            return Array.isArray(parsed)
-                ? parsed
-                : [];
-        } catch {
-            return [];
-        }
-    }
+    try {
 
-
-    function saveCart() {
-        localStorage.setItem(
-            CART_KEY,
-            JSON.stringify(cart)
+      const raw =
+        JSON.parse(
+          localStorage.getItem(CART_KEY) || "[]"
         );
 
-        updateHeaderCartCount();
+      return Array.isArray(raw) ? raw : [];
+
+    } catch (error) {
+
+      return [];
+
     }
 
-
-    function updateHeaderCartCount() {
-
-        const count = cart.reduce(
-            (sum, item) =>
-                sum + Math.max(0, Number(item.quantity || 0)),
-            0
-        );
-
-        document
-            .querySelectorAll("[data-cart-count]")
-            .forEach(el => {
-                el.textContent = count;
-            });
-    }
+  }
 
 
-    function getUnitPrice(item) {
+  function saveCart(cart) {
 
-        const selling = Number(
-            item?.selling_price ??
-            item?.price ??
-            0
-        );
+    localStorage.setItem(
+      CART_KEY,
+      JSON.stringify(cart)
+    );
 
-        const discount = Number(
-            item?.discount_price
-        );
 
-        if (
-            item?.discount_price !== null &&
-            item?.discount_price !== undefined &&
-            Number.isFinite(discount) &&
-            discount > 0 &&
-            discount < selling
-        ) {
-            return discount;
+    updateHeaderCount(cart);
+
+
+    window.dispatchEvent(
+      new CustomEvent(
+        "mxb:cart-updated",
+        {
+          detail: {
+            cart: cart
+          }
         }
+      )
+    );
 
-        return selling;
+  }
+
+
+  /* ===================================================
+     PRODUCT HELPERS
+  =================================================== */
+
+  function getProductId(item) {
+
+    return String(
+      item.id ||
+      item.product_id ||
+      item.productId ||
+      item.product_code ||
+      item.sku ||
+      ""
+    );
+
+  }
+
+
+  function getProductName(item) {
+
+    return (
+      item.name ||
+      item.product_name ||
+      "Product"
+    );
+
+  }
+
+
+  function getUnitPrice(item) {
+
+    const discountPrice =
+      Number(item.discount_price ?? 0);
+
+    const sellingPrice =
+      Number(
+        item.selling_price ??
+        item.price ??
+        0
+      );
+
+
+    if (
+      discountPrice > 0 &&
+      discountPrice < sellingPrice
+    ) {
+
+      return discountPrice;
+
     }
 
 
-    function getRegularPrice(item) {
+    return sellingPrice;
 
-        return Number(
-            item?.selling_price ??
-            item?.price ??
-            0
-        );
+  }
+
+
+  function getStock(item) {
+
+    const value =
+      Number(
+        item.current_stock ??
+        item.stock ??
+        item.quantity_available
+      );
+
+
+    if (Number.isFinite(value)) {
+
+      return Math.max(0, value);
+
     }
 
 
-    function getStock(item) {
+    /*
+      If stock information is not stored
+      inside local cart data, do not
+      artificially restrict the quantity.
+    */
 
-        const stock = Number(
-            item?.current_stock
-        );
+    return 999999;
 
-        if (!Number.isFinite(stock)) {
-            return Infinity;
-        }
+  }
 
-        return Math.max(0, stock);
+
+  function getImage(item) {
+
+    if (item.image_url) {
+
+      return item.image_url;
+
     }
 
 
-    function itemQuantity(item) {
+    if (
+      Array.isArray(item.gallery) &&
+      item.gallery.length
+    ) {
 
-        return Math.max(
+      const first = item.gallery[0];
+
+
+      if (typeof first === "string") {
+
+        return first;
+
+      }
+
+
+      return (
+        first?.url ||
+        first?.image_url ||
+        ""
+      );
+
+    }
+
+
+    return "";
+
+  }
+
+
+  /* ===================================================
+     HEADER CART COUNT
+  =================================================== */
+
+  function updateHeaderCount(cart = getCart()) {
+
+    const count =
+      cart.reduce(
+        (sum, item) =>
+          sum +
+          Math.max(
             1,
             Number(item.quantity || 1)
-        );
+          ),
+        0
+      );
+
+
+    if ($("headerCartCount")) {
+
+      $("headerCartCount").textContent =
+        count;
+
+    }
+
+  }
+
+
+  /* ===================================================
+     TOAST
+  =================================================== */
+
+  let toastTimer;
+
+
+  function toast(message) {
+
+    const element = $("toast");
+
+    if (!element) return;
+
+
+    element.textContent = message;
+
+    element.classList.add("show");
+
+
+    clearTimeout(toastTimer);
+
+
+    toastTimer =
+      setTimeout(
+        () => {
+
+          element.classList.remove("show");
+
+        },
+        2200
+      );
+
+  }
+
+
+  /* ===================================================
+     RENDER CART
+  =================================================== */
+
+  function renderCart() {
+
+    const cart = getCart();
+
+
+    updateHeaderCount(cart);
+
+
+    const isEmpty =
+      cart.length === 0;
+
+
+    $("emptyCart").hidden =
+      !isEmpty;
+
+
+    $("cartContent").hidden =
+      isEmpty;
+
+
+    if (isEmpty) {
+
+      $("cartHeadingText").textContent =
+        "Your shopping bag is waiting for some great products.";
+
+      return;
+
     }
 
 
-    function normalizeCart() {
+    /* Total quantity */
 
-        cart = cart
-            .filter(item => item && item.id)
-            .map(item => ({
-                ...item,
-                quantity: itemQuantity(item)
-            }));
-
-        /*
-         * If stock information exists and is zero,
-         * keep the item visible so the customer can
-         * remove it. Quantities are capped below.
-         */
-        cart.forEach(item => {
-
-            const stock = getStock(item);
-
-            if (Number.isFinite(stock) && stock > 0) {
-                item.quantity =
-                    Math.min(item.quantity, stock);
-            }
-        });
-    }
+    const totalQuantity =
+      cart.reduce(
+        (sum, item) =>
+          sum +
+          Math.max(
+            1,
+            Number(item.quantity || 1)
+          ),
+        0
+      );
 
 
-    /* =========================================
-       SETTINGS
-    ========================================= */
+    $("cartHeadingText").textContent =
+      `You have ${totalQuantity} item${
+        totalQuantity === 1 ? "" : "s"
+      } in your shopping bag.`;
 
-    async function loadSettings() {
 
-        if (!window.supabaseClient) {
-            return;
-        }
+    $("summaryItemCount").textContent =
+      `${totalQuantity} item${
+        totalQuantity === 1 ? "" : "s"
+      }`;
 
-        try {
 
-            const { data, error } =
-                await window.supabaseClient
-                    .from("settings")
-                    .select("key,value");
+    /* Subtotal */
 
-            if (error || !Array.isArray(data)) {
-                return;
-            }
+    let subtotal = 0;
 
-            const settings = {};
 
-            data.forEach(row => {
-                if (row?.key) {
-                    settings[row.key] = row.value;
-                }
-            });
+    $("cartItems").innerHTML =
+      cart.map(
+        (item, index) => {
 
-            const charge = Number(
-                settings.DeliveryCharge ??
-                settings.delivery_charge
+          const quantity =
+            Math.max(
+              1,
+              Number(item.quantity || 1)
             );
 
-            const free = Number(
-                settings.FreeDelivery ??
-                settings.free_delivery
+
+          const unitPrice =
+            getUnitPrice(item);
+
+
+          const lineTotal =
+            unitPrice * quantity;
+
+
+          subtotal += lineTotal;
+
+
+          const image =
+            getImage(item);
+
+
+          const productName =
+            escapeHtml(
+              getProductName(item)
             );
 
-            if (Number.isFinite(charge) && charge >= 0) {
-                deliveryCharge = charge;
-            }
 
-            if (Number.isFinite(free) && free > 0) {
-                freeDeliveryMinimum = free;
-            }
-
-        } catch {
-            /* Keep safe defaults. */
-        }
-    }
-
-
-    /* =========================================
-       CALCULATIONS
-    ========================================= */
-
-    function getSubtotal() {
-
-        return cart.reduce(
-            (sum, item) =>
-                sum +
-                getUnitPrice(item) *
-                itemQuantity(item),
-            0
-        );
-    }
-
-
-    function getDelivery(subtotal) {
-
-        if (subtotal <= 0) {
-            return 0;
-        }
-
-        return subtotal >= freeDeliveryMinimum
-            ? 0
-            : deliveryCharge;
-    }
-
-
-    function getTotals() {
-
-        const subtotal = getSubtotal();
-        const delivery = getDelivery(subtotal);
-
-        return {
-            subtotal,
-            delivery,
-            total: subtotal + delivery
-        };
-    }
-
-
-    /* =========================================
-       RENDER
-    ========================================= */
-
-    function renderCart() {
-
-        const loading = $("cartLoading");
-        const empty = $("cartEmpty");
-        const content = $("cartContent");
-
-        loading?.classList.add("hidden");
-
-        updateHeaderCartCount();
-
-        const itemCount = cart.reduce(
-            (sum, item) =>
-                sum + itemQuantity(item),
-            0
-        );
-
-        $("cartItemSummary").textContent =
-            `${itemCount} ${itemCount === 1 ? "item" : "items"}`;
-
-        $("cartHeaderCount").textContent =
-            `${itemCount} ${itemCount === 1 ? "item" : "items"}`;
-
-        if (!cart.length) {
-
-            content?.classList.add("hidden");
-            empty?.classList.remove("hidden");
-
-            return;
-        }
-
-        empty?.classList.add("hidden");
-        content?.classList.remove("hidden");
-
-        renderItems();
-        renderSummary();
-    }
-
-
-    function renderItems() {
-
-        const container = $("cartItems");
-
-        if (!container) return;
-
-        container.innerHTML = cart
-            .map((item, index) => {
-
-                const unitPrice = getUnitPrice(item);
-                const regularPrice = getRegularPrice(item);
-                const qty = itemQuantity(item);
-                const total = unitPrice * qty;
-
-                const stock = getStock(item);
-                const max =
-                    Number.isFinite(stock) && stock > 0
-                        ? stock
-                        : 9999;
-
-                const hasDiscount =
-                    regularPrice > unitPrice;
-
-                const image = imageFor(item);
-
-                return `
-                    <article
-                        class="cart-item"
-                        data-index="${index}">
-
-                        <a
-                            class="cart-item-image"
-                            href="product.html?id=${encodeURIComponent(item.id)}">
-
-                            <img
-                                src="${escapeHtml(image)}"
-                                alt="${escapeHtml(item.name || "Product")}"
-                                loading="lazy"
-                                onerror="this.src='assets/images/product-placeholder.svg';"
-                            >
-
-                        </a>
-
-
-                        <div class="cart-item-info">
-
-                            <span class="cart-item-brand">
-                                ${escapeHtml(item.brand || "MIXNBUY")}
-                            </span>
-
-                            <h3 class="cart-item-name">
-
-                                <a
-                                    href="product.html?id=${encodeURIComponent(item.id)}">
-
-                                    ${escapeHtml(item.name || "Product")}
-
-                                </a>
-
-                            </h3>
-
-                            ${
-                                item.product_code
-                                ?
-                                `<div class="cart-item-code">
-                                    Code: ${escapeHtml(item.product_code)}
-                                </div>`
-                                :
-                                ""
-                            }
-
-                            <div class="cart-item-price">
-
-                                <strong>
-                                    ${money(unitPrice)}
-                                </strong>
-
-                                ${
-                                    hasDiscount
-                                    ?
-                                    `<del>${money(regularPrice)}</del>`
-                                    :
-                                    ""
-                                }
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="cart-item-controls">
-
-                            <div class="quantity-control">
-
-                                <button
-                                    type="button"
-                                    data-action="decrease"
-                                    aria-label="Decrease quantity">
-                                    <i class="bi bi-dash"></i>
-                                </button>
-
-                                <input
-                                    type="number"
-                                    min="1"
-                                    max="${max}"
-                                    value="${qty}"
-                                    data-action="input"
-                                    aria-label="Quantity"
-                                >
-
-                                <button
-                                    type="button"
-                                    data-action="increase"
-                                    aria-label="Increase quantity">
-                                    <i class="bi bi-plus"></i>
-                                </button>
-
-                            </div>
-
-
-                            <div class="item-total">
-
-                                <strong>
-                                    ${money(total)}
-                                </strong>
-
-                                <button
-                                    type="button"
-                                    class="remove-item"
-                                    data-action="remove">
-                                    <i class="bi bi-trash3"></i>
-                                    Remove
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-                `;
-            })
-            .join("");
-    }
-
-
-    function renderSummary() {
-
-        const {
-            subtotal,
-            delivery,
-            total
-        } = getTotals();
-
-        $("subtotalValue").textContent =
-            money(subtotal);
-
-        $("deliveryValue").textContent =
-            delivery === 0 && subtotal > 0
-                ? "FREE"
-                : money(delivery);
-
-        $("grandTotalValue").textContent =
-            money(total);
-
-
-        const freeNote =
-            $("freeDeliveryNote");
-
-        if (subtotal >= freeDeliveryMinimum && subtotal > 0) {
-            freeNote?.classList.remove("hidden");
-        } else {
-            freeNote?.classList.add("hidden");
-        }
-
-
-        renderDeliveryProgress(subtotal);
-    }
-
-
-    function renderDeliveryProgress(subtotal) {
-
-        const title = $("progressTitle");
-        const text = $("progressText");
-        const bar = $("progressBar");
-
-        if (!title || !text || !bar) return;
-
-        if (subtotal <= 0) {
-
-            title.textContent =
-                `Free delivery above ${money(freeDeliveryMinimum)}`;
-
-            text.textContent =
-                "Add products to start your order.";
-
-            bar.style.width = "0%";
-
-            return;
-        }
-
-
-        if (subtotal >= freeDeliveryMinimum) {
-
-            title.textContent =
-                "You've unlocked free delivery!";
-
-            text.textContent =
-                "Great! Your delivery charge is now free.";
-
-            bar.style.width = "100%";
-
-            return;
-        }
-
-
-        const remaining =
-            freeDeliveryMinimum - subtotal;
-
-        const percentage =
-            Math.min(
-                100,
-                Math.max(
-                    0,
-                    (subtotal / freeDeliveryMinimum) * 100
-                )
+          const productCode =
+            escapeHtml(
+              item.product_code ||
+              item.sku ||
+              ""
             );
 
-        title.textContent =
-            `Add ${money(remaining)} more`;
 
-        text.textContent =
-            `to qualify for free delivery.`;
-
-        bar.style.width =
-            `${percentage}%`;
-    }
+          const brand =
+            escapeHtml(
+              item.brand || ""
+            );
 
 
-    /* =========================================
-       CART EVENTS
-    ========================================= */
+          const stock =
+            getStock(item);
 
-    $("cartItems")?.addEventListener(
-        "click",
-        event => {
 
-            const button =
-                event.target.closest("[data-action]");
+          const productId =
+            encodeURIComponent(
+              getProductId(item)
+            );
 
-            if (!button) return;
 
-            const itemEl =
-                button.closest(".cart-item");
+          return `
 
-            if (!itemEl) return;
+            <article
+              class="cart-row"
+            >
 
-            const index =
-                Number(itemEl.dataset.index);
 
-            const item = cart[index];
+              <!-- Image -->
+              <div class="cart-product-image">
 
-            if (!item) return;
-
-            const action =
-                button.dataset.action;
-
-            if (action === "increase") {
-
-                const stock = getStock(item);
-
-                if (
-                    Number.isFinite(stock) &&
-                    stock > 0 &&
-                    item.quantity >= stock
-                ) {
-                    showToast("Maximum available stock reached.");
-                    return;
+                ${
+                  image
+                    ? `
+                      <img
+                        src="${escapeHtml(image)}"
+                        alt="${productName}"
+                        onerror="
+                          this.style.display='none';
+                          this.nextElementSibling.style.display='flex';
+                        "
+                      >
+                    `
+                    : ""
                 }
 
-                item.quantity =
-                    itemQuantity(item) + 1;
+                <i
+                  class="bi bi-image"
+                  ${
+                    image
+                      ? 'style="display:none"'
+                      : ""
+                  }
+                ></i>
 
-            } else if (action === "decrease") {
+              </div>
 
-                item.quantity =
-                    itemQuantity(item) - 1;
 
-                if (item.quantity <= 0) {
-                    cart.splice(index, 1);
-                }
+              <!-- Product Info -->
+              <div class="cart-product-info">
 
-            } else if (action === "remove") {
+                <a
+                  href="product.html?id=${productId}"
+                >
+                  ${productName}
+                </a>
 
-                cart.splice(index, 1);
 
-                showToast("Product removed from cart.");
-            }
+                <div
+                  class="cart-product-meta"
+                >
 
-            normalizeCart();
-            saveCart();
-            renderCart();
+                  ${
+                    productCode
+                      ? `
+                        <span class="code">
+                          ${productCode}
+                        </span>
+                      `
+                      : ""
+                  }
+
+
+                  ${
+                    brand
+                      ? `
+                        <span>
+                          ${brand}
+                        </span>
+                      `
+                      : ""
+                  }
+
+
+                  ${
+                    stock < 999999
+                      ? `
+                        <span>
+                          ${stock} in stock
+                        </span>
+                      `
+                      : ""
+                  }
+
+                </div>
+
+
+                <div class="cart-price">
+
+                  Unit price:
+
+                  <strong>
+                    ${money(unitPrice)}
+                  </strong>
+
+                </div>
+
+              </div>
+
+
+              <!-- Quantity -->
+              <div
+                class="cart-qty"
+                aria-label="Quantity"
+              >
+
+                <button
+                  type="button"
+                  data-action="minus"
+                  data-index="${index}"
+                  ${
+                    quantity <= 1
+                      ? "disabled"
+                      : ""
+                  }
+                >
+                  −
+                </button>
+
+
+                <input
+                  type="text"
+                  value="${quantity}"
+                  readonly
+                  aria-label="Quantity"
+                >
+
+
+                <button
+                  type="button"
+                  data-action="plus"
+                  data-index="${index}"
+                  ${
+                    quantity >= stock
+                      ? "disabled"
+                      : ""
+                  }
+                >
+                  +
+                </button>
+
+              </div>
+
+
+              <!-- Line Total -->
+              <div class="cart-row-total">
+
+                ${money(lineTotal)}
+
+              </div>
+
+
+              <!-- Remove -->
+              <button
+                class="remove-item"
+                type="button"
+                data-action="remove"
+                data-index="${index}"
+                title="Remove item"
+                aria-label="Remove item"
+              >
+
+                <i class="bi bi-trash3"></i>
+
+              </button>
+
+            </article>
+
+          `;
+
         }
-    );
+      ).join("");
 
 
-    $("cartItems")?.addEventListener(
-        "change",
-        event => {
-
-            const input =
-                event.target.closest(
-                    'input[data-action="input"]'
-                );
-
-            if (!input) return;
-
-            const itemEl =
-                input.closest(".cart-item");
-
-            const index =
-                Number(itemEl?.dataset.index);
-
-            const item = cart[index];
-
-            if (!item) return;
-
-            let qty =
-                Number(input.value);
-
-            if (!Number.isFinite(qty) || qty < 1) {
-                qty = 1;
-            }
-
-            const stock = getStock(item);
-
-            if (Number.isFinite(stock) && stock > 0) {
-                qty = Math.min(qty, stock);
-            }
-
-            item.quantity = qty;
-
-            saveCart();
-            renderCart();
-        }
-    );
+    $("cartSubtotal").textContent =
+      money(subtotal);
 
 
-    $("clearCartBtn")?.addEventListener(
-        "click",
-        () => {
+    /*
+      Delivery is deliberately calculated
+      at Checkout because the final delivery
+      amount depends on the checkout/order
+      rules.
+    */
 
-            if (!cart.length) return;
+    $("cartTotal").textContent =
+      money(subtotal);
 
-            const confirmed =
-                window.confirm(
-                    "Remove all items from your cart?"
-                );
-
-            if (!confirmed) return;
-
-            cart = [];
-
-            saveCart();
-            renderCart();
-
-            showToast("Cart cleared.");
-        }
-    );
+  }
 
 
-    /* =========================================
-       COUPON
-    ========================================= */
+  /* ===================================================
+     QUANTITY
+  =================================================== */
 
-    $("couponToggle")?.addEventListener(
-        "click",
-        () => {
+  function changeQuantity(
+    index,
+    amount
+  ) {
 
-            const panel =
-                $("couponPanel");
-
-            const toggle =
-                $("couponToggle");
-
-            if (!panel || !toggle) return;
-
-            const isHidden =
-                panel.classList.contains("hidden");
-
-            panel.classList.toggle(
-                "hidden",
-                !isHidden
-            );
-
-            toggle.setAttribute(
-                "aria-expanded",
-                String(isHidden)
-            );
-
-            const icon =
-                toggle.querySelector(
-                    ":scope > i"
-                );
-
-            if (icon) {
-                icon.className =
-                    isHidden
-                        ? "bi bi-chevron-up"
-                        : "bi bi-chevron-down";
-            }
-        }
-    );
+    const cart = getCart();
 
 
-    function restoreCoupon() {
+    if (!cart[index]) return;
 
-        const code =
-            sessionStorage.getItem(
-                "mxb_coupon_code"
-            );
 
-        if (code && $("couponCode")) {
+    const current =
+      Math.max(
+        1,
+        Number(
+          cart[index].quantity || 1
+        )
+      );
 
-            $("couponCode").value = code;
 
-            $("couponMessage").textContent =
-                "Coupon saved for checkout verification.";
+    const maximum =
+      getStock(cart[index]);
 
-            $("couponMessage").classList.add("success");
-        }
+
+    const next =
+      Math.max(
+        1,
+        Math.min(
+          maximum,
+          current + amount
+        )
+      );
+
+
+    if (
+      next === current &&
+      amount > 0
+    ) {
+
+      toast(
+        "Maximum available stock reached."
+      );
+
+      return;
+
     }
 
 
-    $("saveCouponBtn")?.addEventListener(
+    cart[index].quantity =
+      next;
+
+
+    saveCart(cart);
+
+    renderCart();
+
+  }
+
+
+  /* ===================================================
+     REMOVE ITEM
+  =================================================== */
+
+  function removeItem(index) {
+
+    const cart = getCart();
+
+
+    if (!cart[index]) return;
+
+
+    const productName =
+      getProductName(
+        cart[index]
+      );
+
+
+    cart.splice(
+      index,
+      1
+    );
+
+
+    saveCart(cart);
+
+    renderCart();
+
+
+    toast(
+      `${productName} removed from cart.`
+    );
+
+  }
+
+
+  /* ===================================================
+     CLEAR CART
+  =================================================== */
+
+  function clearCart() {
+
+    const cart =
+      getCart();
+
+
+    if (!cart.length) {
+
+      return;
+
+    }
+
+
+    const confirmed =
+      window.confirm(
+        "Remove all products from your cart?"
+      );
+
+
+    if (!confirmed) {
+
+      return;
+
+    }
+
+
+    saveCart([]);
+
+    renderCart();
+
+
+    toast(
+      "Cart cleared."
+    );
+
+  }
+
+
+  /* ===================================================
+     CHECKOUT
+  =================================================== */
+
+  function goToCheckout() {
+
+    const cart =
+      getCart();
+
+
+    if (!cart.length) {
+
+      toast(
+        "Your cart is empty."
+      );
+
+      return;
+
+    }
+
+
+    window.location.href =
+      "checkout.html";
+
+  }
+
+
+  /* ===================================================
+     EVENT BINDINGS
+  =================================================== */
+
+  function bindEvents() {
+
+
+    /* Quantity / Remove */
+
+    $("cartItems")
+      .addEventListener(
         "click",
-        () => {
+        function (event) {
 
-            const input =
-                $("couponCode");
-
-            const message =
-                $("couponMessage");
-
-            const code =
-                input?.value.trim().toUpperCase();
-
-            if (!code) {
-
-                message.textContent =
-                    "Please enter a coupon code.";
-
-                message.className = "error";
-
-                return;
-            }
-
-            sessionStorage.setItem(
-                "mxb_coupon_code",
-                code
+          const button =
+            event.target.closest(
+              "[data-action]"
             );
 
-            message.textContent =
-                "Coupon saved. Final discount will be verified at checkout.";
 
-            message.className = "success";
+          if (!button) return;
 
-            showToast("Coupon saved.");
+
+          const index =
+            Number(
+              button.dataset.index
+            );
+
+
+          const action =
+            button.dataset.action;
+
+
+          if (
+            action === "minus"
+          ) {
+
+            changeQuantity(
+              index,
+              -1
+            );
+
+          }
+
+
+          if (
+            action === "plus"
+          ) {
+
+            changeQuantity(
+              index,
+              1
+            );
+
+          }
+
+
+          if (
+            action === "remove"
+          ) {
+
+            removeItem(
+              index
+            );
+
+          }
+
         }
-    );
+      );
 
 
-    /* =========================================
-       CHECKOUT
-    ========================================= */
+    /* Clear */
 
-    $("checkoutBtn")?.addEventListener(
+    $("clearCartBtn")
+      .addEventListener(
         "click",
-        () => {
-
-            if (!cart.length) {
-                showToast("Your cart is empty.");
-                return;
-            }
-
-            /*
-             * Checkout is responsible for the final
-             * server-side price, stock and coupon validation.
-             */
-            window.location.href =
-                "checkout.html";
-        }
-    );
+        clearCart
+      );
 
 
-    /* =========================================
-       HEADER SEARCH
-    ========================================= */
+    /* Checkout */
 
-    $("searchForm")?.addEventListener(
+    $("checkoutBtn")
+      .addEventListener(
+        "click",
+        goToCheckout
+      );
+
+
+    /* Header Search */
+
+    $("headerSearchForm")
+      ?.addEventListener(
         "submit",
-        event => {
+        function (event) {
 
-            event.preventDefault();
+          event.preventDefault();
 
-            const keyword =
-                $("globalSearch")?.value.trim();
 
-            if (keyword) {
+          const query =
+            $("headerSearchInput")
+              .value
+              .trim();
 
-                window.location.href =
-                    `products.html?search=${encodeURIComponent(keyword)}`;
-            }
+
+          if (query) {
+
+            window.location.href =
+              "products.html?search=" +
+              encodeURIComponent(
+                query
+              );
+
+          } else {
+
+            window.location.href =
+              "products.html";
+
+          }
+
         }
-    );
+      );
 
 
-    /* =========================================
-       MOBILE MENU
-    ========================================= */
+    /* Mobile menu */
 
-    const mobileBtn =
-        $("mobileMenuBtn");
-
-    const mainNav =
-        $("mainNav");
-
-    mobileBtn?.addEventListener(
+    $("mobileMenuBtn")
+      ?.addEventListener(
         "click",
-        () => {
+        function () {
 
-            mainNav?.classList.toggle("open");
+          $("mainNav")
+            ?.classList
+            .toggle("open");
 
-            if (mainNav?.classList.contains("open")) {
-
-                mobileBtn.innerHTML =
-                    '<i class="bi bi-x-lg"></i>';
-
-            } else {
-
-                mobileBtn.innerHTML =
-                    '<i class="bi bi-list"></i>';
-            }
         }
+      );
+
+
+    /* Other browser tabs */
+
+    window.addEventListener(
+      "storage",
+      function (event) {
+
+        if (
+          event.key === CART_KEY
+        ) {
+
+          renderCart();
+
+        }
+
+      }
     );
 
 
-    /* =========================================
-       INIT
-    ========================================= */
+    /* Same-page cart updates */
 
-    async function init() {
-
-        cart = readCart();
-
-        normalizeCart();
-
-        await loadSettings();
+    window.addEventListener(
+      "mxb:cart-updated",
+      function () {
 
         renderCart();
 
-        restoreCoupon();
+      }
+    );
+
+  }
+
+
+  /* ===================================================
+     INIT
+  =================================================== */
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+      bindEvents();
+
+      renderCart();
+
     }
+  );
 
-    init();
-
-});
+})();
