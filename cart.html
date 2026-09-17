@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Shopping Cart | MIXNBUY.BD</title>
+  <meta name="description" content="Review your MIXNBUY.BD shopping cart before checkout.">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Cart Page CSS -->
+  <link rel="stylesheet" href="css/cart.css">
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  >
+</head>
+
+<body>
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+<div class="topbar">
+  <div class="container topbar-inner">
+
+    <div class="topbar-left">
+      <i class="bi bi-truck"></i>
+      <span>Fast &amp; Reliable Delivery Across Bangladesh</span>
+    </div>
+
+    <div class="topbar-right">
+      <span>
+        <i class="bi bi-telephone"></i>
+        01401637310
+      </span>
+
+      <span>
+        <i class="bi bi-envelope"></i>
+        MIXNBUY.BD@GMAIL.COM
+      </span>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+<header class="site-header">
+
+    <div class="container header-main">
+
+        <!-- LOGO -->
+
+        <a href="index.html" class="brand">
+
+            <div class="brand-icon">
+                <i class="bi bi-bag-heart-fill"></i>
+            </div>
+
+            <div class="brand-name">
+                MIXN<span>BUY</span><small>.BD</small>
+            </div>
+
+        </a>
+
+
+        <!-- SEARCH -->
+
+        <form
+            class="search-form"
+            id="searchForm"
+        >
+
+            <i class="bi bi-search"></i>
+
+            <input
+                type="search"
+                id="globalSearch"
+                placeholder="Search products, brands & more..."
+                autocomplete="off"
+            >
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+
+        <!-- ACTIONS -->
+
+        <div class="header-actions">
+
+            <a
+                href="track-order.html"
+                class="header-action"
+                title="Track Order"
+            >
+                <i class="bi bi-box-seam"></i>
+            </a>
+
+
+            <a
+                href="cart.html"
+                class="header-action cart-action active"
+                title="Cart"
+            >
+
+                <i class="bi bi-cart3"></i>
+
+                <span
+                    class="cart-count"
+                    data-cart-count
+                >
+                    0
+                </span>
+
+            </a>
+
+
+            <button
+                class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                type="button"
+                aria-label="Open menu"
+            >
+                <i class="bi bi-list"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav
+        class="main-nav"
+        id="mainNav"
+    >
+
+        <div class="container nav-inner">
+
+            <a
+                href="index.html"
+                class="nav-item"
+            >
+                <i class="bi bi-house-door"></i>
+                Home
+            </a>
+
+            <a
+                href="products.html"
+                class="nav-item"
+            >
+                <i class="bi bi-grid"></i>
+                All Products
+            </a>
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <i class="bi bi-ui-checks-grid"></i>
+                Categories
+            </a>
+
+            <a
+                href="products.html"
+                class="nav-item"
+            >
+                <i class="bi bi-stars"></i>
+                Featured
+            </a>
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                Why MIXNBUY
+            </a>
+
+            <a
+                href="track-order.html"
+                class="nav-item"
+            >
+                <i class="bi bi-search"></i>
+                Track Order
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     CART PAGE
+===================================================== -->
+<main class="cart-page">
+
+  <div class="container">
+
+
+    <!-- Breadcrumb -->
+    <div class="cart-breadcrumb">
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <i class="bi bi-chevron-right"></i>
+
+      <span>
+        Shopping Cart
+      </span>
+
+    </div>
+
+
+    <!-- Page Heading -->
+    <section class="cart-heading">
+
+      <div>
+
+        <span class="section-kicker">
+          YOUR SHOPPING BAG
+        </span>
+
+        <h1>
+          Shopping Cart
+        </h1>
+
+        <p id="cartHeadingText">
+          Review your selected products before checkout.
+        </p>
+
+      </div>
+
+
+      <a
+        class="continue-shopping"
+        href="products.html"
+      >
+        <i class="bi bi-arrow-left"></i>
+        Continue Shopping
+      </a>
+
+    </section>
+
+
+
+    <!-- =================================================
+         EMPTY CART
+    ================================================== -->
+    <section
+      id="emptyCart"
+      class="empty-cart"
+      hidden
+    >
+
+      <div class="empty-icon">
+        <i class="bi bi-bag-x"></i>
+      </div>
+
+      <h2>
+        Your cart is empty
+      </h2>
+
+      <p>
+        Add some products to your cart and they will appear here.
+      </p>
+
+      <a
+        class="cart-primary-btn"
+        href="products.html"
+      >
+        <i class="bi bi-bag-plus"></i>
+        Start Shopping
+      </a>
+
+    </section>
+
+
+
+    <!-- =================================================
+         CART CONTENT
+    ================================================== -->
+    <section
+      id="cartContent"
+      class="cart-layout"
+    >
+
+
+      <!-- CART ITEMS -->
+      <div class="cart-items-card">
+
+        <div class="cart-card-header">
+
+          <h2>
+            <i class="bi bi-bag-check"></i>
+            Cart Items
+          </h2>
+
+          <button
+            id="clearCartBtn"
+            class="clear-cart-btn"
+            type="button"
+          >
+            <i class="bi bi-trash3"></i>
+            Clear Cart
+          </button>
+
+        </div>
+
+
+        <div id="cartItems"></div>
+
+      </div>
+
+
+
+      <!-- ORDER SUMMARY -->
+      <aside class="cart-summary-card">
+
+        <div class="summary-head">
+
+          <h2>
+            Order Summary
+          </h2>
+
+          <span id="summaryItemCount">
+            0 items
+          </span>
+
+        </div>
+
+
+        <div class="summary-line">
+
+          <span>
+            Subtotal
+          </span>
+
+          <strong id="cartSubtotal">
+            BDT 0
+          </strong>
+
+        </div>
+
+
+        <div class="summary-line muted">
+
+          <span>
+            Delivery
+          </span>
+
+          <strong id="cartDelivery">
+            Calculated at checkout
+          </strong>
+
+        </div>
+
+
+        <div class="summary-divider"></div>
+
+
+        <div class="summary-total">
+
+          <span>
+            Total
+          </span>
+
+          <strong id="cartTotal">
+            BDT 0
+          </strong>
+
+        </div>
+
+
+        <div class="free-delivery-note">
+
+          <i class="bi bi-truck"></i>
+
+          <span>
+            Free delivery may apply based on your order value.
+          </span>
+
+        </div>
+
+
+        <button
+          id="checkoutBtn"
+          class="checkout-btn"
+          type="button"
+        >
+
+          <span>
+            Proceed to Checkout
+          </span>
+
+          <i class="bi bi-arrow-right"></i>
+
+        </button>
+
+
+        <a
+          class="secure-note"
+          href="checkout.html"
+        >
+
+          <i class="bi bi-shield-check"></i>
+
+          Secure checkout &amp; Cash on Delivery available
+
+        </a>
+
+      </aside>
+
+    </section>
+
+
+
+    <!-- =================================================
+         BENEFITS
+    ================================================== -->
+    <section class="cart-benefits">
+
+      <div>
+
+        <i class="bi bi-truck"></i>
+
+        <div>
+
+          <strong>
+            Fast Delivery
+          </strong>
+
+          <span>
+            Reliable delivery across Bangladesh
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <i class="bi bi-shield-check"></i>
+
+        <div>
+
+          <strong>
+            Secure Shopping
+          </strong>
+
+          <span>
+            Your order information stays protected
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <i class="bi bi-headset"></i>
+
+        <div>
+
+          <strong>
+            Customer Support
+          </strong>
+
+          <span>
+            We're here to help with your order
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+<footer class="footer">
+
+  <div class="container footer-main">
+
+
+    <div class="footer-brand">
+
+      <a
+        class="footer-logo"
+        href="index.html"
+      >
+
+        <span class="brand-mark">
+          <i class="bi bi-bag-heart-fill"></i>
+        </span>
+
+        <span>
+          <strong>MIXNBUY</strong>
+          <small>.BD</small>
+        </span>
+
+      </a>
+
+      <p>
+        Your trusted online shopping destination for
+        quality products at great prices.
+      </p>
+
+
+      <div class="social-links">
+
+        <a href="#" aria-label="Facebook">
+          <i class="bi bi-facebook"></i>
+        </a>
+
+        <a href="#" aria-label="Messenger">
+          <i class="bi bi-messenger"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="footer-column">
+
+      <h3>
+        Quick Links
+      </h3>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="products.html">
+        All Products
+      </a>
+
+      <a href="cart.html">
+        Shopping Cart
+      </a>
+
+      <a href="track-order.html">
+        Track Order
+      </a>
+
+    </div>
+
+
+
+    <div class="footer-column">
+
+      <h3>
+        Customer Care
+      </h3>
+
+      <a href="checkout.html">
+        Checkout
+      </a>
+
+      <a href="track-order.html">
+        Order Tracking
+      </a>
+
+      <a href="#">
+        Return Policy
+      </a>
+
+      <a href="#">
+        Privacy Policy
+      </a>
+
+    </div>
+
+
+
+    <div class="footer-column">
+
+      <h3>
+        Contact Us
+      </h3>
+
+      <a href="tel:01401637310">
+        <i class="bi bi-telephone"></i>
+        01401637310
+      </a>
+
+      <a href="mailto:MIXNBUY.BD@GMAIL.COM">
+        <i class="bi bi-envelope"></i>
+        MIXNBUY.BD@GMAIL.COM
+      </a>
+
+      <span>
+        <i class="bi bi-geo-alt"></i>
+        Jashore, Bangladesh
+      </span>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="footer-bottom">
+
+    <div class="container">
+
+      <span>
+        © 2026 MIXNBUY.BD. All rights reserved.
+      </span>
+
+      <span>
+        Made for Bangladesh
+        <i class="bi bi-heart-fill"></i>
+      </span>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- Toast -->
+<div
+  id="toast"
+  class="cart-toast"
+  role="status"
+  aria-live="polite"
+></div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/common.js"></script>
+<script src="js/cart.js"></script>
+
+</body>
+</html>
