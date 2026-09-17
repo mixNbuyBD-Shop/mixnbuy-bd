@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | MIXNBUY.BD</title>
+    <meta name="description" content="Complete your order securely at MIXNBUY.BD.">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    <div class="container topbar-inner">
+        <div class="topbar-message">
+            <i class="bi bi-stars"></i>
+            Welcome to MIXNBUY.BD
+        </div>
+
+        <div class="topbar-links">
+            <span>
+                <i class="bi bi-truck"></i>
+                Fast Delivery
+            </span>
+            <span>
+                <i class="bi bi-shield-check"></i>
+                Secure Shopping
+            </span>
+            <a href="track-order.html">Track Order</a>
+        </div>
+    </div>
+</div>
+
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="container header-main">
+
+        <a href="index.html" class="brand">
+            <div class="brand-icon">
+                <i class="bi bi-bag-heart-fill"></i>
+            </div>
+            <div class="brand-name">
+                MIXN<span>BUY</span><small>.BD</small>
+            </div>
+        </a>
+
+        <form class="search-form" id="searchForm">
+            <i class="bi bi-search"></i>
+            <input
+                type="search"
+                id="globalSearch"
+                placeholder="Search products, brands & more..."
+                autocomplete="off">
+            <button type="submit">Search</button>
+        </form>
+
+        <div class="header-actions">
+
+            <a href="track-order.html"
+               class="header-action"
+               title="Track Order">
+                <i class="bi bi-box-seam"></i>
+            </a>
+
+            <a href="checkout.html"
+               class="header-action cart-action active"
+               title="Cart">
+                <i class="bi bi-cart3"></i>
+                <span class="cart-count" data-cart-count>0</span>
+            </a>
+
+            <button
+                class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                type="button"
+                aria-label="Open menu">
+                <i class="bi bi-list"></i>
+            </button>
+
+        </div>
+    </div>
+
+
+    <nav class="main-nav" id="mainNav">
+        <div class="container nav-inner">
+
+            <a href="index.html" class="nav-item">
+                <i class="bi bi-house-door"></i>
+                Home
+            </a>
+
+            <a href="products.html" class="nav-item">
+                <i class="bi bi-grid"></i>
+                All Products
+            </a>
+
+            <a href="products.html?category=featured" class="nav-item">
+                <i class="bi bi-stars"></i>
+                Featured
+            </a>
+
+            <a href="products.html?sort=price-low" class="nav-item">
+                <i class="bi bi-tags"></i>
+                Best Deals
+            </a>
+
+            <a href="track-order.html" class="nav-item">
+                <i class="bi bi-search"></i>
+                Track Order
+            </a>
+
+        </div>
+    </nav>
+</header>
+
+
+<!-- CHECKOUT -->
+<main class="checkout-page">
+
+    <section class="checkout-header">
+        <div class="container">
+
+            <div class="checkout-breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="bi bi-chevron-right"></i>
+                <a href="cart.html">Cart</a>
+                <i class="bi bi-chevron-right"></i>
+                <span>Checkout</span>
+            </div>
+
+            <div class="checkout-title">
+                <span class="section-kicker">
+                    <i class="bi bi-lock-fill"></i>
+                    SECURE CHECKOUT
+                </span>
+
+                <h1>Complete Your Order</h1>
+
+                <p>
+                    Enter your delivery information and confirm your order.
+                </p>
+            </div>
+
+            <div class="checkout-steps">
+                <div class="checkout-step done">
+                    <span><i class="bi bi-check2"></i></span>
+                    <strong>Cart</strong>
+                </div>
+
+                <div class="step-line active"></div>
+
+                <div class="checkout-step active">
+                    <span>2</span>
+                    <strong>Checkout</strong>
+                </div>
+
+                <div class="step-line"></div>
+
+                <div class="checkout-step">
+                    <span>3</span>
+                    <strong>Complete</strong>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="checkout-section">
+        <div class="container">
+
+            <!-- EMPTY -->
+            <div id="checkoutEmpty" class="checkout-empty hidden">
+
+                <div class="empty-icon">
+                    <i class="bi bi-cart-x"></i>
+                </div>
+
+                <h2>Your cart is empty</h2>
+
+                <p>Add some products before proceeding to checkout.</p>
+
+                <a href="products.html" class="primary-btn">
+                    <i class="bi bi-shop"></i>
+                    Start Shopping
+                </a>
+
+            </div>
+
+
+            <!-- CONTENT -->
+            <div id="checkoutContent" class="checkout-layout hidden">
+
+                <!-- LEFT -->
+                <div class="checkout-main">
+
+                    <form id="checkoutForm" novalidate>
+
+                        <!-- CUSTOMER -->
+                        <section class="checkout-card">
+
+                            <div class="card-heading">
+                                <div class="heading-icon">
+                                    <i class="bi bi-person"></i>
+                                </div>
+
+                                <div>
+                                    <h2>Customer Information</h2>
+                                    <p>Tell us where we should deliver your order.</p>
+                                </div>
+                            </div>
+
+
+                            <div class="form-grid">
+
+                                <div class="form-group full">
+                                    <label for="customerName">
+                                        Full Name
+                                        <span>*</span>
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <i class="bi bi-person"></i>
+                                        <input
+                                            id="customerName"
+                                            name="customer_name"
+                                            type="text"
+                                            maxlength="100"
+                                            autocomplete="name"
+                                            placeholder="Enter your full name"
+                                            required>
+                                    </div>
+
+                                    <small class="field-error"
+                                           data-error-for="customerName"></small>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="customerPhone">
+                                        Mobile Number
+                                        <span>*</span>
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <i class="bi bi-telephone"></i>
+                                        <input
+                                            id="customerPhone"
+                                            name="customer_phone"
+                                            type="tel"
+                                            maxlength="20"
+                                            autocomplete="tel"
+                                            placeholder="01XXXXXXXXX"
+                                            required>
+                                    </div>
+
+                                    <small class="field-error"
+                                           data-error-for="customerPhone"></small>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="customerEmail">
+                                        Email Address
+                                        <em>Optional</em>
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <i class="bi bi-envelope"></i>
+                                        <input
+                                            id="customerEmail"
+                                            name="customer_email"
+                                            type="email"
+                                            maxlength="160"
+                                            autocomplete="email"
+                                            placeholder="you@example.com">
+                                    </div>
+
+                                    <small class="field-error"
+                                           data-error-for="customerEmail"></small>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="district">
+                                        District
+                                        <em>Optional</em>
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <i class="bi bi-geo-alt"></i>
+                                        <input
+                                            id="district"
+                                            name="district"
+                                            type="text"
+                                            maxlength="80"
+                                            placeholder="e.g. Jashore">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="city">
+                                        City / Area
+                                        <em>Optional</em>
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <i class="bi bi-building"></i>
+                                        <input
+                                            id="city"
+                                            name="city"
+                                            type="text"
+                                            maxlength="80"
+                                            placeholder="City or area">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group full">
+                                    <label for="address">
+                                        Full Delivery Address
+                                        <span>*</span>
+                                    </label>
+
+                                    <div class="textarea-wrap">
+                                        <i class="bi bi-house-door"></i>
+                                        <textarea
+                                            id="address"
+                                            name="customer_address"
+                                            maxlength="500"
+                                            rows="4"
+                                            placeholder="House / Road / Village / Area details"
+                                            required></textarea>
+                                    </div>
+
+                                    <small class="field-error"
+                                           data-error-for="address"></small>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="postalCode">
+                                        Postal Code
+                                        <em>Optional</em>
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <i class="bi bi-mailbox"></i>
+                                        <input
+                                            id="postalCode"
+                                            name="postal_code"
+                                            type="text"
+                                            maxlength="15"
+                                            placeholder="Postal code">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="paymentMethod">
+                                        Payment Method
+                                    </label>
+
+                                    <div class="payment-choice selected">
+                                        <input
+                                            type="radio"
+                                            id="cashOnDelivery"
+                                            name="payment_method"
+                                            value="cash_on_delivery"
+                                            checked>
+
+                                        <label for="cashOnDelivery">
+                                            <span class="payment-icon">
+                                                <i class="bi bi-cash-coin"></i>
+                                            </span>
+
+                                            <span>
+                                                <strong>Cash on Delivery</strong>
+                                                <small>Pay when your order arrives</small>
+                                            </span>
+
+                                            <i class="bi bi-check-circle-fill"></i>
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- NOTE -->
+                        <section class="checkout-card">
+
+                            <div class="card-heading compact">
+                                <div class="heading-icon">
+                                    <i class="bi bi-chat-left-text"></i>
+                                </div>
+
+                                <div>
+                                    <h2>Order Note</h2>
+                                    <p>Optional instructions for your order.</p>
+                                </div>
+                            </div>
+
+                            <textarea
+                                id="orderNote"
+                                maxlength="500"
+                                rows="3"
+                                placeholder="Example: Please call before delivery..."></textarea>
+
+                        </section>
+
+
+                        <!-- CONSENT -->
+                        <section class="checkout-consent">
+
+                            <label class="consent-row">
+                                <input
+                                    type="checkbox"
+                                    id="termsAccepted"
+                                    required>
+
+                                <span>
+                                    I confirm that the information above is correct
+                                    and I want to place this order.
+                                </span>
+                            </label>
+
+                            <small
+                                id="termsError"
+                                class="field-error">
+                            </small>
+
+                        </section>
+
+
+                        <button
+                            type="submit"
+                            id="placeOrderBtn"
+                            class="place-order-btn">
+
+                            <span class="btn-normal">
+                                <i class="bi bi-check2-circle"></i>
+                                Place Order
+                            </span>
+
+                            <span class="btn-loading hidden">
+                                <span class="mini-spinner"></span>
+                                Placing Order...
+                            </span>
+
+                        </button>
+
+                        <p class="checkout-security">
+                            <i class="bi bi-shield-lock-fill"></i>
+                            Your order is processed securely.
+                        </p>
+
+                    </form>
+
+                </div>
+
+
+                <!-- RIGHT -->
+                <aside class="checkout-sidebar">
+
+                    <div class="order-summary-card">
+
+                        <div class="summary-heading">
+                            <div>
+                                <span>YOUR ORDER</span>
+                                <h2>Order Summary</h2>
+                            </div>
+
+                            <i class="bi bi-receipt-cutoff"></i>
+                        </div>
+
+
+                        <div id="checkoutItems"
+                             class="checkout-items">
+                        </div>
+
+
+                        <div class="summary-calculations">
+
+                            <div class="calc-row">
+                                <span>Subtotal</span>
+                                <strong id="summarySubtotal">
+                                    BDT 0
+                                </strong>
+                            </div>
+
+                            <div
+                                id="summaryDiscountRow"
+                                class="calc-row discount-row hidden">
+
+                                <span>
+                                    Discount
+                                    <small id="summaryCouponLabel"></small>
+                                </span>
+
+                                <strong id="summaryDiscount">
+                                    - BDT 0
+                                </strong>
+
+                            </div>
+
+                            <div class="calc-row">
+                                <span>Delivery</span>
+                                <strong id="summaryDelivery">
+                                    BDT 0
+                                </strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="summary-total">
+                            <span>Total</span>
+                            <strong id="summaryTotal">BDT 0</strong>
+                        </div>
+
+
+                        <!-- COUPON -->
+                        <div class="checkout-coupon">
+
+                            <label for="couponCode">
+                                <i class="bi bi-ticket-perforated"></i>
+                                Coupon Code
+                            </label>
+
+                            <div class="coupon-input">
+
+                                <input
+                                    id="couponCode"
+                                    type="text"
+                                    maxlength="40"
+                                    placeholder="Enter coupon code"
+                                    autocomplete="off">
+
+                                <button
+                                    type="button"
+                                    id="applyCouponBtn">
+                                    Apply
+                                </button>
+
+                            </div>
+
+                            <p id="couponMessage">
+                                Coupon will be verified securely when the order is placed.
+                            </p>
+
+                        </div>
+
+
+                        <div class="free-delivery-box">
+                            <i class="bi bi-truck"></i>
+
+                            <div>
+                                <strong id="deliveryMessage">
+                                    Free delivery available
+                                </strong>
+
+                                <span id="deliverySubMessage">
+                                    Add more products to qualify.
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="sidebar-trust">
+
+                        <div>
+                            <i class="bi bi-shield-check"></i>
+                            <span>Secure Order</span>
+                        </div>
+
+                        <div>
+                            <i class="bi bi-truck"></i>
+                            <span>Fast Delivery</span>
+                        </div>
+
+                        <div>
+                            <i class="bi bi-headset"></i>
+                            <span>Customer Support</span>
+                        </div>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="brand footer-logo">
+                    <div class="brand-icon">
+                        <i class="bi bi-bag-heart-fill"></i>
+                    </div>
+
+                    <div class="brand-name">
+                        MIXN<span>BUY</span><small>.BD</small>
+                    </div>
+                </a>
+
+                <p>
+                    Your everyday destination for quality products,
+                    great prices and convenient shopping.
+                </p>
+
+                <div class="social-links">
+
+                    <a href="https://www.facebook.com/MixNbuy.BD"
+                       aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="https://m.me/MixNbuy.BD"
+                       aria-label="Messenger">
+                        <i class="bi bi-messenger"></i>
+                    </a>
+
+                    <a href="mailto:MIXNBUY.BD@GMAIL.COM"
+                       aria-label="Email">
+                        <i class="bi bi-envelope"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="products.html">All Products</a>
+                <a href="track-order.html">Track Order</a>
+            </div>
+
+
+            <div class="footer-column">
+                <h3>Customer Care</h3>
+                <a href="checkout.html">Cart & Checkout</a>
+                <a href="track-order.html">Order Tracking</a>
+                <a href="#">Return Policy</a>
+            </div>
+
+
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+
+                <a href="tel:01401637310">
+                    <i class="bi bi-telephone"></i>
+                    01401-637310
+                </a>
+
+                <a href="mailto:MIXNBUY.BD@GMAIL.COM">
+                    <i class="bi bi-envelope"></i>
+                    MIXNBUY.BD@GMAIL.COM
+                </a>
+
+                <a href="#">
+                    <i class="bi bi-geo-alt"></i>
+                    Jashore, Bangladesh
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+            <span>
+                © 2026 MIXNBUY.BD. All Rights Reserved.
+            </span>
+
+            <span>
+                Secure & Simple Shopping.
+            </span>
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/common.js"></script>
+<script src="js/checkout.js"></script>
+
+</body>
+</html>
