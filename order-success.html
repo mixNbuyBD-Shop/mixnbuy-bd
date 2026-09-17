@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Order Confirmed | MIXNBUY.BD</title>
+    <meta name="description" content="Your MIXNBUY.BD order has been successfully placed.">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/order-success.css">
+</head>
+
+<body>
+
+<div class="topbar">
+    <div class="container topbar-inner">
+        <div class="topbar-message">
+            <i class="bi bi-stars"></i>
+            Welcome to MIXNBUY.BD
+        </div>
+
+        <div class="topbar-links">
+            <span><i class="bi bi-truck"></i> Fast Delivery</span>
+            <span><i class="bi bi-shield-check"></i> Secure Shopping</span>
+            <a href="track-order.html">Track Order</a>
+        </div>
+    </div>
+</div>
+
+<header class="site-header">
+    <div class="container header-main">
+
+        <a href="index.html" class="brand">
+            <div class="brand-icon">
+                <i class="bi bi-bag-heart-fill"></i>
+            </div>
+            <div class="brand-name">
+                MIXN<span>BUY</span><small>.BD</small>
+            </div>
+        </a>
+
+        <form class="search-form" id="searchForm">
+            <i class="bi bi-search"></i>
+            <input id="globalSearch"
+                   type="search"
+                   placeholder="Search products, brands & more..."
+                   autocomplete="off">
+            <button type="submit">Search</button>
+        </form>
+
+        <div class="header-actions">
+
+            <a href="track-order.html"
+               class="header-action"
+               title="Track Order">
+                <i class="bi bi-box-seam"></i>
+            </a>
+
+            <a href="cart.html"
+               class="header-action cart-action"
+               title="Cart">
+                <i class="bi bi-cart3"></i>
+                <span class="cart-count" data-cart-count>0</span>
+            </a>
+
+            <button class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    type="button"
+                    aria-label="Open menu">
+                <i class="bi bi-list"></i>
+            </button>
+
+        </div>
+    </div>
+
+    <nav class="main-nav" id="mainNav">
+        <div class="container nav-inner">
+            <a href="index.html" class="nav-item">
+                <i class="bi bi-house-door"></i> Home
+            </a>
+            <a href="products.html" class="nav-item">
+                <i class="bi bi-grid"></i> All Products
+            </a>
+            <a href="products.html?category=featured" class="nav-item">
+                <i class="bi bi-stars"></i> Featured
+            </a>
+            <a href="products.html?sort=price-low" class="nav-item">
+                <i class="bi bi-tags"></i> Best Deals
+            </a>
+            <a href="track-order.html" class="nav-item">
+                <i class="bi bi-search"></i> Track Order
+            </a>
+        </div>
+    </nav>
+</header>
+
+
+<main class="success-page">
+
+    <section class="success-section">
+        <div class="container">
+
+            <div class="success-card">
+
+                <div class="success-icon">
+                    <i class="bi bi-check-lg"></i>
+                </div>
+
+                <span class="success-kicker">
+                    <i class="bi bi-stars"></i>
+                    ORDER CONFIRMED
+                </span>
+
+                <h1>Thank You for Your Order!</h1>
+
+                <p class="success-intro">
+                    Your order has been received successfully.
+                    We will contact you if any additional information is needed.
+                </p>
+
+
+                <div class="order-reference">
+
+                    <span>YOUR ORDER ID</span>
+
+                    <div class="order-id-row">
+                        <strong id="orderId">Loading...</strong>
+
+                        <button type="button"
+                                id="copyOrderId"
+                                title="Copy Order ID"
+                                aria-label="Copy Order ID">
+                            <i class="bi bi-copy"></i>
+                        </button>
+                    </div>
+
+                    <small id="copyMessage">
+                        Please keep this Order ID for tracking.
+                    </small>
+
+                </div>
+
+
+                <div class="success-info-grid">
+
+                    <div class="success-info-item">
+                        <div class="info-icon">
+                            <i class="bi bi-person-check"></i>
+                        </div>
+                        <div>
+                            <span>Customer</span>
+                            <strong id="customerName">—</strong>
+                        </div>
+                    </div>
+
+                    <div class="success-info-item">
+                        <div class="info-icon">
+                            <i class="bi bi-cash-coin"></i>
+                        </div>
+                        <div>
+                            <span>Payment</span>
+                            <strong>Cash on Delivery</strong>
+                        </div>
+                    </div>
+
+                    <div class="success-info-item">
+                        <div class="info-icon">
+                            <i class="bi bi-receipt"></i>
+                        </div>
+                        <div>
+                            <span>Order Total</span>
+                            <strong id="orderTotal">—</strong>
+                        </div>
+                    </div>
+
+                    <div class="success-info-item">
+                        <div class="info-icon">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+                        <div>
+                            <span>Status</span>
+                            <strong class="status-pending">Pending</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="success-notice">
+                    <i class="bi bi-info-circle-fill"></i>
+
+                    <div>
+                        <strong>What happens next?</strong>
+                        <p>
+                            Our team will review your order and update its status.
+                            You can use your Order ID to track the order at any time.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="success-actions">
+
+                    <a href="track-order.html"
+                       id="trackOrderBtn"
+                       class="primary-action">
+                        <i class="bi bi-search"></i>
+                        Track My Order
+                    </a>
+
+                    <a href="products.html"
+                       class="secondary-action">
+                        <i class="bi bi-bag"></i>
+                        Continue Shopping
+                    </a>
+
+                </div>
+
+
+                <div class="success-help">
+                    <span>
+                        <i class="bi bi-headset"></i>
+                        Need help?
+                    </span>
+
+                    <a href="tel:01401637310">
+                        01401-637310
+                    </a>
+
+                    <a href="mailto:MIXNBUY.BD@GMAIL.COM">
+                        MIXNBUY.BD@GMAIL.COM
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+
+<footer class="footer">
+    <div class="container">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="brand footer-logo">
+                    <div class="brand-icon">
+                        <i class="bi bi-bag-heart-fill"></i>
+                    </div>
+                    <div class="brand-name">
+                        MIXN<span>BUY</span><small>.BD</small>
+                    </div>
+                </a>
+
+                <p>
+                    Your everyday destination for quality products,
+                    great prices and convenient shopping.
+                </p>
+
+                <div class="social-links">
+                    <a href="https://www.facebook.com/MixNbuy.BD" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://m.me/MixNbuy.BD" aria-label="Messenger">
+                        <i class="bi bi-messenger"></i>
+                    </a>
+                    <a href="mailto:MIXNBUY.BD@GMAIL.COM" aria-label="Email">
+                        <i class="bi bi-envelope"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="products.html">All Products</a>
+                <a href="track-order.html">Track Order</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Customer Care</h3>
+                <a href="cart.html">Cart</a>
+                <a href="track-order.html">Order Tracking</a>
+                <a href="#">Return Policy</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <a href="tel:01401637310">
+                    <i class="bi bi-telephone"></i>
+                    01401-637310
+                </a>
+                <a href="mailto:MIXNBUY.BD@GMAIL.COM">
+                    <i class="bi bi-envelope"></i>
+                    MIXNBUY.BD@GMAIL.COM
+                </a>
+                <a href="#">
+                    <i class="bi bi-geo-alt"></i>
+                    Jashore, Bangladesh
+                </a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 MIXNBUY.BD. All Rights Reserved.</span>
+            <span>Secure & Simple Shopping.</span>
+        </div>
+
+    </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/common.js"></script>
+<script src="js/order-success.js"></script>
+
+</body>
+</html>
