@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Details | MIXNBUY.BD</title>
+    <meta name="description" content="View product details and order from MIXNBUY.BD.">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/product.css">
+</head>
+
+<body>
+
+<!-- =========================================
+     TOP BAR — SAME AS INDEX
+========================================= -->
+<div class="topbar">
+    <div class="container topbar-inner">
+
+        <div class="topbar-message">
+            <i class="bi bi-stars"></i>
+            Welcome to MIXNBUY.BD
+        </div>
+
+        <div class="topbar-links">
+            <span>
+                <i class="bi bi-truck"></i>
+                Fast Delivery
+            </span>
+
+            <span>
+                <i class="bi bi-shield-check"></i>
+                Secure Shopping
+            </span>
+
+            <a href="track-order.html">
+                Track Order
+            </a>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- =========================================
+     HEADER — SAME AS INDEX
+========================================= -->
+<header class="site-header">
+
+    <div class="container header-main">
+
+        <a href="index.html" class="brand">
+            <div class="brand-icon">
+                <i class="bi bi-bag-heart-fill"></i>
+            </div>
+
+            <div class="brand-name">
+                MIXN<span>BUY</span><small>.BD</small>
+            </div>
+        </a>
+
+        <form class="search-form" id="searchForm">
+            <i class="bi bi-search"></i>
+
+            <input
+                type="search"
+                id="globalSearch"
+                placeholder="Search products, brands & more..."
+                autocomplete="off"
+            >
+
+            <button type="submit">Search</button>
+        </form>
+
+        <div class="header-actions">
+
+            <a
+                href="track-order.html"
+                class="header-action"
+                title="Track Order"
+            >
+                <i class="bi bi-box-seam"></i>
+            </a>
+
+            <a
+                href="cart.html"
+                class="header-action cart-action"
+                title="Cart"
+            >
+                <i class="bi bi-cart3"></i>
+
+                <span
+                    class="cart-count"
+                    data-cart-count
+                >0</span>
+            </a>
+
+            <button
+                type="button"
+                class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                aria-label="Open menu"
+            >
+                <i class="bi bi-list"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <nav class="main-nav" id="mainNav">
+
+        <div class="container nav-inner">
+
+            <a href="index.html" class="nav-item">
+                <i class="bi bi-house-door"></i>
+                Home
+            </a>
+
+            <a href="products.html" class="nav-item">
+                <i class="bi bi-grid"></i>
+                All Products
+            </a>
+
+            <a href="products.html?category=featured" class="nav-item">
+                <i class="bi bi-stars"></i>
+                Featured
+            </a>
+
+            <a href="products.html?sort=price-low" class="nav-item">
+                <i class="bi bi-tags"></i>
+                Best Deals
+            </a>
+
+            <a href="track-order.html" class="nav-item">
+                <i class="bi bi-search"></i>
+                Track Order
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================================
+     PRODUCT DETAILS
+========================================= -->
+<main class="product-page">
+
+    <section class="product-details-section">
+
+        <div class="container">
+
+            <div class="product-breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="bi bi-chevron-right"></i>
+                <a href="products.html">Products</a>
+                <i class="bi bi-chevron-right"></i>
+                <span id="breadcrumbProduct">Product</span>
+            </div>
+
+
+            <!-- Loading -->
+            <div id="productLoading" class="product-state">
+                <div class="product-spinner"></div>
+                <p>Loading product...</p>
+            </div>
+
+
+            <!-- Error -->
+            <div id="productError" class="product-state product-error hidden">
+                <div class="state-icon">
+                    <i class="bi bi-exclamation-triangle"></i>
+                </div>
+
+                <h2>Product not found</h2>
+
+                <p id="productErrorText">
+                    This product may no longer be available.
+                </p>
+
+                <a href="products.html" class="product-primary-btn">
+                    <i class="bi bi-grid"></i>
+                    View All Products
+                </a>
+            </div>
+
+
+            <!-- Product -->
+            <div id="productDetails" class="product-details hidden">
+
+                <!-- Gallery -->
+                <div class="product-gallery">
+
+                    <div class="main-product-image">
+
+                        <span id="saleBadge" class="detail-badge sale hidden">
+                            SALE
+                        </span>
+
+                        <span id="featuredBadge" class="detail-badge featured hidden">
+                            <i class="bi bi-star-fill"></i>
+                            Featured
+                        </span>
+
+                        <img
+                            id="mainProductImage"
+                            src="assets/images/product-placeholder.svg"
+                            alt="Product"
+                        >
+
+                    </div>
+
+                    <div
+                        id="productThumbnails"
+                        class="product-thumbnails"
+                    ></div>
+
+                </div>
+
+
+                <!-- Information -->
+                <div class="product-information">
+
+                    <div class="detail-category" id="productCategory">
+                        MIXNBUY
+                    </div>
+
+                    <h1 id="productName">
+                        Product Name
+                    </h1>
+
+                    <div class="product-code-row">
+                        <span id="productCode">Product Code: —</span>
+                        <span class="dot-separator">•</span>
+                        <span id="productBrand">Brand: MIXNBUY</span>
+                    </div>
+
+
+                    <div class="detail-rating">
+                        <span class="stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                        </span>
+                        <span>Quality Product</span>
+                    </div>
+
+
+                    <div class="detail-price-row">
+
+                        <strong id="productPrice">
+                            BDT 0
+                        </strong>
+
+                        <del
+                            id="productOldPrice"
+                            class="hidden"
+                        >
+                            BDT 0
+                        </del>
+
+                        <span
+                            id="discountPercent"
+                            class="discount-percent hidden"
+                        >
+                            0% OFF
+                        </span>
+
+                    </div>
+
+
+                    <div class="stock-box">
+
+                        <span id="stockIcon">
+                            <i class="bi bi-check-circle-fill"></i>
+                        </span>
+
+                        <div>
+                            <strong id="stockText">
+                                In Stock
+                            </strong>
+
+                            <small id="stockSubtext">
+                                Ready to order
+                            </small>
+                        </div>
+
+                    </div>
+
+
+                    <p
+                        id="productDescription"
+                        class="detail-description"
+                    >
+                        Product description.
+                    </p>
+
+
+                    <div class="detail-divider"></div>
+
+
+                    <!-- Quantity -->
+                    <div class="quantity-section">
+
+                        <label>
+                            Quantity
+                        </label>
+
+                        <div class="quantity-control">
+
+                            <button
+                                type="button"
+                                id="qtyMinus"
+                                aria-label="Decrease quantity"
+                            >
+                                <i class="bi bi-dash"></i>
+                            </button>
+
+                            <input
+                                type="number"
+                                id="quantity"
+                                value="1"
+                                min="1"
+                                inputmode="numeric"
+                            >
+
+                            <button
+                                type="button"
+                                id="qtyPlus"
+                                aria-label="Increase quantity"
+                            >
+                                <i class="bi bi-plus"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Actions -->
+                    <div class="product-actions">
+
+                        <button
+                            type="button"
+                            id="addToCartBtn"
+                            class="product-cart-btn"
+                        >
+                            <i class="bi bi-cart-plus"></i>
+                            Add to Cart
+                        </button>
+
+                        <button
+                            type="button"
+                            id="buyNowBtn"
+                            class="product-buy-btn"
+                        >
+                            <i class="bi bi-lightning-charge-fill"></i>
+                            Buy Now
+                        </button>
+
+                    </div>
+
+
+                    <div class="purchase-benefits">
+
+                        <div>
+                            <i class="bi bi-truck"></i>
+                            <span>
+                                <strong>Fast Delivery</strong>
+                                Reliable delivery service
+                            </span>
+                        </div>
+
+                        <div>
+                            <i class="bi bi-shield-check"></i>
+                            <span>
+                                <strong>Secure Shopping</strong>
+                                Safe & trusted checkout
+                            </span>
+                        </div>
+
+                        <div>
+                            <i class="bi bi-arrow-repeat"></i>
+                            <span>
+                                <strong>Easy Support</strong>
+                                Customer care available
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Description / Info -->
+            <section
+                id="productExtra"
+                class="product-extra hidden"
+            >
+
+                <div class="extra-card">
+
+                    <div class="extra-tabs">
+                        <button
+                            type="button"
+                            class="extra-tab active"
+                            data-tab="description"
+                        >
+                            Description
+                        </button>
+
+                        <button
+                            type="button"
+                            class="extra-tab"
+                            data-tab="information"
+                        >
+                            Product Information
+                        </button>
+                    </div>
+
+
+                    <div
+                        id="tabDescription"
+                        class="extra-panel active"
+                    >
+                        <p id="longDescription">
+                            Product description.
+                        </p>
+                    </div>
+
+
+                    <div
+                        id="tabInformation"
+                        class="extra-panel"
+                    >
+
+                        <div class="info-grid">
+
+                            <div>
+                                <span>Product Code</span>
+                                <strong id="infoProductCode">—</strong>
+                            </div>
+
+                            <div>
+                                <span>SKU</span>
+                                <strong id="infoSku">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Brand</span>
+                                <strong id="infoBrand">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Unit</span>
+                                <strong id="infoUnit">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Category</span>
+                                <strong id="infoCategory">—</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================================
+     FOOTER — SAME AS INDEX
+========================================= -->
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <a
+                    href="index.html"
+                    class="brand footer-logo"
+                >
+                    <div class="brand-icon">
+                        <i class="bi bi-bag-heart-fill"></i>
+                    </div>
+
+                    <div class="brand-name">
+                        MIXN<span>BUY</span><small>.BD</small>
+                    </div>
+                </a>
+
+                <p>
+                    Your everyday destination for
+                    quality products, great prices
+                    and convenient shopping.
+                </p>
+
+                <div class="social-links">
+
+                    <a
+                        href="https://www.facebook.com/MixNbuy.BD"
+                        aria-label="Facebook"
+                    >
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a
+                        href="https://m.me/MixNbuy.BD"
+                        aria-label="Messenger"
+                    >
+                        <i class="bi bi-messenger"></i>
+                    </a>
+
+                    <a
+                        href="mailto:MIXNBUY.BD@GMAIL.COM"
+                        aria-label="Email"
+                    >
+                        <i class="bi bi-envelope"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a>
+                <a href="products.html">All Products</a>
+                <a href="index.html#categories">Categories</a>
+                <a href="track-order.html">Track Order</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Customer Care</h3>
+
+                <a href="#">Contact Us</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Return Policy</a>
+                <a href="#">Privacy Policy</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Contact Us</h3>
+
+                <a href="tel:01401637310">
+                    <i class="bi bi-telephone"></i>
+                    01401-637310
+                </a>
+
+                <a href="mailto:MIXNBUY.BD@GMAIL.COM">
+                    <i class="bi bi-envelope"></i>
+                    MIXNBUY.BD@GMAIL.COM
+                </a>
+
+                <a href="#">
+                    <i class="bi bi-geo-alt"></i>
+                    Jashore, Bangladesh
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 MIXNBUY.BD. All Rights Reserved.
+            </span>
+
+            <span>
+                Made for better shopping.
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================
+     SCRIPTS
+========================================= -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/common.js"></script>
+<script src="js/product.js"></script>
+
+</body>
+</html>
