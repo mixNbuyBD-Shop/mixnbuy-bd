@@ -1,0 +1,843 @@
+/* =========================================================
+   MIXNBUY.BD
+   BUSINESS ANALYSIS
+========================================================= */
+
+.analysis-page-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.analysis-page-intro h2 {
+    margin: 0 0 5px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.analysis-page-intro p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   FILTER CARD
+========================================================= */
+
+.analysis-filter-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+
+.analysis-filter-header {
+    padding: 18px 20px;
+    border-bottom: 1px solid #eef0f2;
+}
+
+.filter-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.filter-title > i {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #eef5ff;
+    color: #2563eb;
+    font-size: 19px;
+}
+
+.filter-title h3 {
+    margin: 0 0 3px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.filter-title span {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.analysis-filter-body {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 170px 170px 1fr auto;
+    gap: 18px;
+    align-items: end;
+}
+
+.form-group {
+    min-width: 0;
+}
+
+.form-group label,
+.analysis-presets > label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.analysis-filter-card .form-control {
+    width: 100%;
+    min-height: 42px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 9px 11px;
+    background: #fff;
+    color: #111827;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.analysis-filter-card .form-control:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+.analysis-presets {
+    min-width: 0;
+}
+
+.preset-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.analysis-preset {
+    border: 1px solid #d1d5db;
+    background: #fff;
+    color: #374151;
+    border-radius: 7px;
+    padding: 9px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.analysis-preset:hover,
+.analysis-preset.active {
+    background: #eff6ff;
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+.analysis-filter-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.analysis-filter-actions .btn {
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.analysis-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.analysis-stat-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 17px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    min-width: 0;
+}
+
+.stat-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.sales-icon {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+.profit-icon {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.aov-icon {
+    background: #f5f3ff;
+    color: #7c3aed;
+}
+
+.orders-icon {
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+.return-icon {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.customer-icon {
+    background: #ecfeff;
+    color: #0891b2;
+}
+
+.stat-content {
+    min-width: 0;
+}
+
+.stat-content span {
+    display: block;
+    color: #6b7280;
+    font-size: 12px;
+    margin-bottom: 4px;
+    white-space: nowrap;
+}
+
+.stat-content strong {
+    display: block;
+    color: #111827;
+    font-size: 19px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.stat-content small {
+    display: block;
+    color: #9ca3af;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.analysis-section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 30px 0 14px;
+}
+
+.analysis-section-title h2 {
+    margin: 0 0 4px;
+    font-size: 19px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.analysis-section-title p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   PANELS
+========================================================= */
+
+.analysis-trend-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.analysis-two-column {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.analysis-panel {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.panel-header {
+    padding: 17px 19px;
+    border-bottom: 1px solid #eef0f2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-header h3 {
+    margin: 0 0 4px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.panel-header h3 i {
+    margin-right: 6px;
+    color: #2563eb;
+}
+
+.panel-header span {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+
+/* =========================================================
+   TREND CHART
+========================================================= */
+
+.trend-chart {
+    min-height: 280px;
+    padding: 20px;
+    position: relative;
+    overflow-x: auto;
+}
+
+.analysis-chart {
+    width: 100%;
+    min-width: 520px;
+    height: 240px;
+    display: block;
+}
+
+.analysis-empty-state {
+    min-height: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    color: #9ca3af;
+    text-align: center;
+}
+
+.analysis-empty-state i {
+    font-size: 34px;
+    color: #d1d5db;
+}
+
+.analysis-empty-state p {
+    margin: 0;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    background: #f9fafb;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    padding: 12px 14px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.admin-table td {
+    padding: 13px 14px;
+    border-bottom: 1px solid #f0f1f3;
+    color: #374151;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.admin-table tbody tr:hover {
+    background: #fafafa;
+}
+
+.admin-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.table-empty {
+    text-align: center !important;
+    padding: 35px 15px !important;
+    color: #9ca3af !important;
+}
+
+.product-name-cell {
+    max-width: 230px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    color: #111827 !important;
+}
+
+.money-positive {
+    color: #059669 !important;
+    font-weight: 700;
+}
+
+.money-negative {
+    color: #dc2626 !important;
+    font-weight: 700;
+}
+
+.money-neutral {
+    color: #374151 !important;
+    font-weight: 600;
+}
+
+.rank-badge {
+    width: 25px;
+    height: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f3f4f6;
+    color: #4b5563;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.rank-badge.top-one {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.rank-badge.top-two {
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+.rank-badge.top-three {
+    background: #ffedd5;
+    color: #9a3412;
+}
+
+
+/* =========================================================
+   STATUS BADGES
+========================================================= */
+
+.analysis-status {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 20px;
+    padding: 5px 9px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.analysis-status.pending {
+    background: #fff7ed;
+    color: #c2410c;
+}
+
+.analysis-status.confirmed {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.analysis-status.processing {
+    background: #f5f3ff;
+    color: #6d28d9;
+}
+
+.analysis-status.shipped {
+    background: #ecfeff;
+    color: #0e7490;
+}
+
+.analysis-status.delivered,
+.analysis-status.completed {
+    background: #ecfdf5;
+    color: #047857;
+}
+
+.analysis-status.cancelled {
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+.analysis-status.returned {
+    background: #fff1f2;
+    color: #be123c;
+}
+
+
+/* =========================================================
+   STATUS SHARE BAR
+========================================================= */
+
+.status-share {
+    min-width: 110px;
+}
+
+.status-share-bar {
+    height: 6px;
+    background: #f3f4f6;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.status-share-fill {
+    height: 100%;
+    border-radius: 10px;
+    background: #2563eb;
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.analysis-summary {
+    padding: 10px 18px 18px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.summary-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px;
+    background: #f9fafb;
+    border-radius: 9px;
+}
+
+.summary-icon {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    border-radius: 8px;
+    background: #eef5ff;
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.summary-item span {
+    display: block;
+    color: #6b7280;
+    font-size: 11px;
+    margin-bottom: 2px;
+}
+
+.summary-item strong {
+    display: block;
+    color: #111827;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.analysis-loading {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.analysis-loading[hidden] {
+    display: none;
+}
+
+.analysis-loading-box {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.10);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.spinner-border {
+    width: 22px;
+    height: 22px;
+    border: 3px solid #dbeafe;
+    border-top-color: #2563eb;
+    border-radius: 50%;
+    animation: analysisSpin 0.75s linear infinite;
+}
+
+@keyframes analysisSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.analysis-message {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 10000;
+    max-width: 420px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #2563eb;
+    border-radius: 10px;
+    padding: 14px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+}
+
+.analysis-message[hidden] {
+    display: none;
+}
+
+.analysis-message-icon {
+    color: #2563eb;
+    font-size: 19px;
+}
+
+.analysis-message-content {
+    flex: 1;
+}
+
+.analysis-message-content strong {
+    display: block;
+    color: #111827;
+    font-size: 13px;
+    margin-bottom: 3px;
+}
+
+.analysis-message-content p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.analysis-message > button {
+    border: 0;
+    background: transparent;
+    color: #9ca3af;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0;
+}
+
+.analysis-message.success {
+    border-left-color: #059669;
+}
+
+.analysis-message.success .analysis-message-icon {
+    color: #059669;
+}
+
+.analysis-message.error {
+    border-left-color: #dc2626;
+}
+
+.analysis-message.error .analysis-message-icon {
+    color: #dc2626;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1400px) {
+
+    .analysis-stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .analysis-filter-body {
+        grid-template-columns: 160px 160px 1fr;
+    }
+
+    .analysis-filter-actions {
+        grid-column: 1 / -1;
+    }
+}
+
+
+@media (max-width: 1100px) {
+
+    .analysis-trend-grid,
+    .analysis-two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .analysis-filter-body {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .analysis-presets {
+        grid-column: 1 / -1;
+    }
+
+    .analysis-filter-actions {
+        grid-column: 1 / -1;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .analysis-page-intro h2 {
+        font-size: 20px;
+    }
+
+    .analysis-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .analysis-stat-card {
+        padding: 13px;
+    }
+
+    .stat-content strong {
+        font-size: 16px;
+    }
+
+    .analysis-filter-body {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .analysis-presets,
+    .analysis-filter-actions {
+        grid-column: auto;
+    }
+
+    .analysis-filter-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .analysis-filter-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .analysis-section-title {
+        margin-top: 24px;
+    }
+
+    .analysis-section-title h2 {
+        font-size: 17px;
+    }
+
+    .trend-chart {
+        min-height: 260px;
+        padding: 12px;
+    }
+
+    .analysis-chart {
+        min-width: 450px;
+    }
+
+    .analysis-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .analysis-message {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        max-width: none;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .analysis-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .analysis-stat-card {
+        display: flex;
+    }
+
+    .analysis-filter-header,
+    .analysis-filter-body {
+        padding: 15px;
+    }
+
+    .preset-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .analysis-preset {
+        width: 100%;
+    }
+
+    .panel-header {
+        padding: 14px;
+    }
+
+    .admin-table th,
+    .admin-table td {
+        padding: 10px;
+    }
+}

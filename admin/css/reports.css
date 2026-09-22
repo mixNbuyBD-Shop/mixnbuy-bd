@@ -1,0 +1,214 @@
+/* Reports module only. Sidebar/topbar remain controlled by admin.css. */
+
+.report-toolbar {
+  padding: 20px;
+  margin-bottom: 14px;
+}
+
+.report-toolbar-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.report-toolbar-title h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.report-toolbar-title p,
+.report-muted {
+  margin: 4px 0 0;
+  color: #667085;
+  font-size: 12px;
+}
+
+.report-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: #f1ecff;
+  color: #633cff;
+  font-size: 20px;
+}
+
+.report-date-controls {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.report-field {
+  min-width: 170px;
+}
+
+.report-field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #344054;
+}
+
+.report-preset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 18px;
+}
+
+.report-preset {
+  border: 1px solid #d0d5dd;
+  background: #fff;
+  color: #344054;
+  border-radius: 9px;
+  padding: 8px 13px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.report-preset:hover {
+  border-color: #633cff;
+  color: #633cff;
+}
+
+.report-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.report-stat-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 17px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  box-shadow: 0 2px 12px rgba(16, 24, 40, 0.06);
+  border: 1px solid #eef0f4;
+}
+
+.report-stat-card span {
+  display: block;
+  color: #667085;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.report-stat-card strong {
+  display: block;
+  color: #101828;
+  font-size: 19px;
+  white-space: nowrap;
+}
+
+.report-stat-icon {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+}
+
+.report-stat-icon.sales { background: #eafaf1; color: #12b76a; }
+.report-stat-icon.purchases { background: #fff4e8; color: #f79009; }
+.report-stat-icon.orders { background: #eef4ff; color: #2970ff; }
+.report-stat-icon.returns { background: #fff0f0; color: #f04438; }
+.report-stat-icon.profit { background: #edfdf3; color: #039855; }
+.report-stat-icon.expense { background: #f4f3ff; color: #6941c6; }
+.report-stat-icon.net { background: #eaf2ff; color: #175cd3; }
+.report-stat-icon.customers { background: #fff6ed; color: #e04f16; }
+
+.report-stat-highlight {
+  border-color: #d9d0ff;
+  box-shadow: 0 4px 18px rgba(99, 60, 255, 0.10);
+}
+
+.report-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.report-panel {
+  overflow: hidden;
+}
+
+.report-table-wrap {
+  overflow-x: auto;
+}
+
+.report-table-wrap .admin-table {
+  margin: 0;
+}
+
+.report-detail-panel {
+  margin-bottom: 20px;
+}
+
+.report-loading {
+  min-height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #667085;
+}
+
+.report-loading i,
+.report-spin {
+  animation: reportSpin 1s linear infinite;
+}
+
+.report-profit {
+  color: #039855;
+}
+
+.report-loss {
+  color: #d92d20;
+}
+
+@keyframes reportSpin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 1200px) {
+  .report-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .report-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .report-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .report-date-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .report-field {
+    width: 100%;
+  }
+
+  .report-date-controls .btn {
+    width: 100%;
+  }
+}
