@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Purchases | MIXNBUY.BD Admin</title>
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Master Admin CSS -->
+    <link rel="stylesheet" href="css/admin.css">
+
+    <!-- Purchases CSS -->
+    <link rel="stylesheet" href="css/purchases.css">
+</head>
+
+<body>
+
+<!-- =========================================================
+     ADMIN APP
+     ========================================================= -->
+
+<div class="admin-app">
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="admin-sidebar" id="adminSidebar">
+
+        <div class="sidebar-brand">
+            <a href="dashboard.html">
+                <div class="sidebar-brand-icon">
+                    <i class="bi bi-bag-heart-fill"></i>
+                </div>
+                <div class="sidebar-brand-name">
+                    MIXN<span>BUY</span><small>.BD</small>
+                </div>
+            </a>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <div class="sidebar-section">
+                <div class="sidebar-section-title">Main</div>
+                <ul class="sidebar-menu">
+                    <li>
+                        <a href="dashboard.html" class="sidebar-link">
+                            <i class="bi bi-grid-1x2-fill"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-section-title">Sales &amp; Purchase</div>
+                <ul class="sidebar-menu">
+                    <li>
+                        <a href="purchases.html" class="sidebar-link active" aria-current="page">
+                            <i class="bi bi-cart-plus"></i>
+                            <span>Purchases</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sales.html" class="sidebar-link">
+                            <i class="bi bi-cash-stack"></i>
+                            <span>Sales</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sales-return.html" class="sidebar-link">
+                            <i class="bi bi-arrow-return-left"></i>
+                            <span>Sales Return</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="orders.html" class="sidebar-link">
+                            <i class="bi bi-box-seam"></i>
+                            <span>Orders</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="order-status.html" class="sidebar-link">
+                            <i class="bi bi-arrow-repeat"></i>
+                            <span>Order Status / Tracking</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-section-title">Inventory</div>
+                <ul class="sidebar-menu">
+                    <li>
+                        <a href="stock.html" class="sidebar-link">
+                            <i class="bi bi-bar-chart-line"></i>
+                            <span>Stock</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="suppliers.html" class="sidebar-link">
+                            <i class="bi bi-buildings"></i>
+                            <span>Suppliers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="products.html" class="sidebar-link">
+                            <i class="bi bi-tags"></i>
+                            <span>Products</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-section-title">Customers &amp; Marketing</div>
+                <ul class="sidebar-menu">
+                    <li>
+                        <a href="customers.html" class="sidebar-link">
+                            <i class="bi bi-people"></i>
+                            <span>Customers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="coupons.html" class="sidebar-link">
+                            <i class="bi bi-ticket-perforated"></i>
+                            <span>Coupons</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-section-title">Business</div>
+                <ul class="sidebar-menu">
+                    <li>
+                        <a href="reports.html" class="sidebar-link">
+                            <i class="bi bi-file-earmark-bar-graph"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="analysis.html" class="sidebar-link">
+                            <i class="bi bi-pie-chart"></i>
+                            <span>Analysis</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="profit-loss.html" class="sidebar-link">
+                            <i class="bi bi-graph-up-arrow"></i>
+                            <span>Profit / Loss</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-section-title">System</div>
+                <ul class="sidebar-menu">
+                    <li>
+                        <a href="settings.html" class="sidebar-link">
+                            <i class="bi bi-gear"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="activity-logs.html" class="sidebar-link">
+                            <i class="bi bi-journal-text"></i>
+                            <span>Activity Logs</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" class="sidebar-link logout admin-logout" data-admin-logout>
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         SIDEBAR OVERLAY
+         ===================================================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- =====================================================
+         MAIN AREA
+         ===================================================== -->
+
+    <main class="admin-main">
+
+        <!-- =================================================
+             TOPBAR
+             ================================================= -->
+
+        <header class="admin-topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="mobile-sidebar-btn"
+                    id="mobileSidebarBtn"
+                    aria-label="Open menu"
+                >
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <div class="topbar-page-info">
+                    <h1>Purchases</h1>
+                    <p>Manage supplier purchases, costs and stock receiving.</p>
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button
+                    type="button"
+                    class="topbar-icon-btn"
+                    id="refreshPurchases"
+                    title="Refresh"
+                >
+                    <i class="bi bi-arrow-clockwise"></i>
+                </button>
+
+
+                <div class="admin-profile">
+
+                    <div class="admin-profile-avatar">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
+
+                    <div class="admin-profile-info">
+                        <strong id="adminName">MIXNBUY.BD Admin</strong>
+                        <span id="adminRole">Super Admin</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             PAGE CONTENT
+             ================================================= -->
+
+        <section class="page-content">
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+
+                <div class="page-header-left">
+
+                    <h2 class="page-title">
+                        Purchases
+                    </h2>
+
+                    <p class="page-subtitle">
+                        Manage supplier purchases, costs and stock receiving.
+                    </p>
+
+                </div>
+
+
+                <div class="page-header-actions">
+
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="newPurchaseBtn"
+                    >
+                        <i class="bi bi-plus-lg"></i>
+                        <span>New Purchase</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 STATS
+                 ================================================= -->
+
+            <div class="purchase-stats">
+
+                <!-- Total Purchases -->
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <div>
+                            <div class="stat-label">
+                                Total Purchases
+                            </div>
+
+                            <div
+                                class="stat-value"
+                                id="statPurchases"
+                            >
+                                0
+                            </div>
+                        </div>
+
+                        <div class="stat-icon">
+                            <i class="bi bi-receipt-cutoff"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Purchase Amount -->
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <div>
+                            <div class="stat-label">
+                                Purchase Amount
+                            </div>
+
+                            <div
+                                class="stat-value"
+                                id="statAmount"
+                            >
+                                ৳0.00
+                            </div>
+                        </div>
+
+                        <div class="stat-icon">
+                            <i class="bi bi-wallet2"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Paid -->
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <div>
+                            <div class="stat-label">
+                                Paid
+                            </div>
+
+                            <div
+                                class="stat-value"
+                                id="statPaid"
+                            >
+                                ৳0.00
+                            </div>
+                        </div>
+
+                        <div class="stat-icon">
+                            <i class="bi bi-check-circle-fill"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Due -->
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <div>
+                            <div class="stat-label">
+                                Due
+                            </div>
+
+                            <div
+                                class="stat-value"
+                                id="statDue"
+                            >
+                                ৳0.00
+                            </div>
+                        </div>
+
+                        <div class="stat-icon">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FILTERS
+                 ================================================= -->
+
+            <div class="filter-card">
+
+                <div class="filter-row">
+
+                    <!-- Search -->
+                    <div class="filter-group">
+
+                        <label
+                            class="filter-label"
+                            for="searchPurchase"
+                        >
+                            Search
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="bi bi-search"></i>
+
+                            <input
+                                type="search"
+                                id="searchPurchase"
+                                class="form-control"
+                                placeholder="Search purchase number or supplier..."
+                                autocomplete="off"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Status -->
+                    <div class="filter-group">
+
+                        <label
+                            class="filter-label"
+                            for="statusFilter"
+                        >
+                            Status
+                        </label>
+
+                        <select
+                            id="statusFilter"
+                            class="form-select"
+                        >
+                            <option value="">All Status</option>
+                            <option value="draft">Draft</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+
+                    </div>
+
+
+                    <!-- Payment -->
+                    <div class="filter-group">
+
+                        <label
+                            class="filter-label"
+                            for="paymentFilter"
+                        >
+                            Payment
+                        </label>
+
+                        <select
+                            id="paymentFilter"
+                            class="form-select"
+                        >
+                            <option value="">All Payment</option>
+                            <option value="paid">Paid</option>
+                            <option value="partial">Partial</option>
+                            <option value="due">Due</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PURCHASE TABLE
+                 ================================================= -->
+
+            <div class="table-card">
+
+                <div class="table-card-header">
+
+                    <div>
+                        <h3 class="table-card-title">
+                            Purchase Records
+                        </h3>
+
+                        <p class="table-card-subtitle">
+                            Recent supplier purchase records
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="table-responsive">
+
+                    <table class="purchase-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Purchase No</th>
+                                <th>Date</th>
+                                <th>Supplier</th>
+                                <th>Items</th>
+                                <th>Amount</th>
+                                <th>Paid</th>
+                                <th>Due</th>
+                                <th>Payment</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="purchaseTableBody">
+
+                            <!-- JS renders rows -->
+
+                        </tbody>
+
+                    </table>
+
+
+                    <!-- Empty State -->
+                    <div
+                        class="empty-state"
+                        id="purchaseEmpty"
+                        style="display:none;"
+                    >
+
+                        <div class="empty-state-icon">
+                            <i class="bi bi-receipt"></i>
+                        </div>
+
+                        <h3>No Purchases Found</h3>
+
+                        <p>
+                            There are no purchase records matching your search.
+                        </p>
+
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="emptyNewPurchaseBtn"
+                        >
+                            <i class="bi bi-plus-lg"></i>
+                            New Purchase
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     PURCHASE MODAL
+     ========================================================= -->
+
+<div
+    class="modal"
+    id="purchaseModal"
+    aria-hidden="true"
+>
+
+    <div class="modal-dialog">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+
+            <h2
+                class="modal-title"
+                id="modalTitle"
+            >
+                New Purchase
+            </h2>
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closePurchaseModal"
+                aria-label="Close"
+            >
+                <i class="bi bi-x-lg"></i>
+            </button>
+
+        </div>
+
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+
+            <form id="purchaseForm">
+
+                <!-- =========================================
+                     PURCHASE BASIC INFO
+                     ========================================= -->
+
+                <div class="purchase-form-grid">
+
+                    <!-- Supplier -->
+                    <div class="form-group">
+
+                        <label for="supplierId">
+                            Supplier
+                        </label>
+
+                        <select
+                            id="supplierId"
+                            class="form-select"
+                        >
+                            <option value="">
+                                Select Supplier
+                            </option>
+                        </select>
+
+                    </div>
+
+
+                    <!-- Purchase Date -->
+                    <div class="form-group">
+
+                        <label for="purchaseDate">
+                            Purchase Date
+                        </label>
+
+                        <input
+                            type="datetime-local"
+                            id="purchaseDate"
+                            class="form-control"
+                        >
+
+                    </div>
+
+
+                    <!-- Status -->
+                    <div class="form-group">
+
+                        <label for="purchaseStatus">
+                            Status
+                        </label>
+
+                        <select
+                            id="purchaseStatus"
+                            class="form-select"
+                        >
+                            <option value="draft">
+                                Draft
+                            </option>
+
+                            <option value="completed">
+                                Completed
+                            </option>
+
+                            <option value="cancelled">
+                                Cancelled
+                            </option>
+                        </select>
+
+                    </div>
+
+
+                    <!-- Other Cost -->
+                    <div class="form-group">
+
+                        <label for="otherCost">
+                            Other Cost
+                        </label>
+
+                        <input
+                            type="number"
+                            id="otherCost"
+                            class="form-control"
+                            min="0"
+                            step="0.01"
+                            value="0"
+                            placeholder="0.00"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     PURCHASE ITEMS
+                     ========================================= -->
+
+                <div class="items-section">
+
+                    <div class="items-header">
+
+                        <h3 class="items-title">
+                            Purchase Items
+                        </h3>
+
+                        <button
+                            type="button"
+                            class="btn btn-primary btn-sm"
+                            id="addPurchaseItem"
+                        >
+                            <i class="bi bi-plus-lg"></i>
+                            Add Product
+                        </button>
+
+                    </div>
+
+
+                    <div class="items-table-wrap">
+
+                        <table class="purchase-items-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Purchase Price</th>
+                                    <th>Discount</th>
+                                    <th>Total</th>
+                                    <th></th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="purchaseItemsBody">
+
+                                <!-- JS adds item rows -->
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     PAYMENT
+                     ========================================= -->
+
+                <div class="purchase-form-grid">
+
+                    <div class="form-group">
+
+                        <label for="paidAmount">
+                            Paid Amount
+                        </label>
+
+                        <input
+                            type="number"
+                            id="paidAmount"
+                            class="form-control"
+                            min="0"
+                            step="0.01"
+                            value="0"
+                            placeholder="0.00"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="purchaseNote">
+                            Note
+                        </label>
+
+                        <textarea
+                            id="purchaseNote"
+                            class="form-control"
+                            placeholder="Purchase note..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     SUMMARY
+                     ========================================= -->
+
+                <div class="purchase-summary">
+
+                    <div class="summary-box">
+
+                        <div class="summary-row">
+
+                            <span class="summary-label">
+                                Subtotal
+                            </span>
+
+                            <span
+                                class="summary-value"
+                                id="formSubtotal"
+                            >
+                                ৳0.00
+                            </span>
+
+                        </div>
+
+
+                        <div class="summary-row">
+
+                            <span class="summary-label">
+                                Discount
+                            </span>
+
+                            <span
+                                class="summary-value"
+                                id="formDiscount"
+                            >
+                                ৳0.00
+                            </span>
+
+                        </div>
+
+
+                        <div class="summary-row">
+
+                            <span class="summary-label">
+                                Other Cost
+                            </span>
+
+                            <span
+                                class="summary-value"
+                                id="formOtherCost"
+                            >
+                                ৳0.00
+                            </span>
+
+                        </div>
+
+
+                        <div class="summary-row total">
+
+                            <span class="summary-label">
+                                Total
+                            </span>
+
+                            <span
+                                class="summary-value"
+                                id="formTotal"
+                            >
+                                ৳0.00
+                            </span>
+
+                        </div>
+
+
+                        <div class="summary-row due">
+
+                            <span class="summary-label">
+                                Due
+                            </span>
+
+                            <span
+                                class="summary-value"
+                                id="formDue"
+                            >
+                                ৳0.00
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                class="btn btn-secondary"
+                id="cancelPurchase"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                id="savePurchase"
+            >
+                <i class="bi bi-check-lg"></i>
+                Save Purchase
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     SCRIPTS
+     ========================================================= -->
+
+<!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- Main Config -->
+<script src="../js/config.js"></script>
+
+<!-- Supabase Client -->
+<script src="../js/supabase.js"></script>
+
+<!-- Master Admin JS -->
+<script src="js/admin.js"></script>
+
+<!-- Admin Authentication -->
+<script src="js/admin-auth.js"></script>
+
+<!-- Purchases JS -->
+<script src="js/purchases.js"></script>
+
+</body>
+</html>

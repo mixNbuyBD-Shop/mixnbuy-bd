@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Stock | MIXNBUY.BD</title>
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  >
+
+  <!-- Main Admin CSS -->
+  <link rel="stylesheet" href="css/admin.css">
+
+  <!-- Stock CSS -->
+  <link rel="stylesheet" href="css/stock.css">
+</head>
+
+
+<body>
+
+  <!-- =====================================================
+     SIDEBAR
+     ===================================================== -->
+
+<aside class="admin-sidebar" id="adminSidebar">
+
+  <div class="sidebar-brand">
+
+    <a href="dashboard.html">
+
+      <div class="sidebar-brand-icon">
+        <i class="bi bi-bag-heart-fill"></i>
+      </div>
+
+      <div class="sidebar-brand-name">
+        MIXN<span>BUY</span><small>.BD</small>
+      </div>
+
+    </a>
+
+  </div>
+
+
+  <nav class="sidebar-nav">
+
+    <!-- MAIN -->
+    <div class="sidebar-section">
+
+      <div class="sidebar-section-title">
+        Main
+      </div>
+
+      <ul class="sidebar-menu">
+
+        <li>
+          <a href="dashboard.html" class="sidebar-link">
+            <i class="bi bi-grid-1x2-fill"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+
+    <!-- SALES & PURCHASE -->
+    <div class="sidebar-section">
+
+      <div class="sidebar-section-title">
+        Sales &amp; Purchase
+      </div>
+
+      <ul class="sidebar-menu">
+
+        <li>
+          <a href="purchases.html" class="sidebar-link">
+            <i class="bi bi-cart-check-fill"></i>
+            <span>Purchases</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="sales.html" class="sidebar-link">
+            <i class="bi bi-cash-stack"></i>
+            <span>Sales</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="sales-return.html" class="sidebar-link">
+            <i class="bi bi-arrow-return-left"></i>
+            <span>Sales Return</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="orders.html" class="sidebar-link">
+            <i class="bi bi-box-seam-fill"></i>
+            <span>Orders</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="order-status.html" class="sidebar-link">
+            <i class="bi bi-arrow-repeat"></i>
+            <span>Order Status / Tracking</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+
+    <!-- INVENTORY -->
+    <div class="sidebar-section">
+
+      <div class="sidebar-section-title">
+        Inventory
+      </div>
+
+      <ul class="sidebar-menu">
+
+        <li>
+          <a
+            href="stock.html"
+            class="sidebar-link active"
+            aria-current="page"
+          >
+            <i class="bi bi-bar-chart-fill"></i>
+            <span>Stock</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="suppliers.html" class="sidebar-link">
+            <i class="bi bi-buildings-fill"></i>
+            <span>Suppliers</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="products.html" class="sidebar-link">
+            <i class="bi bi-tags-fill"></i>
+            <span>Products</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+
+    <!-- CUSTOMERS & MARKETING -->
+    <div class="sidebar-section">
+
+      <div class="sidebar-section-title">
+        Customers &amp; Marketing
+      </div>
+
+      <ul class="sidebar-menu">
+
+        <li>
+          <a href="customers.html" class="sidebar-link">
+            <i class="bi bi-people-fill"></i>
+            <span>Customers</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="coupons.html" class="sidebar-link">
+            <i class="bi bi-ticket-perforated-fill"></i>
+            <span>Coupons</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+
+    <!-- BUSINESS -->
+    <div class="sidebar-section">
+
+      <div class="sidebar-section-title">
+        Business
+      </div>
+
+      <ul class="sidebar-menu">
+
+        <li>
+          <a href="reports.html" class="sidebar-link">
+            <i class="bi bi-file-earmark-bar-graph-fill"></i>
+            <span>Reports</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="analysis.html" class="sidebar-link">
+            <i class="bi bi-graph-up-arrow"></i>
+            <span>Analysis</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="profit-loss.html" class="sidebar-link">
+            <i class="bi bi-wallet2"></i>
+            <span>Profit / Loss</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+
+    <!-- SYSTEM -->
+    <div class="sidebar-section">
+
+      <div class="sidebar-section-title">
+        System
+      </div>
+
+      <ul class="sidebar-menu">
+
+        <li>
+          <a href="settings.html" class="sidebar-link">
+            <i class="bi bi-gear-fill"></i>
+            <span>Settings</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="activity-logs.html" class="sidebar-link">
+            <i class="bi bi-journal-text"></i>
+            <span>Activity Logs</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </nav>
+
+
+  <!-- SIDEBAR FOOTER -->
+  <div class="sidebar-footer">
+
+    <a
+      href="#"
+      class="sidebar-link logout admin-logout"
+      data-admin-logout
+    >
+      <i class="bi bi-box-arrow-right"></i>
+      <span>Logout</span>
+    </a>
+
+  </div>
+
+</aside>
+
+
+<!-- SIDEBAR OVERLAY -->
+
+<div
+  class="sidebar-overlay"
+  id="sidebarOverlay"
+></div>
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
+
+  <main class="admin-main">
+
+
+    <!-- TOPBAR -->
+
+    <header class="admin-topbar">
+
+      <div class="topbar-left">
+
+        <button
+          type="button"
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+
+
+        <div>
+
+          <h1>
+            Stock
+          </h1>
+
+          <p>
+            Manage inventory, stock levels and movements.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="topbar-right">
+
+        <button
+          type="button"
+          class="topbar-icon-btn"
+        >
+          <i class="bi bi-bell"></i>
+        </button>
+
+
+        <div class="topbar-user">
+
+          <div class="topbar-user-avatar">
+            <span id="adminAvatar">
+              MA
+            </span>
+          </div>
+
+
+          <div class="topbar-user-info">
+
+            <strong id="adminName">
+              MIXNBUY.BD Admin
+            </strong>
+
+            <small id="adminRole">
+              SUPER ADMIN
+            </small>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTENT
+         ===================================================== -->
+
+    <section class="admin-content stock-page">
+
+
+      <!-- PAGE HEADER -->
+
+      <div class="stock-page-header">
+
+        <div>
+
+          <h2>
+            Stock Management
+          </h2>
+
+          <p>
+            Monitor product stock and manage inventory adjustments.
+          </p>
+
+        </div>
+
+
+        <div class="stock-header-actions">
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="refreshStockBtn"
+          >
+            <i class="bi bi-arrow-clockwise"></i>
+            Refresh
+          </button>
+
+
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="adjustStockBtn"
+          >
+            <i class="bi bi-sliders"></i>
+            Stock Adjustment
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- ===================================================
+           STAT CARDS
+           =================================================== -->
+
+      <div class="stock-stats-grid">
+
+
+        <div class="stock-stat-card">
+
+          <div class="stock-stat-icon purple">
+            <i class="bi bi-box-seam"></i>
+          </div>
+
+          <div>
+
+            <div class="stock-stat-label">
+              Total Products
+            </div>
+
+            <div
+              class="stock-stat-value"
+              id="totalProducts"
+            >
+              0
+            </div>
+
+            <div class="stock-stat-sub">
+              Active products
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="stock-stat-card">
+
+          <div class="stock-stat-icon blue">
+            <i class="bi bi-stack"></i>
+          </div>
+
+          <div>
+
+            <div class="stock-stat-label">
+              Total Stock
+            </div>
+
+            <div
+              class="stock-stat-value"
+              id="totalStock"
+            >
+              0
+            </div>
+
+            <div class="stock-stat-sub">
+              Units available
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="stock-stat-card">
+
+          <div class="stock-stat-icon orange">
+            <i class="bi bi-exclamation-triangle"></i>
+          </div>
+
+          <div>
+
+            <div class="stock-stat-label">
+              Low Stock
+            </div>
+
+            <div
+              class="stock-stat-value"
+              id="lowStock"
+            >
+              0
+            </div>
+
+            <div class="stock-stat-sub">
+              Need attention
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="stock-stat-card">
+
+          <div class="stock-stat-icon red">
+            <i class="bi bi-box2"></i>
+          </div>
+
+          <div>
+
+            <div class="stock-stat-label">
+              Out of Stock
+            </div>
+
+            <div
+              class="stock-stat-value"
+              id="outOfStock"
+            >
+              0
+            </div>
+
+            <div class="stock-stat-sub">
+              Currently unavailable
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- ===================================================
+           FILTERS
+           =================================================== -->
+
+      <div class="stock-filter-card">
+
+
+        <div class="stock-filter-field search-field">
+
+          <label>
+            Search Product
+          </label>
+
+          <div class="stock-input-wrap">
+
+            <i class="bi bi-search"></i>
+
+            <input
+              type="text"
+              id="stockSearch"
+              placeholder="Product name, SKU or product code..."
+              autocomplete="off"
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="stock-filter-field">
+
+          <label>
+            Stock Status
+          </label>
+
+          <select id="stockStatusFilter">
+
+            <option value="all">
+              All Status
+            </option>
+
+            <option value="in-stock">
+              In Stock
+            </option>
+
+            <option value="low-stock">
+              Low Stock
+            </option>
+
+            <option value="out-of-stock">
+              Out of Stock
+            </option>
+
+            <option value="over-stock">
+              Over Stock
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="stock-filter-field">
+
+          <label>
+            Category
+          </label>
+
+          <select id="stockCategoryFilter">
+
+            <option value="all">
+              All Categories
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="stock-result-count">
+
+          <span id="stockResultCount">
+            0 products
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- ===================================================
+           STOCK TABLE
+           =================================================== -->
+
+      <div class="stock-table-card">
+
+
+        <div class="stock-table-header">
+
+          <div>
+
+            <h3>
+              Inventory Stock
+            </h3>
+
+            <p>
+              Current stock balance of all active products.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="stock-table-wrap">
+
+          <table class="stock-table">
+
+            <thead>
+
+              <tr>
+
+                <th>
+                  Product
+                </th>
+
+                <th>
+                  SKU
+                </th>
+
+                <th>
+                  Category
+                </th>
+
+                <th>
+                  Current Stock
+                </th>
+
+                <th>
+                  Min
+                </th>
+
+                <th>
+                  Max
+                </th>
+
+                <th>
+                  Status
+                </th>
+
+                <th>
+                  Action
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody id="stockTableBody">
+
+              <tr>
+
+                <td colspan="8">
+
+                  <div class="stock-state">
+
+                    <i class="bi bi-arrow-repeat"></i>
+
+                    <span>
+                      Loading stock...
+                    </span>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       STOCK DETAILS MODAL
+       ===================================================== -->
+
+  <div
+    class="stock-modal"
+    id="stockDetailsModal"
+    aria-hidden="true"
+  >
+
+    <div class="stock-modal-overlay"></div>
+
+
+    <div class="stock-modal-dialog large">
+
+
+      <div class="stock-modal-header">
+
+        <div>
+
+          <h3>
+            Stock Details
+          </h3>
+
+          <p id="stockDetailsSubtitle">
+            Product stock information
+          </p>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="stock-modal-close"
+          data-close-stock-details
+        >
+          <i class="bi bi-x-lg"></i>
+        </button>
+
+      </div>
+
+
+      <div
+        class="stock-modal-body"
+        id="stockDetailsBody"
+      >
+
+        <div class="stock-state">
+          Loading...
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       STOCK ADJUSTMENT MODAL
+       ===================================================== -->
+
+  <div
+    class="stock-modal"
+    id="stockAdjustmentModal"
+    aria-hidden="true"
+  >
+
+    <div class="stock-modal-overlay"></div>
+
+
+    <div class="stock-modal-dialog">
+
+
+      <div class="stock-modal-header">
+
+        <div>
+
+          <h3>
+            Stock Adjustment
+          </h3>
+
+          <p>
+            Manually increase or decrease stock.
+          </p>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="stock-modal-close"
+          data-close-stock-adjustment
+        >
+          <i class="bi bi-x-lg"></i>
+        </button>
+
+      </div>
+
+
+      <div class="stock-modal-body">
+
+
+        <form
+          id="stockAdjustmentForm"
+          novalidate
+        >
+
+
+          <div class="stock-form-group">
+
+            <label>
+              Product
+              <span>*</span>
+            </label>
+
+            <select
+              id="adjustProduct"
+              required
+            >
+
+              <option value="">
+                Select Product
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="stock-adjust-current">
+
+            <span>
+              Current Stock
+            </span>
+
+            <strong id="adjustCurrentStock">
+              0
+            </strong>
+
+          </div>
+
+
+          <div class="stock-form-grid">
+
+
+            <div class="stock-form-group">
+
+              <label>
+                Adjustment Type
+                <span>*</span>
+              </label>
+
+              <select
+                id="adjustDirection"
+                required
+              >
+
+                <option value="in">
+                  Stock IN
+                </option>
+
+                <option value="out">
+                  Stock OUT
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="stock-form-group">
+
+              <label>
+                Quantity
+                <span>*</span>
+              </label>
+
+              <input
+                type="number"
+                id="adjustQuantity"
+                min="0.01"
+                step="0.01"
+                placeholder="0"
+                required
+              >
+
+            </div>
+
+
+          </div>
+
+
+          <div class="stock-form-group">
+
+            <label>
+              Reason
+            </label>
+
+            <select id="adjustReason">
+
+              <option value="">
+                Select Reason
+              </option>
+
+              <option value="manual_adjustment">
+                Manual Adjustment
+              </option>
+
+              <option value="damaged">
+                Damaged
+              </option>
+
+              <option value="expired">
+                Expired
+              </option>
+
+              <option value="lost">
+                Lost
+              </option>
+
+              <option value="found">
+                Found
+              </option>
+
+              <option value="correction">
+                Stock Correction
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="stock-form-group">
+
+            <label>
+              Note
+            </label>
+
+            <textarea
+              id="adjustNote"
+              rows="3"
+              placeholder="Write a note..."
+            ></textarea>
+
+          </div>
+
+
+          <div
+            class="adjust-preview"
+            id="adjustPreview"
+          >
+
+            New stock will be calculated here.
+
+          </div>
+
+
+          <div class="stock-modal-footer">
+
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-close-stock-adjustment
+            >
+              Cancel
+            </button>
+
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="saveAdjustmentBtn"
+            >
+              <i class="bi bi-check2-circle"></i>
+              Save Adjustment
+            </button>
+
+          </div>
+
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       TOAST
+       ===================================================== -->
+
+  <div
+    class="stock-toast"
+    id="stockToast"
+  ></div>
+
+
+  <!-- =====================================================
+       SCRIPTS
+       ===================================================== -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script src="../js/config.js"></script>
+
+  <script src="../js/supabase.js"></script>
+
+  <script src="js/admin.js"></script>
+
+  <script src="js/admin-auth.js"></script>
+
+  <script src="js/stock.js"></script>
+
+</body>
+
+</html>

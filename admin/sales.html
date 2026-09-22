@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sales | MIXNBUY.BD Admin</title>
+
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="css/admin.css">
+<link rel="stylesheet" href="css/sales.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+  <!-- SIDEBAR -->
+<aside class="admin-sidebar" id="adminSidebar">
+
+  <div class="sidebar-brand">
+    <a href="dashboard.html">
+
+      <div class="sidebar-brand-icon">
+        <i class="bi bi-bag-heart-fill"></i>
+      </div>
+
+      <div class="sidebar-brand-name">
+        MIXN<span>BUY</span><small>.BD</small>
+      </div>
+
+    </a>
+  </div>
+
+
+  <nav class="sidebar-nav">
+
+    <!-- MAIN -->
+    <div class="sidebar-section">
+
+      <div class="sidebar-section-title">
+        Main
+      </div>
+
+      <ul class="sidebar-menu">
+
+        <li>
+          <a href="dashboard.html" class="sidebar-link">
+            <i class="bi bi-grid-1x2-fill"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+
+    <!-- SALES & PURCHASE -->
+    <div class="sidebar-section">
+
+      <div class="sidebar-section-title">
+        Sales &amp; Purchase
+      </div>
+
+      <ul class="sidebar-menu">
+
+        <li>
+          <a href="purchases.html" class="sidebar-link">
+            <i class="bi bi-cart-check-fill"></i>
+            <span>Purchases</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="sales.html"
+             class="sidebar-link active"
+             aria-current="page">
+            <i class="bi bi-cash-stack"></i>
+            <span>Sales</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="sales-return.html" class="sidebar-link">
+            <i class="bi bi-arrow-return-left"></i>
+            <span>Sales Return</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="orders.html" class="sidebar-link">
+            <i class="bi bi-box-seam-fill"></i>
+            <span>Orders</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="order-status.html" class="sidebar-link">
+            <i class="bi bi-arrow-repeat"></i>
+            <span>Order Status / Tracking</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+
+    <!-- INVENTORY -->
+    <div class="sidebar-section">
+
+      <div class="sidebar-section-title">
+        Inventory
+      </div>
+
+      <ul class="sidebar-menu">
+
+        <li>
+          <a href="stock.html" class="sidebar-link">
+            <i class="bi bi-bar-chart-fill"></i>
+            <span>Stock</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="suppliers.html" class="sidebar-link">
+            <i class="bi bi-buildings-fill"></i>
+            <span>Suppliers</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="products.html" class="sidebar-link">
+            <i class="bi bi-tags-fill"></i>
+            <span>Products</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+
+    <!-- CUSTOMERS & MARKETING -->
+    <div class="sidebar-section">
+
+      <div class="sidebar-section-title">
+        Customers &amp; Marketing
+      </div>
+
+      <ul class="sidebar-menu">
+
+        <li>
+          <a href="customers.html" class="sidebar-link">
+            <i class="bi bi-people-fill"></i>
+            <span>Customers</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="coupons.html" class="sidebar-link">
+            <i class="bi bi-ticket-perforated-fill"></i>
+            <span>Coupons</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+
+    <!-- BUSINESS -->
+    <div class="sidebar-section">
+
+      <div class="sidebar-section-title">
+        Business
+      </div>
+
+      <ul class="sidebar-menu">
+
+        <li>
+          <a href="reports.html" class="sidebar-link">
+            <i class="bi bi-file-earmark-bar-graph-fill"></i>
+            <span>Reports</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="analysis.html" class="sidebar-link">
+            <i class="bi bi-graph-up-arrow"></i>
+            <span>Analysis</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="profit-loss.html" class="sidebar-link">
+            <i class="bi bi-wallet2"></i>
+            <span>Profit / Loss</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+
+    <!-- SYSTEM -->
+    <div class="sidebar-section">
+
+      <div class="sidebar-section-title">
+        System
+      </div>
+
+      <ul class="sidebar-menu">
+
+        <li>
+          <a href="settings.html" class="sidebar-link">
+            <i class="bi bi-gear-fill"></i>
+            <span>Settings</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="activity-logs.html" class="sidebar-link">
+            <i class="bi bi-journal-text"></i>
+            <span>Activity Logs</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </nav>
+
+
+  <!-- SIDEBAR FOOTER -->
+  <div class="sidebar-footer">
+
+    <a href="#"
+       class="sidebar-link logout admin-logout"
+       data-admin-logout>
+
+      <i class="bi bi-box-arrow-right"></i>
+      <span>Logout</span>
+
+    </a>
+
+  </div>
+
+</aside>
+
+
+<!-- SIDEBAR OVERLAY -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+  <!-- MAIN -->
+  <main class="admin-main">
+
+    <!-- TOPBAR -->
+    <header class="admin-topbar">
+
+      <div class="topbar-left">
+
+        <button type="button"
+                class="mobile-sidebar-btn"
+                id="mobileSidebarBtn">
+          <i class="bi bi-list"></i>
+        </button>
+
+        <div>
+          <h1 class="page-title">Sales</h1>
+          <p class="page-subtitle">
+            Manage sales, payments, stock out and profit
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="topbar-right">
+
+        <button type="button"
+                class="icon-btn"
+                id="refreshSalesBtn"
+                title="Refresh">
+          <i class="bi bi-arrow-clockwise"></i>
+        </button>
+
+        <div class="admin-profile" id="adminProfile">
+          <div class="admin-avatar">
+            <i class="bi bi-person-fill"></i>
+          </div>
+
+          <div class="admin-profile-info">
+            <strong id="adminName">Admin</strong>
+            <span id="adminRole">Administrator</span>
+          </div>
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- CONTENT -->
+    <section class="admin-content">
+
+
+      <!-- STATS -->
+      <div class="sales-stats">
+
+        <div class="sales-stat-card">
+          <div class="sales-stat-icon sales-icon-primary">
+            <i class="bi bi-cash-stack"></i>
+          </div>
+
+          <div>
+            <span>Total Sales</span>
+            <strong id="statSales">BDT 0.00</strong>
+          </div>
+        </div>
+
+
+        <div class="sales-stat-card">
+          <div class="sales-stat-icon sales-icon-success">
+            <i class="bi bi-check-circle-fill"></i>
+          </div>
+
+          <div>
+            <span>Completed Sales</span>
+            <strong id="statCompleted">0</strong>
+          </div>
+        </div>
+
+
+        <div class="sales-stat-card">
+          <div class="sales-stat-icon sales-icon-warning">
+            <i class="bi bi-clock-fill"></i>
+          </div>
+
+          <div>
+            <span>Draft Sales</span>
+            <strong id="statDraft">0</strong>
+          </div>
+        </div>
+
+
+        <div class="sales-stat-card">
+          <div class="sales-stat-icon sales-icon-profit">
+            <i class="bi bi-graph-up-arrow"></i>
+          </div>
+
+          <div>
+            <span>Total Profit</span>
+            <strong id="statProfit">BDT 0.00</strong>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- TOOLBAR -->
+      <div class="sales-toolbar">
+
+        <div class="sales-filters">
+
+          <div class="sales-search">
+            <i class="bi bi-search"></i>
+
+            <input
+              type="search"
+              id="searchSale"
+              placeholder="Search sale number..."
+              autocomplete="off"
+            >
+          </div>
+
+
+          <select id="statusFilter" class="sales-filter">
+            <option value="">All Status</option>
+            <option value="draft">Draft</option>
+            <option value="completed">Completed</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+
+
+          <select id="paymentFilter" class="sales-filter">
+            <option value="">All Payment</option>
+            <option value="paid">Paid</option>
+            <option value="partial">Partial</option>
+            <option value="unpaid">Unpaid</option>
+          </select>
+
+        </div>
+
+
+        <button type="button"
+                class="btn-primary"
+                id="newSaleBtn">
+          <i class="bi bi-plus-lg"></i>
+          New Sale
+        </button>
+
+      </div>
+
+
+      <!-- TABLE -->
+      <div class="sales-card">
+
+        <div class="sales-card-header">
+
+          <div>
+            <h2>Sales Records</h2>
+            <p>View and manage all sales transactions.</p>
+          </div>
+
+          <span class="record-count" id="saleRecordCount">
+            0 Records
+          </span>
+
+        </div>
+
+
+        <div class="sales-table-wrap">
+
+          <table class="sales-table">
+
+            <thead>
+              <tr>
+                <th>Sale No</th>
+                <th>Date</th>
+                <th>Items</th>
+                <th>Total</th>
+                <th>Payment</th>
+                <th>Status</th>
+                <th class="action-col">Action</th>
+              </tr>
+            </thead>
+
+            <tbody id="salesTableBody"></tbody>
+
+          </table>
+
+
+          <div class="sales-empty"
+               id="salesEmpty">
+
+            <div class="empty-icon">
+              <i class="bi bi-receipt"></i>
+            </div>
+
+            <h3>No Sales Found</h3>
+
+            <p>
+              Create your first sale to see it here.
+            </p>
+
+            <button type="button"
+                    class="btn-primary"
+                    id="emptyNewSaleBtn">
+              <i class="bi bi-plus-lg"></i>
+              New Sale
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+
+<!-- SALE MODAL -->
+<div class="modal-backdrop"
+     id="saleModal">
+
+  <div class="sales-modal">
+
+    <div class="sales-modal-header">
+
+      <div>
+        <h2 id="modalTitle">New Sale</h2>
+        <p>Create a new sales transaction.</p>
+      </div>
+
+      <button type="button"
+              class="modal-close"
+              id="closeSaleModal">
+        <i class="bi bi-x-lg"></i>
+      </button>
+
+    </div>
+
+
+    <form id="saleForm">
+
+      <input type="hidden" id="saleId">
+
+
+      <!-- BASIC -->
+      <div class="sale-form-grid">
+
+        <div class="form-group">
+          <label for="saleDate">
+            Sale Date <span>*</span>
+          </label>
+
+          <input type="datetime-local"
+                 id="saleDate"
+                 required>
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="saleStatus">
+            Status
+          </label>
+
+          <select id="saleStatus">
+
+            <option value="draft">
+              Draft
+            </option>
+
+            <option value="completed">
+              Completed
+            </option>
+
+            <option value="cancelled">
+              Cancelled
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="paymentMethod">
+            Payment Method
+          </label>
+
+          <select id="paymentMethod">
+
+            <option value="cash">
+              Cash
+            </option>
+
+            <option value="bkash">
+              bKash
+            </option>
+
+            <option value="nagad">
+              Nagad
+            </option>
+
+            <option value="bank">
+              Bank
+            </option>
+
+            <option value="card">
+              Card
+            </option>
+
+            <option value="other">
+              Other
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="paymentStatus">
+            Payment Status
+          </label>
+
+          <select id="paymentStatus">
+
+            <option value="paid">
+              Paid
+            </option>
+
+            <option value="partial">
+              Partial
+            </option>
+
+            <option value="unpaid">
+              Unpaid
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <!-- ITEMS -->
+      <div class="sale-items-section">
+
+        <div class="section-heading">
+
+          <div>
+            <h3>Sale Items</h3>
+            <p>Select products and enter quantity.</p>
+          </div>
+
+          <button type="button"
+                  class="btn-secondary"
+                  id="addSaleItem">
+            <i class="bi bi-plus-lg"></i>
+            Add Product
+          </button>
+
+        </div>
+
+
+        <div class="sale-items-table-wrap">
+
+          <table class="sale-items-table">
+
+            <thead>
+
+              <tr>
+                <th>Product</th>
+                <th>Stock</th>
+                <th>Qty</th>
+                <th>Selling Price</th>
+                <th>Discount</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+
+            </thead>
+
+            <tbody id="saleItemsBody"></tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+
+      <!-- SUMMARY -->
+      <div class="sale-summary">
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong id="formSubtotal">BDT 0.00</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Discount</span>
+          <strong id="formDiscount">BDT 0.00</strong>
+        </div>
+
+        <div class="summary-row summary-total">
+          <span>Total</span>
+          <strong id="formTotal">BDT 0.00</strong>
+        </div>
+
+      </div>
+
+
+      <!-- NOTE -->
+      <div class="form-group">
+
+        <label for="saleNote">
+          Note
+        </label>
+
+        <textarea
+          id="saleNote"
+          rows="3"
+          placeholder="Optional sale note..."
+        ></textarea>
+
+      </div>
+
+
+      <!-- FOOTER -->
+      <div class="sales-modal-footer">
+
+        <button type="button"
+                class="btn-secondary"
+                id="cancelSale">
+          Cancel
+        </button>
+
+        <button type="submit"
+                class="btn-primary"
+                id="saveSale">
+          <i class="bi bi-check-lg"></i>
+          Save Sale
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/config.js"></script>
+<script src="../js/supabase.js"></script>
+
+<script src="js/admin.js"></script>
+<script src="js/admin-auth.js"></script>
+<script src="js/sales.js"></script>
+
+</body>
+</html>

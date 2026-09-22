@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports | MIXNBUY.BD Admin</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/reports.css">
+</head>
+
+<body>
+<div class="admin-app">
+
+  <aside class="admin-sidebar" id="adminSidebar">
+
+    <div class="sidebar-brand">
+      <a href="dashboard.html">
+        <div class="sidebar-brand-icon">
+          <i class="bi bi-bag-heart-fill"></i>
+        </div>
+        <div class="sidebar-brand-name">
+          MIXN<span>BUY</span><small>.BD</small>
+        </div>
+      </a>
+    </div>
+
+    <nav class="sidebar-nav">
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Main</div>
+        <ul class="sidebar-menu">
+          <li><a href="dashboard.html" class="sidebar-link">
+            <i class="bi bi-grid-1x2-fill"></i><span>Dashboard</span>
+          </a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Sales & Purchase</div>
+        <ul class="sidebar-menu">
+          <li><a href="purchases.html" class="sidebar-link">
+            <i class="bi bi-cart-plus"></i><span>Purchases</span>
+          </a></li>
+          <li><a href="sales.html" class="sidebar-link">
+            <i class="bi bi-cash-stack"></i><span>Sales</span>
+          </a></li>
+          <li><a href="sales-return.html" class="sidebar-link">
+            <i class="bi bi-arrow-return-left"></i><span>Sales Return</span>
+          </a></li>
+          <li><a href="orders.html" class="sidebar-link">
+            <i class="bi bi-box-seam"></i><span>Orders</span>
+          </a></li>
+          <li><a href="order-status.html" class="sidebar-link">
+            <i class="bi bi-arrow-repeat"></i><span>Order Status / Tracking</span>
+          </a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Inventory</div>
+        <ul class="sidebar-menu">
+          <li><a href="stock.html" class="sidebar-link">
+            <i class="bi bi-bar-chart-line"></i><span>Stock</span>
+          </a></li>
+          <li><a href="suppliers.html" class="sidebar-link">
+            <i class="bi bi-buildings"></i><span>Suppliers</span>
+          </a></li>
+          <li><a href="products.html" class="sidebar-link">
+            <i class="bi bi-box"></i><span>Products</span>
+          </a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Customers & Marketing</div>
+        <ul class="sidebar-menu">
+          <li><a href="customers.html" class="sidebar-link">
+            <i class="bi bi-people"></i><span>Customers</span>
+          </a></li>
+          <li><a href="coupons.html" class="sidebar-link">
+            <i class="bi bi-ticket-perforated"></i><span>Coupons</span>
+          </a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Business</div>
+        <ul class="sidebar-menu">
+          <li><a href="reports.html" class="sidebar-link active">
+            <i class="bi bi-file-earmark-bar-graph"></i><span>Reports</span>
+          </a></li>
+          <li><a href="analysis.html" class="sidebar-link">
+            <i class="bi bi-graph-up-arrow"></i><span>Analysis</span>
+          </a></li>
+          <li><a href="profit-loss.html" class="sidebar-link">
+            <i class="bi bi-calculator"></i><span>Profit / Loss</span>
+          </a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">System</div>
+        <ul class="sidebar-menu">
+          <li><a href="settings.html" class="sidebar-link">
+            <i class="bi bi-gear"></i><span>Settings</span>
+          </a></li>
+          <li><a href="activity-logs.html" class="sidebar-link">
+            <i class="bi bi-clock-history"></i><span>Activity Logs</span>
+          </a></li>
+        </ul>
+      </div>
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <button type="button" class="sidebar-logout" data-admin-logout>
+        <i class="bi bi-box-arrow-right"></i>
+        <span>Logout</span>
+      </button>
+    </div>
+
+  </aside>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <main class="admin-main">
+
+    <header class="admin-topbar">
+      <div class="topbar-left">
+        <button type="button" class="mobile-sidebar-btn" id="mobileSidebarBtn">
+          <i class="bi bi-list"></i>
+        </button>
+
+        <div>
+          <h1 class="page-title">Reports</h1>
+          <p class="page-subtitle">Business reports and performance summary</p>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <button type="button" class="topbar-icon-btn" title="Refresh" id="refreshReportsBtn">
+          <i class="bi bi-arrow-clockwise"></i>
+        </button>
+
+        <div class="admin-profile">
+          <div class="admin-avatar">MB</div>
+          <div>
+            <strong>MIXNBUY.BD Admin</strong>
+            <span>Administrator</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="admin-content">
+
+      <div class="report-toolbar card">
+        <div class="report-toolbar-title">
+          <div class="report-icon">
+            <i class="bi bi-calendar3"></i>
+          </div>
+          <div>
+            <h2>Report Period</h2>
+            <p>Select a date range to generate the report.</p>
+          </div>
+        </div>
+
+        <div class="report-date-controls">
+          <div class="report-field">
+            <label for="reportStartDate">From</label>
+            <input type="date" id="reportStartDate" class="form-control">
+          </div>
+
+          <div class="report-field">
+            <label for="reportEndDate">To</label>
+            <input type="date" id="reportEndDate" class="form-control">
+          </div>
+
+          <button type="button" class="btn btn-primary" id="generateReportBtn">
+            <i class="bi bi-file-earmark-bar-graph"></i>
+            Generate Report
+          </button>
+
+          <button type="button" class="btn btn-secondary" id="exportReportBtn">
+            <i class="bi bi-filetype-csv"></i>
+            Export CSV
+          </button>
+        </div>
+      </div>
+
+      <div class="report-preset-row">
+        <button type="button" class="report-preset" data-range="today">Today</button>
+        <button type="button" class="report-preset" data-range="7">Last 7 Days</button>
+        <button type="button" class="report-preset" data-range="30">Last 30 Days</button>
+        <button type="button" class="report-preset" data-range="month">This Month</button>
+        <button type="button" class="report-preset" data-range="year">This Year</button>
+      </div>
+
+      <div class="report-stats-grid">
+        <div class="report-stat-card">
+          <div class="report-stat-icon sales"><i class="bi bi-cash-stack"></i></div>
+          <div><span>Total Sales</span><strong id="totalSales">৳0</strong></div>
+        </div>
+
+        <div class="report-stat-card">
+          <div class="report-stat-icon purchases"><i class="bi bi-cart-plus"></i></div>
+          <div><span>Total Purchases</span><strong id="totalPurchases">৳0</strong></div>
+        </div>
+
+        <div class="report-stat-card">
+          <div class="report-stat-icon orders"><i class="bi bi-box-seam"></i></div>
+          <div><span>Total Orders</span><strong id="totalOrders">0</strong></div>
+        </div>
+
+        <div class="report-stat-card">
+          <div class="report-stat-icon returns"><i class="bi bi-arrow-return-left"></i></div>
+          <div><span>Sales Returns</span><strong id="totalReturns">৳0</strong></div>
+        </div>
+
+        <div class="report-stat-card">
+          <div class="report-stat-icon profit"><i class="bi bi-graph-up-arrow"></i></div>
+          <div><span>Gross Profit</span><strong id="grossProfit">৳0</strong></div>
+        </div>
+
+        <div class="report-stat-card">
+          <div class="report-stat-icon expense"><i class="bi bi-receipt"></i></div>
+          <div><span>Expenses</span><strong id="totalExpenses">৳0</strong></div>
+        </div>
+
+        <div class="report-stat-card report-stat-highlight">
+          <div class="report-stat-icon net"><i class="bi bi-calculator"></i></div>
+          <div><span>Net Profit</span><strong id="netProfit">৳0</strong></div>
+        </div>
+
+        <div class="report-stat-card">
+          <div class="report-stat-icon customers"><i class="bi bi-people"></i></div>
+          <div><span>Customers</span><strong id="totalCustomers">0</strong></div>
+        </div>
+      </div>
+
+      <div class="report-grid-2">
+
+        <div class="card report-panel">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Sales Summary</div>
+              <div class="report-muted" id="salesPeriodLabel">Selected period</div>
+            </div>
+          </div>
+
+          <div class="report-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr><th>Metric</th><th>Value</th></tr>
+              </thead>
+              <tbody id="salesSummaryBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card report-panel">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Order Summary</div>
+              <div class="report-muted">Order status breakdown</div>
+            </div>
+          </div>
+
+          <div class="report-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr><th>Status</th><th>Orders</th><th>Amount</th></tr>
+              </thead>
+              <tbody id="orderSummaryBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="card report-panel report-detail-panel">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Daily Performance</div>
+            <div class="report-muted">Sales, purchases, returns and profit for the selected period</div>
+          </div>
+        </div>
+
+        <div class="report-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Sales</th>
+                <th>Purchases</th>
+                <th>Returns</th>
+                <th>Gross Profit</th>
+                <th>Net Profit</th>
+              </tr>
+            </thead>
+            <tbody id="performanceTableBody">
+              <tr>
+                <td colspan="6">
+                  <div class="report-loading">
+                    <i class="bi bi-arrow-repeat"></i>
+                    <span>Loading report...</span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/config.js"></script>
+<script src="../js/supabase.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/admin-auth.js"></script>
+<script src="js/reports.js"></script>
+</body>
+</html>

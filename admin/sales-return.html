@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Sales Returns | MIXNBUY.BD Admin</title>
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  >
+
+  <!-- Main Admin CSS -->
+  <link rel="stylesheet" href="css/admin.css">
+
+  <!-- Sales Return CSS -->
+  <link rel="stylesheet" href="css/sales-return.css">
+</head>
+
+<body>
+
+<div class="admin-app">
+
+  <!-- =====================================================
+       SIDEBAR
+       ===================================================== -->
+
+  <aside
+    class="admin-sidebar"
+    id="adminSidebar"
+  >
+
+    <!-- BRAND -->
+    <div class="sidebar-brand">
+
+      <a href="dashboard.html">
+
+        <div class="sidebar-brand-icon">
+          <i class="bi bi-bag-heart-fill"></i>
+        </div>
+
+        <div class="sidebar-brand-name">
+          MIXN<span>BUY</span><small>.BD</small>
+        </div>
+
+      </a>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+    <nav class="sidebar-nav">
+
+      <!-- MAIN -->
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Main
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+            <a
+              href="dashboard.html"
+              class="sidebar-link"
+            >
+              <i class="bi bi-grid-1x2-fill"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- SALES & PURCHASE -->
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Sales & Purchase
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+            <a
+              href="purchases.html"
+              class="sidebar-link"
+            >
+              <i class="bi bi-cart-plus"></i>
+              <span>Purchases</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="sales.html"
+              class="sidebar-link"
+            >
+              <i class="bi bi-cash-stack"></i>
+              <span>Sales</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="sales-return.html"
+              class="sidebar-link active"
+            >
+              <i class="bi bi-arrow-return-left"></i>
+              <span>Sales Return</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="orders.html"
+              class="sidebar-link"
+            >
+              <i class="bi bi-box-seam"></i>
+              <span>Orders</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="order-status.html"
+              class="sidebar-link"
+            >
+              <i class="bi bi-arrow-repeat"></i>
+              <span>Order Status / Tracking</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- INVENTORY -->
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Inventory
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+            <a
+              href="stock.html"
+              class="sidebar-link"
+            >
+              <i class="bi bi-bar-chart-line"></i>
+              <span>Stock</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="suppliers.html"
+              class="sidebar-link"
+            >
+              <i class="bi bi-buildings"></i>
+              <span>Suppliers</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="products.html"
+              class="sidebar-link"
+            >
+              <i class="bi bi-tags"></i>
+              <span>Products</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- CUSTOMERS -->
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Customers & Marketing
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+            <a
+              href="customers.html"
+              class="sidebar-link"
+            >
+              <i class="bi bi-people"></i>
+              <span>Customers</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="coupons.html"
+              class="sidebar-link"
+            >
+              <i class="bi bi-ticket-perforated"></i>
+              <span>Coupons</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- BUSINESS -->
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Business
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+            <a
+              href="reports.html"
+              class="sidebar-link"
+            >
+              <i class="bi bi-file-earmark-bar-graph"></i>
+              <span>Reports</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="analysis.html"
+              class="sidebar-link"
+            >
+              <i class="bi bi-pie-chart"></i>
+              <span>Analysis</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="profit-loss.html"
+              class="sidebar-link"
+            >
+              <i class="bi bi-graph-up-arrow"></i>
+              <span>Profit / Loss</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- SYSTEM -->
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          System
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+            <a
+              href="settings.html"
+              class="sidebar-link"
+            >
+              <i class="bi bi-gear"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="activity-logs.html"
+              class="sidebar-link"
+            >
+              <i class="bi bi-journal-text"></i>
+              <span>Activity Logs</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </nav>
+
+
+    <!-- SIDEBAR FOOTER -->
+    <div class="sidebar-footer">
+
+      <a
+        href="#"
+        class="sidebar-link logout admin-logout"
+        data-admin-logout
+      >
+        <i class="bi bi-box-arrow-right"></i>
+        <span>Logout</span>
+      </a>
+
+    </div>
+
+  </aside>
+
+
+  <!-- SIDEBAR OVERLAY -->
+  <div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+  ></div>
+
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
+
+  <main class="admin-main">
+
+    <!-- TOPBAR -->
+    <header class="admin-topbar">
+
+      <div class="topbar-left">
+
+        <button
+          type="button"
+          class="mobile-sidebar-btn"
+          id="mobileSidebarBtn"
+          aria-label="Open menu"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+
+        <div class="page-heading">
+
+          <h1 id="pageTitle">
+            Sales Returns
+          </h1>
+
+          <p id="pageSubtitle">
+            Manage sales returns, refunds and stock adjustments
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- TOPBAR RIGHT -->
+      <div class="topbar-right">
+
+        <button
+          type="button"
+          class="topbar-icon-btn"
+          title="Notifications"
+        >
+          <i class="bi bi-bell"></i>
+          <span class="notification-dot"></span>
+        </button>
+
+
+        <div class="admin-profile">
+
+          <div
+            class="admin-avatar"
+            id="adminAvatar"
+          >
+            AD
+          </div>
+
+          <div class="admin-profile-info">
+
+            <div
+              class="admin-profile-name"
+              id="adminName"
+            >
+              Admin
+            </div>
+
+            <div
+              class="admin-profile-role"
+              id="adminRole"
+            >
+              Administrator
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTENT
+         ===================================================== -->
+
+    <section class="admin-content">
+
+      <!-- HEADER -->
+      <div class="content-header">
+
+        <div>
+
+          <h2>
+            Sales Returns
+          </h2>
+
+          <p>
+            Manage completed-sale returns, refunds,
+            stock adjustments and profit adjustments.
+          </p>
+
+        </div>
+
+
+        <div class="quick-actions">
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="refreshReturnsBtn"
+          >
+            <i class="bi bi-arrow-clockwise"></i>
+            Refresh
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="newReturnBtn"
+          >
+            <i class="bi bi-arrow-return-left"></i>
+            New Return
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           STATS
+           ================================================= -->
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            <i class="bi bi-arrow-return-left"></i>
+          </div>
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Total Returns
+            </div>
+
+            <div
+              class="stat-value"
+              id="totalReturns"
+            >
+              0
+            </div>
+
+            <div class="stat-change">
+              All returns
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            <i class="bi bi-cash-coin"></i>
+          </div>
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Refund Amount
+            </div>
+
+            <div
+              class="stat-value"
+              id="refundAmount"
+            >
+              BDT 0.00
+            </div>
+
+            <div class="stat-change">
+              Refund value
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            <i class="bi bi-graph-down-arrow"></i>
+          </div>
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Profit Adjustment
+            </div>
+
+            <div
+              class="stat-value"
+              id="profitAdjustment"
+            >
+              BDT 0.00
+            </div>
+
+            <div class="stat-change">
+              Return impact
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            <i class="bi bi-hourglass-split"></i>
+          </div>
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Pending Refund
+            </div>
+
+            <div
+              class="stat-value"
+              id="pendingRefund"
+            >
+              0
+            </div>
+
+            <div class="stat-change">
+              Need attention
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           RETURN HISTORY
+           ================================================= -->
+
+      <div class="card mt-4">
+
+        <div class="card-header">
+
+          <div class="card-title">
+            Return History
+          </div>
+
+        </div>
+
+        <div class="table-wrap">
+
+          <table class="admin-table">
+
+            <thead>
+
+              <tr>
+                <th>Return No</th>
+                <th>Sale</th>
+                <th>Customer</th>
+                <th>Date</th>
+                <th>Refund</th>
+                <th>Status</th>
+                <th>Reason</th>
+                <th>Action</th>
+              </tr>
+
+            </thead>
+
+            <tbody id="returnsTableBody">
+
+              <tr>
+
+                <td colspan="8">
+
+                  <div class="loading-state">
+
+                    <i class="bi bi-arrow-repeat"></i>
+
+                    <div>
+                      Loading returns...
+                    </div>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+<!-- =========================================================
+     NEW RETURN MODAL
+     ========================================================= -->
+
+<div
+  class="return-modal-overlay"
+  id="returnModal"
+  aria-hidden="true"
+>
+
+  <div
+    class="return-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="returnModalTitle"
+  >
+
+    <!-- MODAL HEADER -->
+    <div class="return-modal-header">
+
+      <div class="return-modal-heading">
+
+        <div class="return-modal-icon">
+          <i class="bi bi-arrow-return-left"></i>
+        </div>
+
+        <div>
+
+          <h3 id="returnModalTitle">
+            New Sales Return
+          </h3>
+
+          <p>
+            Select a completed sale and choose products to return.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="return-modal-close"
+        id="closeReturnModalBtn"
+        aria-label="Close"
+      >
+        <i class="bi bi-x-lg"></i>
+      </button>
+
+    </div>
+
+
+    <!-- MODAL BODY -->
+    <div class="return-modal-body">
+
+      <!-- STEP 1 -->
+      <section class="return-step">
+
+        <div class="return-step-title">
+
+          <span class="return-step-number">
+            1
+          </span>
+
+          <div>
+
+            <h4>
+              Select Sale
+            </h4>
+
+            <p>
+              Search using sale number, customer name or phone.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="sale-search-row">
+
+          <div class="form-group return-search-field">
+
+            <label for="saleSearchInput">
+              Sale Number / Customer / Phone
+            </label>
+
+            <div class="input-icon-wrap">
+
+              <i class="bi bi-search"></i>
+
+              <input
+                type="text"
+                id="saleSearchInput"
+                class="form-control"
+                placeholder="e.g. SAL-000001"
+                autocomplete="off"
+              >
+
+            </div>
+
+          </div>
+
+
+          <button
+            type="button"
+            class="btn btn-primary return-search-btn"
+            id="searchSaleBtn"
+          >
+            <i class="bi bi-search"></i>
+            Search
+          </button>
+
+        </div>
+
+
+        <!-- SEARCH RESULTS -->
+        <div
+          class="sale-search-results"
+          id="saleSearchResults"
+        ></div>
+
+      </section>
+
+
+      <!-- STEP 2 -->
+      <section
+        class="return-step return-step-products is-hidden"
+        id="returnProductsStep"
+      >
+
+        <div class="return-step-title">
+
+          <span class="return-step-number">
+            2
+          </span>
+
+          <div>
+
+            <h4>
+              Sale Products
+            </h4>
+
+            <p>
+              Select the products and enter return quantities.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- SELECTED SALE -->
+        <div
+          class="selected-sale-card"
+          id="selectedSaleCard"
+        ></div>
+
+
+        <!-- PRODUCT TABLE -->
+        <div class="return-products-wrap">
+
+          <table class="return-products-table">
+
+            <thead>
+
+              <tr>
+                <th class="return-check-col">
+                  Return
+                </th>
+                <th>
+                  Product
+                </th>
+                <th>
+                  Sold
+                </th>
+                <th>
+                  Returned
+                </th>
+                <th>
+                  Available
+                </th>
+                <th>
+                  Return Qty
+                </th>
+                <th>
+                  Refund
+                </th>
+              </tr>
+
+            </thead>
+
+            <tbody id="returnProductsBody"></tbody>
+
+          </table>
+
+        </div>
+
+
+        <!-- RETURN SUMMARY -->
+        <div class="return-summary">
+
+          <div class="return-summary-row">
+
+            <span>
+              Selected Items
+            </span>
+
+            <strong id="selectedItemCount">
+              0
+            </strong>
+
+          </div>
+
+          <div class="return-summary-row">
+
+            <span>
+              Total Return Quantity
+            </span>
+
+            <strong id="selectedQuantity">
+              0
+            </strong>
+
+          </div>
+
+          <div class="return-summary-row return-summary-total">
+
+            <span>
+              Total Refund
+            </span>
+
+            <strong id="selectedRefund">
+              BDT 0.00
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <!-- REASON -->
+        <div class="return-form-grid">
+
+          <div class="form-group">
+
+            <label for="returnReason">
+              Return Reason
+            </label>
+
+            <select
+              id="returnReason"
+              class="form-control"
+            >
+
+              <option value="">
+                Select reason
+              </option>
+
+              <option value="Customer Return">
+                Customer Return
+              </option>
+
+              <option value="Damaged Product">
+                Damaged Product
+              </option>
+
+              <option value="Wrong Product">
+                Wrong Product
+              </option>
+
+              <option value="Defective Product">
+                Defective Product
+              </option>
+
+              <option value="Size / Variant Issue">
+                Size / Variant Issue
+              </option>
+
+              <option value="Other">
+                Other
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="refundStatus">
+              Refund Status
+            </label>
+
+            <select
+              id="refundStatus"
+              class="form-control"
+            >
+
+              <option value="pending">
+                Pending
+              </option>
+
+              <option value="refunded">
+                Refunded
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="returnNote">
+            Additional Note
+          </label>
+
+          <textarea
+            id="returnNote"
+            class="form-control"
+            rows="3"
+            placeholder="Optional note about this return..."
+          ></textarea>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- MODAL FOOTER -->
+    <div class="return-modal-footer">
+
+      <button
+        type="button"
+        class="btn btn-secondary"
+        id="cancelReturnBtn"
+      >
+        Cancel
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-primary"
+        id="submitReturnBtn"
+        disabled
+      >
+        <i class="bi bi-check2-circle"></i>
+        Submit Return
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     VIEW RETURN DETAILS MODAL
+     ========================================================= -->
+
+<div
+  class="return-modal-overlay"
+  id="viewReturnModal"
+  aria-hidden="true"
+>
+
+  <div
+    class="return-modal return-details-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="viewReturnTitle"
+  >
+
+    <div class="return-modal-header">
+
+      <div class="return-modal-heading">
+
+        <div class="return-modal-icon">
+          <i class="bi bi-eye"></i>
+        </div>
+
+        <div>
+
+          <h3 id="viewReturnTitle">
+            Return Details
+          </h3>
+
+          <p>
+            Complete sales return information.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="return-modal-close"
+        id="closeViewReturnModalBtn"
+      >
+        <i class="bi bi-x-lg"></i>
+      </button>
+
+    </div>
+
+
+    <div
+      class="return-details-body"
+      id="returnDetailsBody"
+    >
+
+      <div class="loading-state">
+
+        <i class="bi bi-arrow-repeat"></i>
+
+        <div>
+          Loading return details...
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="return-modal-footer">
+
+      <button
+        type="button"
+        class="btn btn-secondary"
+        id="closeViewReturnBtn"
+      >
+        Close
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     SCRIPTS
+     ========================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/config.js"></script>
+
+<script src="../js/supabase.js"></script>
+
+<script src="js/admin.js"></script>
+
+<script src="js/admin-auth.js"></script>
+
+<script src="js/sales-return.js"></script>
+
+</body>
+</html>

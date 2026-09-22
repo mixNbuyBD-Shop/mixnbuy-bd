@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Products | MIXNBUY.BD Admin</title>
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  >
+
+  <!-- Master Admin CSS -->
+  <link
+    rel="stylesheet"
+    href="css/admin.css"
+  >
+
+  <!-- Products CSS -->
+  <link
+    rel="stylesheet"
+    href="css/products.css"
+  >
+
+</head>
+
+
+<body>
+
+
+<div class="admin-app">
+
+
+  <!-- =====================================================
+       SIDEBAR
+       ===================================================== -->
+
+  <aside
+    class="admin-sidebar"
+    id="adminSidebar"
+  >
+
+
+    <!-- Brand -->
+
+    <div class="sidebar-brand">
+
+      <a href="dashboard.html">
+
+        <div class="sidebar-brand-icon">
+
+          <i class="bi bi-bag-heart-fill"></i>
+
+        </div>
+
+        <div class="sidebar-brand-name">
+
+          MIXN<span>BUY</span><small>.BD</small>
+
+        </div>
+
+      </a>
+
+    </div>
+
+
+    <!-- Navigation -->
+
+    <nav class="sidebar-nav">
+
+
+      <!-- MAIN -->
+
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Main
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+
+            <a
+              href="dashboard.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-grid-1x2-fill"></i>
+
+              <span>Dashboard</span>
+
+            </a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+
+
+      <!-- SALES & PURCHASE -->
+
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Sales & Purchase
+        </div>
+
+        <ul class="sidebar-menu">
+
+
+          <li>
+
+            <a
+              href="purchases.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-cart-plus"></i>
+
+              <span>Purchases</span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="sales.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-cash-stack"></i>
+
+              <span>Sales</span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="sales-return.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-arrow-return-left"></i>
+
+              <span>Sales Return</span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="orders.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-box-seam"></i>
+
+              <span>Orders</span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="order-status.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-arrow-repeat"></i>
+
+              <span>Order Status / Tracking</span>
+
+            </a>
+
+          </li>
+
+
+        </ul>
+
+      </div>
+
+
+
+      <!-- INVENTORY -->
+
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Inventory
+        </div>
+
+
+        <ul class="sidebar-menu">
+
+
+          <li>
+
+            <a
+              href="stock.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-bar-chart-line"></i>
+
+              <span>Stock</span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="suppliers.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-buildings"></i>
+
+              <span>Suppliers</span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="products.html"
+              class="sidebar-link active"
+            >
+
+              <i class="bi bi-tags"></i>
+
+              <span>Products</span>
+
+            </a>
+
+          </li>
+
+
+        </ul>
+
+      </div>
+
+
+
+      <!-- CUSTOMERS & MARKETING -->
+
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Customers & Marketing
+        </div>
+
+
+        <ul class="sidebar-menu">
+
+
+          <li>
+
+            <a
+              href="customers.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-people"></i>
+
+              <span>Customers</span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="coupons.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-ticket-perforated"></i>
+
+              <span>Coupons</span>
+
+            </a>
+
+          </li>
+
+
+        </ul>
+
+      </div>
+
+
+
+      <!-- BUSINESS -->
+
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Business
+        </div>
+
+
+        <ul class="sidebar-menu">
+
+
+          <li>
+
+            <a
+              href="reports.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-file-earmark-bar-graph"></i>
+
+              <span>Reports</span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="analysis.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-pie-chart"></i>
+
+              <span>Analysis</span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="profit-loss.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-graph-up-arrow"></i>
+
+              <span>Profit / Loss</span>
+
+            </a>
+
+          </li>
+
+
+        </ul>
+
+      </div>
+
+
+
+      <!-- SYSTEM -->
+
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          System
+        </div>
+
+
+        <ul class="sidebar-menu">
+
+
+          <li>
+
+            <a
+              href="settings.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-gear"></i>
+
+              <span>Settings</span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="activity-logs.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-journal-text"></i>
+
+              <span>Activity Logs</span>
+
+            </a>
+
+          </li>
+
+
+        </ul>
+
+      </div>
+
+
+    </nav>
+
+
+
+    <!-- Sidebar Footer -->
+
+    <div class="sidebar-footer">
+
+      <a
+        href="#"
+        class="sidebar-link logout admin-logout"
+        data-admin-logout
+      >
+
+        <i class="bi bi-box-arrow-right"></i>
+
+        <span>Logout</span>
+
+      </a>
+
+    </div>
+
+
+  </aside>
+
+
+
+  <!-- Sidebar Overlay -->
+
+  <div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+  ></div>
+
+
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
+
+  <main class="admin-main">
+
+
+    <!-- TOPBAR -->
+
+    <header class="admin-topbar">
+
+
+      <div class="topbar-left">
+
+
+        <button
+          type="button"
+          class="mobile-sidebar-btn"
+          id="mobileSidebarBtn"
+          aria-label="Open menu"
+        >
+
+          <i class="bi bi-list"></i>
+
+        </button>
+
+
+        <div class="page-heading">
+
+          <h1 id="pageTitle">
+            Products
+          </h1>
+
+          <p id="pageSubtitle">
+            Manage your products, pricing and availability
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+
+      <div class="topbar-right">
+
+
+        <button
+          type="button"
+          class="topbar-icon-btn"
+          id="refreshProductsBtn"
+          title="Refresh"
+        >
+
+          <i class="bi bi-arrow-clockwise"></i>
+
+        </button>
+
+
+        <button
+          type="button"
+          class="topbar-icon-btn"
+          title="Notifications"
+        >
+
+          <i class="bi bi-bell"></i>
+
+          <span class="notification-dot"></span>
+
+        </button>
+
+
+        <div class="admin-profile">
+
+
+          <div
+            class="admin-avatar"
+            id="adminAvatar"
+          >
+            AD
+          </div>
+
+
+          <div class="admin-profile-info">
+
+
+            <div
+              class="admin-profile-name"
+              id="adminName"
+            >
+              Admin
+            </div>
+
+
+            <div
+              class="admin-profile-role"
+              id="adminRole"
+            >
+              Administrator
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENT
+         ===================================================== -->
+
+    <section class="admin-content">
+
+
+      <!-- PAGE HEADER -->
+
+      <div class="content-header">
+
+
+        <div>
+
+          <h2>
+            Product Management
+          </h2>
+
+          <p>
+            Add, edit and manage your store products.
+          </p>
+
+        </div>
+
+
+        <div class="quick-actions">
+
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="refreshProductsBtn2"
+          >
+
+            <i class="bi bi-arrow-clockwise"></i>
+
+            Refresh
+
+          </button>
+
+
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="addProductBtn"
+          >
+
+            <i class="bi bi-plus-lg"></i>
+
+            Add Product
+
+          </button>
+
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- =====================================================
+           STATS
+           ===================================================== -->
+
+      <div class="stats-grid products-stats">
+
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+
+            <i class="bi bi-tags"></i>
+
+          </div>
+
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Total Products
+            </div>
+
+            <div
+              class="stat-value"
+              id="totalProducts"
+            >
+              0
+            </div>
+
+            <div class="stat-change">
+              All Products
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+
+            <i class="bi bi-check-circle"></i>
+
+          </div>
+
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Active Products
+            </div>
+
+            <div
+              class="stat-value"
+              id="activeProducts"
+            >
+              0
+            </div>
+
+            <div class="stat-change">
+              Available
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+
+            <i class="bi bi-pause-circle"></i>
+
+          </div>
+
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Inactive Products
+            </div>
+
+            <div
+              class="stat-value"
+              id="inactiveProducts"
+            >
+              0
+            </div>
+
+            <div class="stat-change">
+              Disabled
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+
+            <i class="bi bi-boxes"></i>
+
+          </div>
+
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Total Stock
+            </div>
+
+            <div
+              class="stat-value"
+              id="totalStock"
+            >
+              0
+            </div>
+
+            <div class="stat-change">
+              Units
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- =====================================================
+           FILTER BAR
+           ===================================================== -->
+
+      <div class="card product-filter-card">
+
+
+        <div class="product-filter-row">
+
+
+          <div class="product-search">
+
+            <i class="bi bi-search"></i>
+
+            <input
+              type="text"
+              id="productSearch"
+              placeholder="Search product, code, SKU, brand..."
+              autocomplete="off"
+            >
+
+          </div>
+
+
+          <select
+            id="categoryFilter"
+            class="form-control"
+          >
+
+            <option value="">
+              All Categories
+            </option>
+
+          </select>
+
+
+          <select
+            id="statusFilter"
+            class="form-control"
+          >
+
+            <option value="">
+              All Status
+            </option>
+
+            <option value="active">
+              Active
+            </option>
+
+            <option value="inactive">
+              Inactive
+            </option>
+
+          </select>
+
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="clearFiltersBtn"
+          >
+
+            <i class="bi bi-x-circle"></i>
+
+            Clear
+
+          </button>
+
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- =====================================================
+           PRODUCT TABLE
+           ===================================================== -->
+
+      <div class="card">
+
+
+        <div class="card-header">
+
+
+          <div class="card-title">
+            Products
+          </div>
+
+
+          <span
+            class="badge badge-primary"
+            id="productCountBadge"
+          >
+            0 Products
+          </span>
+
+
+        </div>
+
+
+
+        <div class="table-wrap">
+
+
+          <table class="admin-table products-table">
+
+
+            <thead>
+
+              <tr>
+
+                <th>Product</th>
+
+                <th>Code</th>
+
+                <th>Category</th>
+
+                <th>Price</th>
+
+                <th>Stock</th>
+
+                <th>Status</th>
+
+                <th>Featured</th>
+
+                <th>Actions</th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody id="productsTableBody">
+
+
+              <tr>
+
+                <td colspan="8">
+
+                  <div class="loading-state">
+
+                    <i class="bi bi-arrow-repeat"></i>
+
+                    <div>
+                      Loading products...
+                    </div>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+
+            </tbody>
+
+
+          </table>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     PRODUCT MODAL
+     ===================================================== -->
+
+<div
+  class="modal-overlay"
+  id="productModal"
+>
+
+
+  <div class="product-modal">
+
+
+    <div class="modal-header">
+
+
+      <div>
+
+        <h3 id="productModalTitle">
+          Add Product
+        </h3>
+
+        <p>
+          Enter product information
+        </p>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="modal-close"
+        id="closeProductModal"
+      >
+
+        <i class="bi bi-x-lg"></i>
+
+      </button>
+
+
+    </div>
+
+
+
+    <form id="productForm">
+
+
+      <input
+        type="hidden"
+        id="productId"
+      >
+
+
+      <div class="product-form-grid">
+
+
+        <!-- Product Name -->
+
+        <div class="form-group form-full">
+
+          <label for="productName">
+            Product Name
+            <span>*</span>
+          </label>
+
+          <input
+            type="text"
+            id="productName"
+            class="form-control"
+            required
+            placeholder="Enter product name"
+          >
+
+        </div>
+
+
+
+        <!-- SKU -->
+
+        <div class="form-group">
+
+          <label for="productSku">
+            SKU
+          </label>
+
+          <input
+            type="text"
+            id="productSku"
+            class="form-control"
+            placeholder="e.g. SKU-001"
+          >
+
+        </div>
+
+
+
+        <!-- Product Code -->
+
+        <div class="form-group">
+
+          <label for="productCode">
+            Product Code
+          </label>
+
+          <input
+            type="text"
+            id="productCode"
+            class="form-control"
+            placeholder="Auto generated"
+          >
+
+        </div>
+
+
+
+        <!-- Category -->
+
+       <!-- Product Category -->
+
+<div class="product-form-group">
+
+    <label for="productCategory">
+        Category
+        <span>*</span>
+    </label>
+
+    <select
+        id="productCategory"
+        name="category"
+        required
+    >
+
+        <option value="">
+            Select Category
+        </option>
+
+        <option value="Electronics">
+            Electronics
+        </option>
+
+        <option value="Fashion">
+            Fashion
+        </option>
+
+        <option value="Beauty & Care">
+            Beauty & Care
+        </option>
+
+        <option value="Home & Living">
+            Home & Living
+        </option>
+
+        <option value="Accessories">
+            Accessories
+        </option>
+
+    </select>
+
+</div>
+
+
+
+        <!-- Brand -->
+
+        <div class="form-group">
+
+          <label for="productBrand">
+            Brand
+          </label>
+
+          <input
+            type="text"
+            id="productBrand"
+            class="form-control"
+            placeholder="Brand name"
+          >
+
+        </div>
+
+
+
+        <!-- Unit -->
+
+        <div class="form-group">
+
+          <label for="productUnit">
+            Unit
+          </label>
+
+          <input
+            type="text"
+            id="productUnit"
+            class="form-control"
+            value="pcs"
+            placeholder="pcs / kg / box"
+          >
+
+        </div>
+
+
+
+        <!-- Selling Price -->
+
+        <div class="form-group">
+
+          <label for="sellingPrice">
+            Selling Price <span>*</span>
+          </label>
+
+          <input
+            type="number"
+            id="sellingPrice"
+            class="form-control"
+            min="0"
+            step="0.01"
+            required
+            placeholder="0.00"
+          >
+
+        </div>
+
+
+
+        <!-- Discount Price -->
+
+        <div class="form-group">
+
+          <label for="discountPrice">
+            Discount Price
+          </label>
+
+          <input
+            type="number"
+            id="discountPrice"
+            class="form-control"
+            min="0"
+            step="0.01"
+            placeholder="Optional"
+          >
+
+        </div>
+
+
+
+        <!-- Current Stock -->
+
+        <div class="form-group">
+
+          <label for="currentStock">
+            Current Stock
+          </label>
+
+          <input
+            type="number"
+            id="currentStock"
+            class="form-control"
+            min="0"
+            step="0.01"
+            value="0"
+          >
+
+        </div>
+
+
+
+        <!-- Image URL -->
+
+        <div class="form-group form-full">
+
+          <label for="imageUrl">
+            Main Image URL
+          </label>
+
+          <input
+            type="url"
+            id="imageUrl"
+            class="form-control"
+            placeholder="https://..."
+          >
+
+        </div>
+
+
+
+        <!-- Gallery -->
+
+        <div class="form-group form-full">
+
+          <label for="galleryUrls">
+            Gallery Image URLs
+          </label>
+
+          <textarea
+            id="galleryUrls"
+            class="form-control"
+            rows="3"
+            placeholder="Enter image URLs separated by comma"
+          ></textarea>
+
+          <small>
+            Example: https://image1.jpg, https://image2.jpg
+          </small>
+
+        </div>
+
+
+
+        <!-- Description -->
+
+        <div class="form-group form-full">
+
+          <label for="productDescription">
+            Description
+          </label>
+
+          <textarea
+            id="productDescription"
+            class="form-control"
+            rows="4"
+            placeholder="Product description..."
+          ></textarea>
+
+        </div>
+
+
+
+        <!-- Featured -->
+
+        <div class="form-check-box">
+
+          <label>
+
+            <input
+              type="checkbox"
+              id="isFeatured"
+            >
+
+            <span>
+              Featured Product
+            </span>
+
+          </label>
+
+        </div>
+
+
+
+        <!-- Active -->
+
+        <div class="form-check-box">
+
+          <label>
+
+            <input
+              type="checkbox"
+              id="isActive"
+              checked
+            >
+
+            <span>
+              Active Product
+            </span>
+
+          </label>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- Modal Footer -->
+
+      <div class="modal-footer">
+
+
+        <button
+          type="button"
+          class="btn btn-secondary"
+          id="cancelProductBtn"
+        >
+
+          Cancel
+
+        </button>
+
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+          id="saveProductBtn"
+        >
+
+          <i class="bi bi-check-lg"></i>
+
+          Save Product
+
+        </button>
+
+
+      </div>
+
+
+    </form>
+
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     VIEW PRODUCT MODAL
+     ===================================================== -->
+
+<div
+  class="modal-overlay"
+  id="viewProductModal"
+>
+
+
+  <div class="product-view-modal">
+
+
+    <div class="modal-header">
+
+
+      <div>
+
+        <h3>
+          Product Details
+        </h3>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="modal-close"
+        id="closeViewModal"
+      >
+
+        <i class="bi bi-x-lg"></i>
+
+      </button>
+
+
+    </div>
+
+
+    <div
+      class="product-details-content"
+      id="productDetailsContent"
+    ></div>
+
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SUPABASE
+     ===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/config.js"></script>
+
+<script src="../js/supabase.js"></script>
+
+
+<!-- Master Admin -->
+
+<script src="js/admin.js"></script>
+
+<script src="js/admin-auth.js"></script>
+
+
+<!-- Products -->
+
+<script src="js/products.js"></script>
+
+
+</body>
+
+</html>

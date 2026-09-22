@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Customers | MIXNBUY.BD Admin</title>
+
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  >
+
+
+  <!-- MASTER ADMIN CSS -->
+  <link
+    rel="stylesheet"
+    href="css/admin.css"
+  >
+
+
+  <!-- CUSTOMERS CSS -->
+  <link
+    rel="stylesheet"
+    href="css/customers.css"
+  >
+
+</head>
+
+
+<body>
+
+
+<div class="admin-app">
+
+
+  <!-- =====================================================
+       SIDEBAR
+       SAME MASTER DASHBOARD STRUCTURE
+       ===================================================== -->
+
+  <aside
+    class="admin-sidebar"
+    id="adminSidebar"
+  >
+
+
+    <!-- Brand -->
+    <div class="sidebar-brand">
+
+      <a href="dashboard.html">
+
+        <div class="sidebar-brand-icon">
+
+          <i class="bi bi-bag-heart-fill"></i>
+
+        </div>
+
+
+        <div class="sidebar-brand-name">
+
+          MIXN<span>BUY</span><small>.BD</small>
+
+        </div>
+
+      </a>
+
+    </div>
+
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+
+
+      <!-- MAIN -->
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Main
+        </div>
+
+
+        <ul class="sidebar-menu">
+
+          <li>
+
+            <a
+              href="dashboard.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-grid-1x2-fill"></i>
+
+              <span>
+                Dashboard
+              </span>
+
+            </a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+
+
+      <!-- SALES & PURCHASE -->
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Sales & Purchase
+        </div>
+
+
+        <ul class="sidebar-menu">
+
+          <li>
+
+            <a
+              href="purchases.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-cart-plus"></i>
+
+              <span>
+                Purchases
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="sales.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-cash-stack"></i>
+
+              <span>
+                Sales
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="sales-return.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-arrow-return-left"></i>
+
+              <span>
+                Sales Return
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="orders.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-box-seam"></i>
+
+              <span>
+                Orders
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="order-status.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-arrow-repeat"></i>
+
+              <span>
+                Order Status / Tracking
+              </span>
+
+            </a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+
+
+      <!-- INVENTORY -->
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Inventory
+        </div>
+
+
+        <ul class="sidebar-menu">
+
+          <li>
+
+            <a
+              href="stock.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-bar-chart-line"></i>
+
+              <span>
+                Stock
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="suppliers.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-buildings"></i>
+
+              <span>
+                Suppliers
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="products.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-tags"></i>
+
+              <span>
+                Products
+              </span>
+
+            </a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+
+
+      <!-- CUSTOMERS & MARKETING -->
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Customers & Marketing
+        </div>
+
+
+        <ul class="sidebar-menu">
+
+          <li>
+
+            <a
+              href="customers.html"
+              class="sidebar-link active"
+            >
+
+              <i class="bi bi-people"></i>
+
+              <span>
+                Customers
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="coupons.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-ticket-perforated"></i>
+
+              <span>
+                Coupons
+              </span>
+
+            </a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+
+
+      <!-- BUSINESS -->
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Business
+        </div>
+
+
+        <ul class="sidebar-menu">
+
+          <li>
+
+            <a
+              href="reports.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-file-earmark-bar-graph"></i>
+
+              <span>
+                Reports
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="analysis.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-pie-chart"></i>
+
+              <span>
+                Analysis
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="profit-loss.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-graph-up-arrow"></i>
+
+              <span>
+                Profit / Loss
+              </span>
+
+            </a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+
+
+      <!-- SYSTEM -->
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          System
+        </div>
+
+
+        <ul class="sidebar-menu">
+
+          <li>
+
+            <a
+              href="settings.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-gear"></i>
+
+              <span>
+                Settings
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="activity-logs.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-journal-text"></i>
+
+              <span>
+                Activity Logs
+              </span>
+
+            </a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+    </nav>
+
+
+
+    <!-- Sidebar Footer -->
+    <div class="sidebar-footer">
+
+      <a
+        href="#"
+        class="sidebar-link logout admin-logout"
+        data-admin-logout
+      >
+
+        <i class="bi bi-box-arrow-right"></i>
+
+        <span>
+          Logout
+        </span>
+
+      </a>
+
+    </div>
+
+  </aside>
+
+
+
+  <!-- Sidebar Overlay -->
+  <div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+  ></div>
+
+
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
+
+  <main class="admin-main">
+
+
+    <!-- TOPBAR -->
+    <header class="admin-topbar">
+
+
+      <div class="topbar-left">
+
+
+        <!-- Mobile Sidebar -->
+        <button
+          type="button"
+          class="mobile-sidebar-btn"
+          id="mobileSidebarBtn"
+          aria-label="Open menu"
+        >
+
+          <i class="bi bi-list"></i>
+
+        </button>
+
+
+
+        <!-- Page Heading -->
+        <div class="page-heading">
+
+          <h1 id="pageTitle">
+            Customers
+          </h1>
+
+          <p id="pageSubtitle">
+            Manage your customers and customer history
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- Topbar Right -->
+      <div class="topbar-right">
+
+
+        <!-- Notification -->
+        <button
+          type="button"
+          class="topbar-icon-btn"
+          title="Notifications"
+        >
+
+          <i class="bi bi-bell"></i>
+
+          <span class="notification-dot"></span>
+
+        </button>
+
+
+
+        <!-- Admin Profile -->
+        <div class="admin-profile">
+
+
+          <div
+            class="admin-avatar"
+            id="adminAvatar"
+          >
+            AD
+          </div>
+
+
+          <div class="admin-profile-info">
+
+            <div
+              class="admin-profile-name"
+              id="adminName"
+            >
+              Admin
+            </div>
+
+
+            <div
+              class="admin-profile-role"
+              id="adminRole"
+            >
+              Administrator
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENT
+         ===================================================== -->
+
+    <section class="admin-content">
+
+
+      <!-- Content Header -->
+      <div class="content-header">
+
+
+        <div>
+
+          <h2>
+            Customers
+          </h2>
+
+          <p>
+            View, manage and monitor your customers.
+          </p>
+
+        </div>
+
+
+        <div class="quick-actions">
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="refreshCustomersBtn"
+          >
+
+            <i class="bi bi-arrow-clockwise"></i>
+
+            Refresh
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           CUSTOMER STATS
+           ================================================= -->
+
+      <div class="customer-stats-grid">
+
+
+        <!-- Total -->
+        <div class="customer-stat-card">
+
+          <div class="customer-stat-icon">
+
+            <i class="bi bi-people"></i>
+
+          </div>
+
+
+          <div class="customer-stat-info">
+
+            <div class="customer-stat-label">
+              Total Customers
+            </div>
+
+            <div
+              class="customer-stat-value"
+              id="totalCustomers"
+            >
+              0
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Active -->
+        <div class="customer-stat-card">
+
+          <div class="customer-stat-icon">
+
+            <i class="bi bi-person-check"></i>
+
+          </div>
+
+
+          <div class="customer-stat-info">
+
+            <div class="customer-stat-label">
+              Active Customers
+            </div>
+
+            <div
+              class="customer-stat-value"
+              id="activeCustomers"
+            >
+              0
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Orders -->
+        <div class="customer-stat-card">
+
+          <div class="customer-stat-icon">
+
+            <i class="bi bi-bag-check"></i>
+
+          </div>
+
+
+          <div class="customer-stat-info">
+
+            <div class="customer-stat-label">
+              Total Orders
+            </div>
+
+            <div
+              class="customer-stat-value"
+              id="totalCustomerOrders"
+            >
+              0
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Value -->
+        <div class="customer-stat-card">
+
+          <div class="customer-stat-icon">
+
+            <i class="bi bi-cash-stack"></i>
+
+          </div>
+
+
+          <div class="customer-stat-info">
+
+            <div class="customer-stat-label">
+              Total Customer Value
+            </div>
+
+            <div
+              class="customer-stat-value"
+              id="totalCustomerValue"
+            >
+              ৳0.00
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           CUSTOMER TABLE CARD
+           ================================================= -->
+
+      <div class="card customers-card">
+
+
+        <!-- Toolbar -->
+        <div class="card-header customers-toolbar">
+
+
+          <div class="customers-toolbar-left">
+
+
+            <div class="customer-search">
+
+              <i class="bi bi-search"></i>
+
+              <input
+                type="search"
+                id="customerSearch"
+                placeholder="Search customer..."
+                autocomplete="off"
+              >
+
+            </div>
+
+
+
+            <select
+              id="statusFilter"
+              class="customer-filter"
+            >
+
+              <option value="">
+                All Status
+              </option>
+
+              <option value="active">
+                Active
+              </option>
+
+              <option value="inactive">
+                Inactive
+              </option>
+
+            </select>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- Table -->
+        <div class="table-wrap customers-table-wrap">
+
+          <table class="admin-table customers-table">
+
+
+            <thead>
+
+              <tr>
+
+                <th>
+                  Customer
+                </th>
+
+                <th>
+                  Mobile
+                </th>
+
+                <th>
+                  Address
+                </th>
+
+                <th>
+                  Orders
+                </th>
+
+                <th>
+                  Total Amount
+                </th>
+
+                <th>
+                  Last Order
+                </th>
+
+                <th>
+                  Status
+                </th>
+
+                <th class="text-right">
+                  Actions
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody id="customersTableBody">
+
+              <tr>
+
+                <td
+                  colspan="8"
+                  class="customer-table-message"
+                >
+
+                  <div class="loading-state">
+
+                    <i class="bi bi-arrow-repeat"></i>
+
+                    <div>
+                      Loading customers...
+                    </div>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+
+
+        <!-- Footer -->
+        <div class="customers-table-footer">
+
+          <span id="customerCountText">
+            0 customers
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+
+<!-- =======================================================
+     CUSTOMER VIEW MODAL
+     ======================================================= -->
+
+<div
+  class="customer-modal"
+  id="customerViewModal"
+>
+
+
+  <div class="customer-modal-overlay"></div>
+
+
+  <div class="customer-modal-dialog customer-details-dialog">
+
+
+    <div class="customer-modal-header">
+
+
+      <div>
+
+        <h2>
+          Customer Details
+        </h2>
+
+        <p>
+          Customer information and order history
+        </p>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="customer-modal-close"
+        id="closeCustomerViewModal"
+      >
+
+        <i class="bi bi-x-lg"></i>
+
+      </button>
+
+    </div>
+
+
+
+    <div
+      class="customer-modal-body"
+      id="customerDetailsContent"
+    >
+
+    </div>
+
+
+
+    <div class="customer-modal-footer">
+
+      <button
+        type="button"
+        class="btn btn-secondary"
+        id="closeCustomerViewBtn"
+      >
+
+        Close
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- =======================================================
+     EDIT CUSTOMER MODAL
+     ======================================================= -->
+
+<div
+  class="customer-modal"
+  id="customerEditModal"
+>
+
+
+  <div class="customer-modal-overlay"></div>
+
+
+  <div class="customer-modal-dialog">
+
+
+    <div class="customer-modal-header">
+
+
+      <div>
+
+        <h2>
+          Edit Customer
+        </h2>
+
+        <p>
+          Update customer information
+        </p>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="customer-modal-close"
+        id="closeCustomerEditModal"
+      >
+
+        <i class="bi bi-x-lg"></i>
+
+      </button>
+
+    </div>
+
+
+
+    <form id="customerForm">
+
+
+      <div class="customer-modal-body">
+
+
+        <input
+          type="hidden"
+          id="customerId"
+        >
+
+
+        <div class="customer-form-grid">
+
+
+          <div class="form-group">
+
+            <label for="customerName">
+              Name
+            </label>
+
+            <input
+              type="text"
+              id="customerName"
+              required
+            >
+
+          </div>
+
+
+
+          <div class="form-group">
+
+            <label for="customerMobile">
+              Mobile
+            </label>
+
+            <input
+              type="tel"
+              id="customerMobile"
+              required
+            >
+
+          </div>
+
+
+
+          <div class="form-group">
+
+            <label for="customerEmail">
+              Email
+            </label>
+
+            <input
+              type="email"
+              id="customerEmail"
+            >
+
+          </div>
+
+
+
+          <div class="form-group">
+
+            <label for="customerStatus">
+              Status
+            </label>
+
+            <select id="customerStatus">
+
+              <option value="active">
+                Active
+              </option>
+
+              <option value="inactive">
+                Inactive
+              </option>
+
+            </select>
+
+          </div>
+
+
+
+          <div class="form-group full-width">
+
+            <label for="customerAddress">
+              Address
+            </label>
+
+            <textarea
+              id="customerAddress"
+              rows="3"
+            ></textarea>
+
+          </div>
+
+
+
+          <div class="form-group">
+
+            <label for="customerCity">
+              City
+            </label>
+
+            <input
+              type="text"
+              id="customerCity"
+            >
+
+          </div>
+
+
+
+          <div class="form-group">
+
+            <label for="customerDistrict">
+              District
+            </label>
+
+            <input
+              type="text"
+              id="customerDistrict"
+            >
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="customer-modal-footer">
+
+
+        <button
+          type="button"
+          class="btn btn-secondary"
+          id="cancelCustomerBtn"
+        >
+          Cancel
+        </button>
+
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+          id="saveCustomerBtn"
+        >
+
+          <i class="bi bi-check-lg"></i>
+
+          Save Changes
+
+        </button>
+
+      </div>
+
+
+    </form>
+
+  </div>
+
+</div>
+
+
+
+<!-- =======================================================
+     SUPABASE
+     ======================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/config.js"></script>
+
+<script src="../js/supabase.js"></script>
+
+
+<!-- MASTER ADMIN -->
+<script src="js/admin.js"></script>
+
+<script src="js/admin-auth.js"></script>
+
+
+<!-- CUSTOMERS -->
+<script src="js/customers.js"></script>
+
+
+</body>
+
+</html>

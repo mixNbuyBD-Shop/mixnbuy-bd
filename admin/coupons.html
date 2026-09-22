@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Coupons | MIXNBUY.BD Admin</title>
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  >
+
+  <!-- Master Admin CSS -->
+  <link rel="stylesheet" href="css/admin.css">
+
+  <!-- Coupons CSS -->
+  <link rel="stylesheet" href="css/coupons.css">
+
+</head>
+
+
+<body>
+
+<div class="admin-app">
+
+
+  <!-- =====================================================
+       SIDEBAR
+       ===================================================== -->
+
+  <aside
+    class="admin-sidebar"
+    id="adminSidebar"
+  >
+
+    <!-- Brand -->
+
+    <div class="sidebar-brand">
+
+      <a href="dashboard.html">
+
+        <div class="sidebar-brand-icon">
+          <i class="bi bi-bag-heart-fill"></i>
+        </div>
+
+        <div class="sidebar-brand-name">
+          MIXN<span>BUY</span><small>.BD</small>
+        </div>
+
+      </a>
+
+    </div>
+
+
+    <!-- Navigation -->
+
+    <nav class="sidebar-nav">
+
+
+      <!-- MAIN -->
+
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Main
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+            <a
+              href="dashboard.html"
+              class="sidebar-link"
+            >
+              <i class="bi bi-grid-1x2-fill"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- SALES & PURCHASE -->
+
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Sales & Purchase
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+            <a href="purchases.html" class="sidebar-link">
+              <i class="bi bi-cart-plus"></i>
+              <span>Purchases</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="sales.html" class="sidebar-link">
+              <i class="bi bi-cash-stack"></i>
+              <span>Sales</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="sales-return.html" class="sidebar-link">
+              <i class="bi bi-arrow-return-left"></i>
+              <span>Sales Return</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="orders.html" class="sidebar-link">
+              <i class="bi bi-box-seam"></i>
+              <span>Orders</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="order-status.html" class="sidebar-link">
+              <i class="bi bi-arrow-repeat"></i>
+              <span>Order Status / Tracking</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- INVENTORY -->
+
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Inventory
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+            <a href="stock.html" class="sidebar-link">
+              <i class="bi bi-bar-chart-line"></i>
+              <span>Stock</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="suppliers.html" class="sidebar-link">
+              <i class="bi bi-buildings"></i>
+              <span>Suppliers</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="products.html" class="sidebar-link">
+              <i class="bi bi-tags"></i>
+              <span>Products</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- CUSTOMERS & MARKETING -->
+
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Customers & Marketing
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+            <a href="customers.html" class="sidebar-link">
+              <i class="bi bi-people"></i>
+              <span>Customers</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="coupons.html"
+              class="sidebar-link active"
+            >
+              <i class="bi bi-ticket-perforated"></i>
+              <span>Coupons</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- BUSINESS -->
+
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Business
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+            <a href="reports.html" class="sidebar-link">
+              <i class="bi bi-file-earmark-bar-graph"></i>
+              <span>Reports</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="analysis.html" class="sidebar-link">
+              <i class="bi bi-pie-chart"></i>
+              <span>Analysis</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="profit-loss.html" class="sidebar-link">
+              <i class="bi bi-graph-up-arrow"></i>
+              <span>Profit / Loss</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- SYSTEM -->
+
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          System
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+            <a href="settings.html" class="sidebar-link">
+              <i class="bi bi-gear"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="activity-logs.html" class="sidebar-link">
+              <i class="bi bi-journal-text"></i>
+              <span>Activity Logs</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </nav>
+
+
+    <!-- Sidebar Footer -->
+
+    <div class="sidebar-footer">
+
+      <a
+        href="#"
+        class="sidebar-link logout admin-logout"
+        data-admin-logout
+      >
+        <i class="bi bi-box-arrow-right"></i>
+        <span>Logout</span>
+      </a>
+
+    </div>
+
+  </aside>
+
+
+  <!-- Sidebar Overlay -->
+
+  <div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+  ></div>
+
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
+
+  <main class="admin-main">
+
+
+    <!-- TOPBAR -->
+
+    <header class="admin-topbar">
+
+      <div class="topbar-left">
+
+        <button
+          type="button"
+          class="mobile-sidebar-btn"
+          id="mobileSidebarBtn"
+          aria-label="Open menu"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+
+
+        <div class="page-heading">
+
+          <h1 id="pageTitle">
+            Coupons
+          </h1>
+
+          <p id="pageSubtitle">
+            Manage discounts and promotional coupons
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="topbar-right">
+
+        <button
+          type="button"
+          class="topbar-icon-btn"
+          title="Notifications"
+        >
+          <i class="bi bi-bell"></i>
+          <span class="notification-dot"></span>
+        </button>
+
+
+        <div class="admin-profile">
+
+          <div
+            class="admin-avatar"
+            id="adminAvatar"
+          >
+            AD
+          </div>
+
+          <div class="admin-profile-info">
+
+            <div
+              class="admin-profile-name"
+              id="adminName"
+            >
+              Admin
+            </div>
+
+            <div
+              class="admin-profile-role"
+              id="adminRole"
+            >
+              Administrator
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTENT
+         ===================================================== -->
+
+    <section class="admin-content">
+
+
+      <!-- PAGE HEADER -->
+
+      <div class="content-header">
+
+        <div>
+
+          <h2>Coupon Management</h2>
+
+          <p>
+            Create, edit and manage discount coupons.
+          </p>
+
+        </div>
+
+
+        <div class="quick-actions">
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="refreshCouponsBtn"
+          >
+            <i class="bi bi-arrow-clockwise"></i>
+            Refresh
+          </button>
+
+
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="addCouponBtn"
+          >
+            <i class="bi bi-plus-lg"></i>
+            Add Coupon
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           STATS
+           ===================================================== -->
+
+      <div class="stats-grid coupon-stats">
+
+
+        <!-- Total -->
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            <i class="bi bi-ticket-perforated"></i>
+          </div>
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Total Coupons
+            </div>
+
+            <div
+              class="stat-value"
+              id="totalCoupons"
+            >
+              0
+            </div>
+
+            <div class="stat-change">
+              All Coupons
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Active -->
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            <i class="bi bi-check-circle"></i>
+          </div>
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Active Coupons
+            </div>
+
+            <div
+              class="stat-value"
+              id="activeCoupons"
+            >
+              0
+            </div>
+
+            <div class="stat-change">
+              Currently Active
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Expired -->
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            <i class="bi bi-calendar-x"></i>
+          </div>
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Expired Coupons
+            </div>
+
+            <div
+              class="stat-value"
+              id="expiredCoupons"
+            >
+              0
+            </div>
+
+            <div class="stat-change">
+              End Date Passed
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Usage -->
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            <i class="bi bi-graph-up"></i>
+          </div>
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Total Usage
+            </div>
+
+            <div
+              class="stat-value"
+              id="totalCouponUsage"
+            >
+              0
+            </div>
+
+            <div class="stat-change">
+              Used Coupons
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           FILTER BAR
+           ===================================================== -->
+
+      <div class="card coupon-toolbar">
+
+        <div class="toolbar-row">
+
+
+          <div class="search-box">
+
+            <i class="bi bi-search"></i>
+
+            <input
+              type="text"
+              id="couponSearch"
+              placeholder="Search coupon code..."
+              autocomplete="off"
+            >
+
+          </div>
+
+
+          <select
+            id="couponStatusFilter"
+            class="form-control"
+          >
+
+            <option value="">
+              All Status
+            </option>
+
+            <option value="active">
+              Active
+            </option>
+
+            <option value="inactive">
+              Inactive
+            </option>
+
+          </select>
+
+
+          <select
+            id="couponTypeFilter"
+            class="form-control"
+          >
+
+            <option value="">
+              All Types
+            </option>
+
+            <option value="percentage">
+              Percentage
+            </option>
+
+            <option value="fixed">
+              Fixed Amount
+            </option>
+
+          </select>
+
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="clearCouponFiltersBtn"
+          >
+            <i class="bi bi-x-circle"></i>
+            Clear
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           COUPON TABLE
+           ===================================================== -->
+
+      <div class="card">
+
+
+        <div class="card-header">
+
+          <div>
+
+            <div class="card-title">
+              Coupons
+            </div>
+
+            <div
+              class="table-count"
+              id="couponCountText"
+            >
+              0 coupons
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="table-wrap">
+
+          <table class="admin-table coupons-table">
+
+            <thead>
+
+              <tr>
+
+                <th>CODE</th>
+
+                <th>TYPE</th>
+
+                <th>VALUE</th>
+
+                <th>MIN ORDER</th>
+
+                <th>MAX DISCOUNT</th>
+
+                <th>VALIDITY</th>
+
+                <th>USAGE</th>
+
+                <th>STATUS</th>
+
+                <th>ACTIONS</th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody id="couponsTableBody">
+
+              <tr>
+
+                <td colspan="9">
+
+                  <div class="loading-state">
+
+                    <i class="bi bi-arrow-repeat"></i>
+
+                    <div>
+                      Loading coupons...
+                    </div>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+
+<!-- =====================================================
+     COUPON MODAL
+     ===================================================== -->
+
+<div
+  class="admin-modal"
+  id="couponModal"
+  aria-hidden="true"
+>
+
+  <div class="admin-modal-backdrop"></div>
+
+
+  <div class="admin-modal-dialog coupon-modal-dialog">
+
+
+    <div class="admin-modal-header">
+
+      <div>
+
+        <h3 id="couponModalTitle">
+          Add Coupon
+        </h3>
+
+        <p>
+          Create a new discount coupon.
+        </p>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="modal-close"
+        id="closeCouponModal"
+        aria-label="Close"
+      >
+        <i class="bi bi-x-lg"></i>
+      </button>
+
+    </div>
+
+
+
+    <form id="couponForm">
+
+
+      <input
+        type="hidden"
+        id="couponId"
+      >
+
+
+      <div class="admin-modal-body">
+
+
+        <!-- Code -->
+
+        <div class="form-group">
+
+          <label for="couponCode">
+            Coupon Code
+            <span>*</span>
+          </label>
+
+          <input
+            type="text"
+            id="couponCode"
+            class="form-control coupon-code-input"
+            placeholder="Example: SAVE10"
+            maxlength="50"
+            required
+          >
+
+          <small>
+            Use uppercase letters and numbers.
+          </small>
+
+        </div>
+
+
+        <div class="form-grid-2">
+
+
+          <!-- Type -->
+
+          <div class="form-group">
+
+            <label for="couponType">
+              Discount Type
+              <span>*</span>
+            </label>
+
+            <select
+              id="couponType"
+              class="form-control"
+              required
+            >
+
+              <option value="percentage">
+                Percentage (%)
+              </option>
+
+              <option value="fixed">
+                Fixed Amount (BDT)
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- Value -->
+
+          <div class="form-group">
+
+            <label for="couponValue">
+              Discount Value
+              <span>*</span>
+            </label>
+
+            <input
+              type="number"
+              id="couponValue"
+              class="form-control"
+              min="0"
+              step="0.01"
+              placeholder="10"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="form-grid-2">
+
+
+          <!-- Minimum -->
+
+          <div class="form-group">
+
+            <label for="minimumOrder">
+              Minimum Order
+            </label>
+
+            <input
+              type="number"
+              id="minimumOrder"
+              class="form-control"
+              min="0"
+              step="0.01"
+              placeholder="0"
+            >
+
+          </div>
+
+
+          <!-- Maximum -->
+
+          <div class="form-group">
+
+            <label for="maximumDiscount">
+              Maximum Discount
+            </label>
+
+            <input
+              type="number"
+              id="maximumDiscount"
+              class="form-control"
+              min="0"
+              step="0.01"
+              placeholder="No Limit"
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="form-grid-2">
+
+
+          <!-- Start -->
+
+          <div class="form-group">
+
+            <label for="startDate">
+              Start Date
+            </label>
+
+            <input
+              type="datetime-local"
+              id="startDate"
+              class="form-control"
+            >
+
+          </div>
+
+
+          <!-- End -->
+
+          <div class="form-group">
+
+            <label for="endDate">
+              End Date
+            </label>
+
+            <input
+              type="datetime-local"
+              id="endDate"
+              class="form-control"
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="form-grid-2">
+
+
+          <!-- Usage -->
+
+          <div class="form-group">
+
+            <label for="usageLimit">
+              Usage Limit
+            </label>
+
+            <input
+              type="number"
+              id="usageLimit"
+              class="form-control"
+              min="0"
+              step="1"
+              placeholder="Unlimited"
+            >
+
+            <small>
+              Leave blank for unlimited usage.
+            </small>
+
+          </div>
+
+
+          <!-- Status -->
+
+          <div class="form-group">
+
+            <label for="couponStatus">
+              Status
+            </label>
+
+            <select
+              id="couponStatus"
+              class="form-control"
+            >
+
+              <option value="active">
+                Active
+              </option>
+
+              <option value="inactive">
+                Inactive
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="admin-modal-footer">
+
+        <button
+          type="button"
+          class="btn btn-secondary"
+          id="cancelCouponBtn"
+        >
+          Cancel
+        </button>
+
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+          id="saveCouponBtn"
+        >
+          <i class="bi bi-check-lg"></i>
+          Save Coupon
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     VIEW COUPON MODAL
+     ===================================================== -->
+
+<div
+  class="admin-modal"
+  id="viewCouponModal"
+  aria-hidden="true"
+>
+
+  <div class="admin-modal-backdrop"></div>
+
+
+  <div class="admin-modal-dialog">
+
+
+    <div class="admin-modal-header">
+
+      <div>
+
+        <h3>
+          Coupon Details
+        </h3>
+
+        <p>
+          Complete coupon information.
+        </p>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="modal-close"
+        id="closeViewCouponModal"
+      >
+        <i class="bi bi-x-lg"></i>
+      </button>
+
+    </div>
+
+
+    <div
+      class="admin-modal-body"
+      id="couponDetailsContent"
+    >
+
+      <div class="loading-state">
+
+        <i class="bi bi-arrow-repeat"></i>
+
+        <div>
+          Loading...
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="admin-modal-footer">
+
+      <button
+        type="button"
+        class="btn btn-secondary"
+        id="closeViewCouponBtn"
+      >
+        Close
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SUPABASE
+     ===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/config.js"></script>
+<script src="../js/supabase.js"></script>
+
+<!-- Master Admin -->
+<script src="js/admin.js"></script>
+<script src="js/admin-auth.js"></script>
+
+<!-- Coupons -->
+<script src="js/coupons.js"></script>
+
+</body>
+
+</html>

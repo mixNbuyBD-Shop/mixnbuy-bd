@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =====================================================
+         BASIC META
+         ===================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#0f172a"
+    >
+
+    <meta
+        name="description"
+        content="MIXNBUY.BD Admin Login"
+    >
+
+    <meta
+        name="robots"
+        content="noindex, nofollow"
+    >
+
+
+    <!-- =====================================================
+         TITLE
+         ===================================================== -->
+
+    <title>MIXNBUY.BD — Admin Login</title>
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+         ===================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         BOOTSTRAP ICONS
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+
+    <!-- =====================================================
+         LOGIN CSS
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/login.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         LOGIN PAGE
+         ===================================================== -->
+
+    <main class="login-page">
+
+
+        <!-- =================================================
+             LOGIN WRAPPER
+             ================================================= -->
+
+        <div class="login-wrapper">
+
+
+            <!-- =============================================
+                 LOGIN CARD
+                 ============================================= -->
+
+            <section
+                class="login-card"
+                aria-label="Admin Login"
+            >
+
+
+                <!-- =========================================
+                     BRAND
+                     ========================================= -->
+
+                <div class="login-brand">
+
+                    <div class="login-brand-logo">
+
+                        <i class="bi bi-shop"></i>
+
+                    </div>
+
+
+                    <h1>
+                        MIXNBUY<span>.BD</span>
+                    </h1>
+
+
+                    <p>
+                        Professional Ecommerce Management System
+                    </p>
+
+                </div>
+
+
+                <!-- =========================================
+                     LOGIN HEADER
+                     ========================================= -->
+
+                <div class="login-header">
+
+                    <h2>
+                        Admin Login
+                    </h2>
+
+                    <p>
+                        Sign in to access your admin dashboard
+                        and manage your store.
+                    </p>
+
+                </div>
+
+
+                <!-- =========================================
+                     LOGIN MESSAGE
+                     ========================================= -->
+
+                <div
+                    id="loginMessage"
+                    class="login-message"
+                    role="alert"
+                    aria-live="polite"
+                >
+
+                    <i class="bi bi-exclamation-circle-fill"></i>
+
+                    <span class="login-message-text"></span>
+
+                </div>
+
+
+                <!-- =========================================
+                     LOGIN FORM
+                     ========================================= -->
+
+                <form
+                    id="loginForm"
+                    class="login-form"
+                    autocomplete="on"
+                    novalidate
+                >
+
+
+                    <!-- =====================================
+                         USERNAME / EMAIL
+                         ===================================== -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="loginIdentifier"
+                            class="form-label"
+                        >
+                            Username or Email
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <i
+                                class="bi bi-person input-icon"
+                                aria-hidden="true"
+                            ></i>
+
+
+                            <input
+                                type="text"
+                                id="loginIdentifier"
+                                name="identifier"
+                                class="form-control"
+                                placeholder="Enter username or email"
+                                autocomplete="username"
+                                spellcheck="false"
+                                autocapitalize="none"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div
+                            id="loginIdentifierError"
+                            class="field-error"
+                            role="alert"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- =====================================
+                         PASSWORD
+                         ===================================== -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="loginPassword"
+                            class="form-label"
+                        >
+                            Password
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <i
+                                class="bi bi-lock input-icon"
+                                aria-hidden="true"
+                            ></i>
+
+
+                            <input
+                                type="password"
+                                id="loginPassword"
+                                name="password"
+                                class="form-control"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                minlength="6"
+                                required
+                            >
+
+
+                            <button
+                                type="button"
+                                id="passwordToggle"
+                                class="password-toggle"
+                                aria-label="Show password"
+                                title="Show password"
+                            >
+
+                                <i
+                                    class="bi bi-eye"
+                                    aria-hidden="true"
+                                ></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            id="loginPasswordError"
+                            class="field-error"
+                            role="alert"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- =====================================
+                         LOGIN OPTIONS
+                         ===================================== -->
+
+                    <div class="login-options">
+
+
+                        <!-- Remember Me -->
+
+                        <label
+                            class="remember-me"
+                            for="rememberMe"
+                        >
+
+                            <input
+                                type="checkbox"
+                                id="rememberMe"
+                                name="remember"
+                            >
+
+                            <span>
+                                Remember me
+                            </span>
+
+                        </label>
+
+
+                        <!-- Forgot Password -->
+
+                        <a
+                            href="#"
+                            id="forgotPassword"
+                            class="forgot-password"
+                        >
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+
+                    <!-- =====================================
+                         LOGIN BUTTON
+                         ===================================== -->
+
+                    <button
+                        type="submit"
+                        id="loginBtn"
+                        class="login-btn"
+                    >
+
+                        <i
+                            class="bi bi-box-arrow-in-right"
+                            aria-hidden="true"
+                        ></i>
+
+                        <span>
+                            Sign In
+                        </span>
+
+                    </button>
+
+
+                </form>
+
+
+                <!-- =========================================
+                     SECURITY NOTE
+                     ========================================= -->
+
+                <div class="security-note">
+
+                    <i
+                        class="bi bi-shield-lock-fill"
+                        aria-hidden="true"
+                    ></i>
+
+                    <span>
+                        Secure administrator access
+                    </span>
+
+                </div>
+
+
+                <!-- =========================================
+                     FOOTER
+                     ========================================= -->
+
+                <div class="login-footer">
+
+                    <p>
+                        ©
+                        <span id="currentYear"></span>
+                        <strong>MIXNBUY.BD</strong>
+                        . All rights reserved.
+                    </p>
+
+                    <p>
+                        Admin Panel
+                    </p>
+
+                </div>
+
+
+            </section>
+
+
+        </div>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         PAGE LOADER
+         ===================================================== -->
+
+    <div
+        id="loginLoader"
+        class="login-loader"
+        aria-hidden="true"
+    >
+
+        <div class="login-loader-box">
+
+            <div class="login-loader-spinner"></div>
+
+            <div class="login-loader-text">
+                Checking session...
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         SUPABASE
+         ===================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <!-- =====================================================
+         MIXNBUY CONFIG
+         ===================================================== -->
+
+    <script src="../js/config.js"></script>
+
+
+    <!-- =====================================================
+         SUPABASE CLIENT
+         ===================================================== -->
+
+    <script src="../js/supabase.js"></script>
+
+
+    <!-- =====================================================
+         ADMIN LOGIN JS
+         ===================================================== -->
+
+    <script src="js/login.js"></script>
+
+
+    <!-- =====================================================
+         SMALL PAGE SCRIPT
+         ===================================================== -->
+
+    <script>
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const yearElement =
+                    document.getElementById(
+                        "currentYear"
+                    );
+
+                if (yearElement) {
+
+                    yearElement.textContent =
+                        new Date().getFullYear();
+                }
+
+
+                const forgotPassword =
+                    document.getElementById(
+                        "forgotPassword"
+                    );
+
+                if (forgotPassword) {
+
+                    forgotPassword.addEventListener(
+                        "click",
+                        function (event) {
+
+                            event.preventDefault();
+
+                            const message =
+                                document.getElementById(
+                                    "loginMessage"
+                                );
+
+                            if (!message) {
+                                return;
+                            }
+
+
+                            const icon =
+                                message.querySelector(
+                                    "i"
+                                );
+
+                            const text =
+                                message.querySelector(
+                                    ".login-message-text"
+                                );
+
+
+                            message.className =
+                                "login-message show info";
+
+
+                            if (icon) {
+
+                                icon.className =
+                                    "bi bi-info-circle-fill";
+                            }
+
+
+                            if (text) {
+
+                                text.textContent =
+                                    "Please contact the store administrator to reset your admin password.";
+                            }
+                        }
+                    );
+                }
+
+            }
+        );
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Profit / Loss - MIXNBUY.BD</title>
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Master Admin CSS -->
+    <link
+        rel="stylesheet"
+        href="css/admin.css"
+    >
+
+    <!-- Page CSS -->
+    <link
+        rel="stylesheet"
+        href="css/profit-loss.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="admin-app">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside
+        class="admin-sidebar"
+        id="adminSidebar"
+    >
+
+        <div class="sidebar-brand">
+
+            <a href="dashboard.html">
+
+                <div class="sidebar-brand-icon">
+                    <i class="bi bi-bag-heart-fill"></i>
+                </div>
+
+                <div class="sidebar-brand-name">
+                    MIXN<span>BUY</span><small>.BD</small>
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+
+            <!-- MAIN -->
+
+            <div class="sidebar-section">
+
+                <div class="sidebar-section-title">
+                    Main
+                </div>
+
+                <ul class="sidebar-menu">
+
+                    <li>
+                        <a
+                            href="dashboard.html"
+                            class="sidebar-link"
+                        >
+                            <i class="bi bi-grid-1x2-fill"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- SALES & PURCHASE -->
+
+            <div class="sidebar-section">
+
+                <div class="sidebar-section-title">
+                    Sales &amp; Purchase
+                </div>
+
+                <ul class="sidebar-menu">
+
+                    <li>
+                        <a
+                            href="purchases.html"
+                            class="sidebar-link"
+                        >
+                            <i class="bi bi-cart-check-fill"></i>
+                            <span>Purchases</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="sales.html"
+                            class="sidebar-link"
+                        >
+                            <i class="bi bi-cash-stack"></i>
+                            <span>Sales</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="sales-return.html"
+                            class="sidebar-link"
+                        >
+                            <i class="bi bi-arrow-return-left"></i>
+                            <span>Sales Return</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="orders.html"
+                            class="sidebar-link"
+                        >
+                            <i class="bi bi-box-seam-fill"></i>
+                            <span>Orders</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="order-status.html"
+                            class="sidebar-link"
+                        >
+                            <i class="bi bi-arrow-repeat"></i>
+                            <span>Order Status / Tracking</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- INVENTORY -->
+
+            <div class="sidebar-section">
+
+                <div class="sidebar-section-title">
+                    Inventory
+                </div>
+
+                <ul class="sidebar-menu">
+
+                    <li>
+                        <a
+                            href="stock.html"
+                            class="sidebar-link"
+                        >
+                            <i class="bi bi-bar-chart-fill"></i>
+                            <span>Stock</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="suppliers.html"
+                            class="sidebar-link"
+                        >
+                            <i class="bi bi-buildings-fill"></i>
+                            <span>Suppliers</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="products.html"
+                            class="sidebar-link"
+                        >
+                            <i class="bi bi-tags-fill"></i>
+                            <span>Products</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- CUSTOMERS & MARKETING -->
+
+            <div class="sidebar-section">
+
+                <div class="sidebar-section-title">
+                    Customers &amp; Marketing
+                </div>
+
+                <ul class="sidebar-menu">
+
+                    <li>
+                        <a
+                            href="customers.html"
+                            class="sidebar-link"
+                        >
+                            <i class="bi bi-people-fill"></i>
+                            <span>Customers</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="coupons.html"
+                            class="sidebar-link"
+                        >
+                            <i class="bi bi-ticket-perforated-fill"></i>
+                            <span>Coupons</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- BUSINESS -->
+
+            <div class="sidebar-section">
+
+                <div class="sidebar-section-title">
+                    Business
+                </div>
+
+                <ul class="sidebar-menu">
+
+                    <li>
+                        <a
+                            href="reports.html"
+                            class="sidebar-link"
+                        >
+                            <i class="bi bi-file-earmark-bar-graph-fill"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="analysis.html"
+                            class="sidebar-link"
+                        >
+                            <i class="bi bi-graph-up-arrow"></i>
+                            <span>Analysis</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="profit-loss.html"
+                            class="sidebar-link active"
+                            aria-current="page"
+                        >
+                            <i class="bi bi-wallet2"></i>
+                            <span>Profit / Loss</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- SYSTEM -->
+
+            <div class="sidebar-section">
+
+                <div class="sidebar-section-title">
+                    System
+                </div>
+
+                <ul class="sidebar-menu">
+
+                    <li>
+                        <a
+                            href="settings.html"
+                            class="sidebar-link"
+                        >
+                            <i class="bi bi-gear-fill"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="activity-logs.html"
+                            class="sidebar-link"
+                        >
+                            <i class="bi bi-journal-text"></i>
+                            <span>Activity Logs</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+
+
+        <!-- SIDEBAR FOOTER -->
+
+        <div class="sidebar-footer">
+
+            <a
+                href="#"
+                class="sidebar-link logout admin-logout"
+                data-admin-logout
+            >
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- SIDEBAR OVERLAY -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="admin-main">
+
+
+        <!-- TOPBAR -->
+
+        <header class="admin-topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="mobile-sidebar-btn"
+                    id="mobileSidebarBtn"
+                    aria-label="Open menu"
+                >
+                    <i class="bi bi-list"></i>
+                </button>
+
+
+                <div class="topbar-page-info">
+
+                    <h1>
+                        Profit / Loss
+                    </h1>
+
+                    <p>
+                        Financial performance and profitability overview
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button
+                    type="button"
+                    class="topbar-icon-btn"
+                    title="Notifications"
+                >
+                    <i class="bi bi-bell"></i>
+                </button>
+
+
+                <div class="topbar-profile">
+
+                    <div class="topbar-profile-avatar">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
+
+                    <div class="topbar-profile-info">
+
+                        <strong id="adminName">
+                            Admin
+                        </strong>
+
+                        <span>
+                            Administrator
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- CONTENT -->
+
+        <section class="admin-content profit-loss-page">
+
+
+            <!-- PAGE INTRO -->
+
+            <div class="pl-page-intro">
+
+                <div>
+
+                    <h2>
+                        Profit &amp; Loss Statement
+                    </h2>
+
+                    <p>
+                        Track sales, product costs, returns,
+                        expenses and net business profit.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FILTER CARD
+                 ================================================= -->
+
+            <div class="pl-filter-card">
+
+                <div class="pl-filter-header">
+
+                    <div>
+
+                        <h3>
+                            Report Period
+                        </h3>
+
+                        <p>
+                            Select the period for the P&amp;L calculation.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        id="refreshProfitLossBtn"
+                    >
+                        <i class="bi bi-arrow-clockwise"></i>
+                        Refresh
+                    </button>
+
+                </div>
+
+
+                <div class="pl-filter-controls">
+
+
+                    <div class="pl-date-field">
+
+                        <label for="profitLossStartDate">
+                            Start Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="profitLossStartDate"
+                        >
+
+                    </div>
+
+
+                    <div class="pl-date-field">
+
+                        <label for="profitLossEndDate">
+                            End Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="profitLossEndDate"
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="generateProfitLossBtn"
+                    >
+                        <i class="bi bi-bar-chart-line"></i>
+                        Generate
+                    </button>
+
+                </div>
+
+
+                <div class="pl-presets">
+
+                    <span>
+                        Quick Range:
+                    </span>
+
+                    <button
+                        type="button"
+                        class="pl-preset"
+                        data-range="today"
+                    >
+                        Today
+                    </button>
+
+                    <button
+                        type="button"
+                        class="pl-preset"
+                        data-range="7"
+                    >
+                        Last 7 Days
+                    </button>
+
+                    <button
+                        type="button"
+                        class="pl-preset"
+                        data-range="30"
+                    >
+                        Last 30 Days
+                    </button>
+
+                    <button
+                        type="button"
+                        class="pl-preset"
+                        data-range="month"
+                    >
+                        This Month
+                    </button>
+
+                    <button
+                        type="button"
+                        class="pl-preset"
+                        data-range="year"
+                    >
+                        This Year
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 KPI CARDS
+                 ================================================= -->
+
+            <div class="pl-kpi-grid">
+
+
+                <div class="pl-kpi-card sales">
+
+                    <div class="pl-kpi-icon">
+                        <i class="bi bi-cash-stack"></i>
+                    </div>
+
+                    <div class="pl-kpi-content">
+
+                        <span>
+                            Net Sales
+                        </span>
+
+                        <strong id="plNetSales">
+                            ৳0.00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pl-kpi-card cogs">
+
+                    <div class="pl-kpi-icon">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+
+                    <div class="pl-kpi-content">
+
+                        <span>
+                            Cost of Goods Sold
+                        </span>
+
+                        <strong id="plCogs">
+                            ৳0.00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pl-kpi-card gross">
+
+                    <div class="pl-kpi-icon">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+
+                    <div class="pl-kpi-content">
+
+                        <span>
+                            Gross Profit
+                        </span>
+
+                        <strong id="plGrossProfit">
+                            ৳0.00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pl-kpi-card margin">
+
+                    <div class="pl-kpi-icon">
+                        <i class="bi bi-percent"></i>
+                    </div>
+
+                    <div class="pl-kpi-content">
+
+                        <span>
+                            Gross Margin
+                        </span>
+
+                        <strong id="plGrossMargin">
+                            0.00%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pl-kpi-card returns">
+
+                    <div class="pl-kpi-icon">
+                        <i class="bi bi-arrow-return-left"></i>
+                    </div>
+
+                    <div class="pl-kpi-content">
+
+                        <span>
+                            Sales Returns
+                        </span>
+
+                        <strong id="plReturns">
+                            ৳0.00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pl-kpi-card expenses">
+
+                    <div class="pl-kpi-icon">
+                        <i class="bi bi-receipt"></i>
+                    </div>
+
+                    <div class="pl-kpi-content">
+
+                        <span>
+                            Operating Expenses
+                        </span>
+
+                        <strong id="plExpenses">
+                            ৳0.00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pl-kpi-card net">
+
+                    <div class="pl-kpi-icon">
+                        <i class="bi bi-wallet2"></i>
+                    </div>
+
+                    <div class="pl-kpi-content">
+
+                        <span>
+                            Net Profit / Loss
+                        </span>
+
+                        <strong id="plNetProfit">
+                            ৳0.00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pl-kpi-card net-margin">
+
+                    <div class="pl-kpi-icon">
+                        <i class="bi bi-pie-chart-fill"></i>
+                    </div>
+
+                    <div class="pl-kpi-content">
+
+                        <span>
+                            Net Margin
+                        </span>
+
+                        <strong id="plNetMargin">
+                            0.00%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PROFIT SUMMARY
+                 ================================================= -->
+
+            <div class="pl-main-grid">
+
+
+                <div class="pl-panel">
+
+                    <div class="pl-panel-header">
+
+                        <div>
+
+                            <h3>
+                                Profit &amp; Loss Summary
+                            </h3>
+
+                            <p>
+                                Financial statement for selected period.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pl-statement">
+
+
+                        <div class="pl-statement-row">
+
+                            <span>
+                                Gross Sales
+                            </span>
+
+                            <strong id="statementGrossSales">
+                                ৳0.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="pl-statement-row deduction">
+
+                            <span>
+                                Less: Sales Returns
+                            </span>
+
+                            <strong id="statementReturns">
+                                ৳0.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="pl-statement-row total">
+
+                            <span>
+                                Net Sales
+                            </span>
+
+                            <strong id="statementNetSales">
+                                ৳0.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="pl-statement-divider"></div>
+
+
+                        <div class="pl-statement-row deduction">
+
+                            <span>
+                                Cost of Goods Sold
+                            </span>
+
+                            <strong id="statementCogs">
+                                ৳0.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="pl-statement-row highlight">
+
+                            <span>
+                                Gross Profit
+                            </span>
+
+                            <strong id="statementGrossProfit">
+                                ৳0.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="pl-statement-divider"></div>
+
+
+                        <div class="pl-statement-row deduction">
+
+                            <span>
+                                Operating Expenses
+                            </span>
+
+                            <strong id="statementExpenses">
+                                ৳0.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="pl-statement-row final">
+
+                            <span>
+                                Net Profit / Loss
+                            </span>
+
+                            <strong id="statementNetProfit">
+                                ৳0.00
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- EXPENSE BREAKDOWN -->
+
+                <div class="pl-panel">
+
+                    <div class="pl-panel-header">
+
+                        <div>
+
+                            <h3>
+                                Expense Breakdown
+                            </h3>
+
+                            <p>
+                                Operating expenses by category.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="pl-expense-list"
+                        id="expenseBreakdown"
+                    >
+
+                        <div class="pl-empty-state">
+
+                            <i class="bi bi-bar-chart"></i>
+
+                            <span>
+                                No expense data
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CHART
+                 ================================================= -->
+
+            <div class="pl-panel">
+
+                <div class="pl-panel-header">
+
+                    <div>
+
+                        <h3>
+                            Financial Performance
+                        </h3>
+
+                        <p>
+                            Sales, cost and profit comparison.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pl-chart-wrapper">
+
+                    <canvas
+                        id="profitLossChart"
+                    ></canvas>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 DAILY P&L
+                 ================================================= -->
+
+            <div class="pl-panel">
+
+                <div class="pl-panel-header">
+
+                    <div>
+
+                        <h3>
+                            Daily Profit &amp; Loss
+                        </h3>
+
+                        <p>
+                            Daily sales, cost, expenses and profit.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pl-table-wrapper">
+
+                    <table class="pl-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Sales
+                                </th>
+
+                                <th>
+                                    COGS
+                                </th>
+
+                                <th>
+                                    Gross Profit
+                                </th>
+
+                                <th>
+                                    Returns
+                                </th>
+
+                                <th>
+                                    Expenses
+                                </th>
+
+                                <th>
+                                    Net Profit / Loss
+                                </th>
+
+                                <th>
+                                    Margin
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="dailyProfitLossBody">
+
+                            <tr>
+
+                                <td
+                                    colspan="8"
+                                    class="table-loading"
+                                >
+                                    Loading...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PRODUCT PROFITABILITY
+                 ================================================= -->
+
+            <div class="pl-panel">
+
+                <div class="pl-panel-header">
+
+                    <div>
+
+                        <h3>
+                            Product Profitability
+                        </h3>
+
+                        <p>
+                            Products ranked by gross profit.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pl-table-wrapper">
+
+                    <table class="pl-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    #
+                                </th>
+
+                                <th>
+                                    Product
+                                </th>
+
+                                <th>
+                                    Qty Sold
+                                </th>
+
+                                <th>
+                                    Sales
+                                </th>
+
+                                <th>
+                                    Product Cost
+                                </th>
+
+                                <th>
+                                    Gross Profit
+                                </th>
+
+                                <th>
+                                    Margin
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="productProfitabilityBody">
+
+                            <tr>
+
+                                <td
+                                    colspan="7"
+                                    class="table-loading"
+                                >
+                                    Loading...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 EXPORT
+                 ================================================= -->
+
+            <div class="pl-bottom-actions">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="exportProfitLossBtn"
+                >
+                    <i class="bi bi-filetype-csv"></i>
+                    Export CSV
+                </button>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================================
+     LOADING OVERLAY
+     ========================================================= -->
+
+<div
+    class="pl-loading-overlay"
+    id="profitLossLoading"
+>
+
+    <div class="pl-loading-box">
+
+        <div class="pl-spinner"></div>
+
+        <strong>
+            Generating Profit &amp; Loss...
+        </strong>
+
+        <span>
+            Please wait
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     MESSAGE MODAL
+     ========================================================= -->
+
+<div
+    class="pl-message-overlay"
+    id="profitLossMessage"
+>
+
+    <div class="pl-message-modal">
+
+        <button
+            type="button"
+            class="pl-message-close"
+            id="closeProfitLossMessage"
+        >
+            <i class="bi bi-x-lg"></i>
+        </button>
+
+
+        <div class="pl-message-icon">
+            <i
+                class="bi bi-info-circle-fill"
+                id="profitLossMessageIcon"
+            ></i>
+        </div>
+
+
+        <h3 id="profitLossMessageTitle">
+            Information
+        </h3>
+
+
+        <p id="profitLossMessageText">
+            -
+        </p>
+
+
+        <button
+            type="button"
+            class="btn btn-primary"
+            id="profitLossMessageOk"
+        >
+            OK
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     SCRIPTS
+     ========================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/config.js"></script>
+
+<script src="../js/supabase.js"></script>
+
+<script src="js/admin.js"></script>
+
+<script src="js/admin-auth.js"></script>
+
+<script src="js/profit-loss.js"></script>
+
+
+</body>
+
+</html>

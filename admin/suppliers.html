@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Suppliers | MIXNBUY.BD Admin</title>
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  >
+
+  <!-- Master Admin CSS -->
+  <link
+    rel="stylesheet"
+    href="css/admin.css"
+  >
+
+  <!-- Suppliers CSS -->
+  <link
+    rel="stylesheet"
+    href="css/suppliers.css"
+  >
+
+</head>
+
+
+<body>
+
+<div class="admin-app">
+
+
+  <!-- =====================================================
+       SIDEBAR
+       ===================================================== -->
+
+  <aside
+    class="admin-sidebar"
+    id="adminSidebar"
+  >
+
+    <!-- Brand -->
+
+    <div class="sidebar-brand">
+
+      <a href="dashboard.html">
+
+        <div class="sidebar-brand-icon">
+          <i class="bi bi-bag-heart-fill"></i>
+        </div>
+
+        <div class="sidebar-brand-name">
+          MIXN<span>BUY</span><small>.BD</small>
+        </div>
+
+      </a>
+
+    </div>
+
+
+    <!-- Navigation -->
+
+    <nav class="sidebar-nav">
+
+
+      <!-- MAIN -->
+
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Main
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+
+            <a
+              href="dashboard.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-grid-1x2-fill"></i>
+
+              <span>
+                Dashboard
+              </span>
+
+            </a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+
+
+      <!-- SALES & PURCHASE -->
+
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Sales & Purchase
+        </div>
+
+        <ul class="sidebar-menu">
+
+
+          <li>
+
+            <a
+              href="purchases.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-cart-plus"></i>
+
+              <span>
+                Purchases
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="sales.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-cash-stack"></i>
+
+              <span>
+                Sales
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="sales-return.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-arrow-return-left"></i>
+
+              <span>
+                Sales Return
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="orders.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-box-seam"></i>
+
+              <span>
+                Orders
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="order-status.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-arrow-repeat"></i>
+
+              <span>
+                Order Status / Tracking
+              </span>
+
+            </a>
+
+          </li>
+
+
+        </ul>
+
+      </div>
+
+
+
+      <!-- INVENTORY -->
+
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Inventory
+        </div>
+
+        <ul class="sidebar-menu">
+
+
+          <li>
+
+            <a
+              href="stock.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-bar-chart-line"></i>
+
+              <span>
+                Stock
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="suppliers.html"
+              class="sidebar-link active"
+            >
+
+              <i class="bi bi-buildings"></i>
+
+              <span>
+                Suppliers
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="products.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-tags"></i>
+
+              <span>
+                Products
+              </span>
+
+            </a>
+
+          </li>
+
+
+        </ul>
+
+      </div>
+
+
+
+      <!-- CUSTOMERS & MARKETING -->
+
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Customers & Marketing
+        </div>
+
+        <ul class="sidebar-menu">
+
+
+          <li>
+
+            <a
+              href="customers.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-people"></i>
+
+              <span>
+                Customers
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="coupons.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-ticket-perforated"></i>
+
+              <span>
+                Coupons
+              </span>
+
+            </a>
+
+          </li>
+
+
+        </ul>
+
+      </div>
+
+
+
+      <!-- BUSINESS -->
+
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Business
+        </div>
+
+        <ul class="sidebar-menu">
+
+
+          <li>
+
+            <a
+              href="reports.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-file-earmark-bar-graph"></i>
+
+              <span>
+                Reports
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="analysis.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-pie-chart"></i>
+
+              <span>
+                Analysis
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="profit-loss.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-graph-up-arrow"></i>
+
+              <span>
+                Profit / Loss
+              </span>
+
+            </a>
+
+          </li>
+
+
+        </ul>
+
+      </div>
+
+
+
+      <!-- SYSTEM -->
+
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          System
+        </div>
+
+        <ul class="sidebar-menu">
+
+
+          <li>
+
+            <a
+              href="settings.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-gear"></i>
+
+              <span>
+                Settings
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              href="activity-logs.html"
+              class="sidebar-link"
+            >
+
+              <i class="bi bi-journal-text"></i>
+
+              <span>
+                Activity Logs
+              </span>
+
+            </a>
+
+          </li>
+
+
+        </ul>
+
+      </div>
+
+
+    </nav>
+
+
+    <!-- Sidebar Footer -->
+
+    <div class="sidebar-footer">
+
+      <a
+        href="#"
+        class="sidebar-link logout admin-logout"
+        data-admin-logout
+      >
+
+        <i class="bi bi-box-arrow-right"></i>
+
+        <span>
+          Logout
+        </span>
+
+      </a>
+
+    </div>
+
+
+  </aside>
+
+
+
+  <!-- Sidebar Overlay -->
+
+  <div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+  ></div>
+
+
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
+
+  <main class="admin-main">
+
+
+    <!-- ===================================================
+         TOPBAR
+         =================================================== -->
+
+    <header class="admin-topbar">
+
+
+      <div class="topbar-left">
+
+
+        <!-- Mobile Sidebar -->
+
+        <button
+          type="button"
+          class="mobile-sidebar-btn"
+          id="mobileSidebarBtn"
+          aria-label="Open menu"
+        >
+
+          <i class="bi bi-list"></i>
+
+        </button>
+
+
+        <!-- Page Heading -->
+
+        <div class="page-heading">
+
+          <h1>
+            Suppliers
+          </h1>
+
+          <p>
+            Manage your suppliers and supplier balances
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- Topbar Right -->
+
+      <div class="topbar-right">
+
+
+        <!-- Refresh -->
+
+        <button
+          type="button"
+          class="topbar-icon-btn"
+          id="refreshSuppliersBtn"
+          title="Refresh"
+        >
+
+          <i class="bi bi-arrow-clockwise"></i>
+
+        </button>
+
+
+        <!-- Notification -->
+
+        <button
+          type="button"
+          class="topbar-icon-btn"
+          title="Notifications"
+        >
+
+          <i class="bi bi-bell"></i>
+
+          <span class="notification-dot"></span>
+
+        </button>
+
+
+        <!-- Admin Profile -->
+
+        <div class="admin-profile">
+
+
+          <div
+            class="admin-avatar"
+            id="adminAvatar"
+          >
+            AD
+          </div>
+
+
+          <div class="admin-profile-info">
+
+
+            <div
+              class="admin-profile-name"
+              id="adminName"
+            >
+              Admin
+            </div>
+
+
+            <div
+              class="admin-profile-role"
+              id="adminRole"
+            >
+              Administrator
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </header>
+
+
+
+    <!-- ===================================================
+         CONTENT
+         =================================================== -->
+
+    <section class="admin-content">
+
+
+      <!-- Page Header -->
+
+      <div class="content-header">
+
+
+        <div>
+
+          <h2>
+            Supplier Management
+          </h2>
+
+          <p>
+            Add, edit, view and manage supplier information.
+          </p>
+
+        </div>
+
+
+        <div class="quick-actions">
+
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="newSupplierBtn"
+          >
+
+            <i class="bi bi-plus-lg"></i>
+
+            Add Supplier
+
+          </button>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- =================================================
+           STAT CARDS
+           ================================================= -->
+
+      <div class="stats-grid">
+
+
+        <!-- Total -->
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+
+            <i class="bi bi-buildings"></i>
+
+          </div>
+
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Total Suppliers
+            </div>
+
+            <div
+              class="stat-value"
+              id="totalSuppliers"
+            >
+              0
+            </div>
+
+            <div class="stat-change">
+              All Suppliers
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Active -->
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+
+            <i class="bi bi-check-circle"></i>
+
+          </div>
+
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Active Suppliers
+            </div>
+
+            <div
+              class="stat-value"
+              id="activeSuppliers"
+            >
+              0
+            </div>
+
+            <div class="stat-change">
+              Active
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Inactive -->
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+
+            <i class="bi bi-pause-circle"></i>
+
+          </div>
+
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Inactive Suppliers
+            </div>
+
+            <div
+              class="stat-value"
+              id="inactiveSuppliers"
+            >
+              0
+            </div>
+
+            <div class="stat-change">
+              Inactive
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Opening Balance -->
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+
+            <i class="bi bi-wallet2"></i>
+
+          </div>
+
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Opening Balance
+            </div>
+
+            <div
+              class="stat-value"
+              id="openingBalance"
+            >
+              BDT 0
+            </div>
+
+            <div class="stat-change">
+              Supplier Balance
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- =================================================
+           SEARCH / FILTER
+           ================================================= -->
+
+      <div class="card supplier-toolbar">
+
+
+        <div class="supplier-toolbar-row">
+
+
+          <!-- Search -->
+
+          <div class="supplier-search">
+
+            <i class="bi bi-search"></i>
+
+            <input
+              type="text"
+              id="supplierSearch"
+              placeholder="Search supplier, company, phone, email..."
+              autocomplete="off"
+            >
+
+          </div>
+
+
+          <!-- Status -->
+
+          <div class="supplier-filter">
+
+            <select id="statusFilter">
+
+              <option value="">
+                All Status
+              </option>
+
+              <option value="active">
+                Active
+              </option>
+
+              <option value="inactive">
+                Inactive
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- Add -->
+
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="toolbarAddSupplierBtn"
+          >
+
+            <i class="bi bi-plus-lg"></i>
+
+            Add Supplier
+
+          </button>
+
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- =================================================
+           SUPPLIERS TABLE
+           ================================================= -->
+
+      <div class="card supplier-table-card">
+
+
+        <div class="card-header">
+
+
+          <div class="card-title">
+            Suppliers
+          </div>
+
+
+          <div class="supplier-result-count">
+
+            <span id="supplierResultCount">
+              0 suppliers
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+
+        <div class="table-wrap">
+
+
+          <table class="admin-table supplier-table">
+
+
+            <thead>
+
+              <tr>
+
+                <th>
+                  Supplier
+                </th>
+
+                <th>
+                  Company
+                </th>
+
+                <th>
+                  Contact
+                </th>
+
+                <th>
+                  Location
+                </th>
+
+                <th>
+                  Opening Balance
+                </th>
+
+                <th>
+                  Status
+                </th>
+
+                <th class="text-right">
+                  Actions
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody id="suppliersTableBody">
+
+
+              <tr>
+
+                <td colspan="7">
+
+                  <div class="loading-state">
+
+                    <i class="bi bi-arrow-repeat"></i>
+
+                    <div>
+                      Loading suppliers...
+                    </div>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+
+            </tbody>
+
+
+          </table>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+
+</div>
+
+
+
+<!-- =======================================================
+     SUPPLIER MODAL
+     ======================================================= -->
+
+<div
+  class="modal-backdrop"
+  id="supplierModal"
+  hidden
+>
+
+
+  <div
+    class="modal supplier-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="supplierModalTitle"
+  >
+
+
+    <div class="modal-header">
+
+
+      <div>
+
+        <h3 id="supplierModalTitle">
+          Add Supplier
+        </h3>
+
+        <p>
+          Enter supplier information
+        </p>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="modal-close"
+        id="closeSupplierModal"
+        aria-label="Close"
+      >
+
+        <i class="bi bi-x-lg"></i>
+
+      </button>
+
+
+    </div>
+
+
+
+    <form id="supplierForm">
+
+
+      <div class="modal-body">
+
+
+        <input
+          type="hidden"
+          id="supplierId"
+        >
+
+
+        <!-- Supplier Name -->
+
+        <div class="form-grid">
+
+
+          <div class="form-group">
+
+            <label for="supplierName">
+              Supplier Name
+              <span>*</span>
+            </label>
+
+            <input
+              type="text"
+              id="supplierName"
+              required
+              maxlength="150"
+              placeholder="Enter supplier name"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="supplierCompany">
+              Company Name
+            </label>
+
+            <input
+              type="text"
+              id="supplierCompany"
+              maxlength="150"
+              placeholder="Enter company name"
+            >
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- Contact -->
+
+        <div class="form-grid">
+
+
+          <div class="form-group">
+
+            <label for="supplierPhone">
+              Phone
+            </label>
+
+            <input
+              type="tel"
+              id="supplierPhone"
+              maxlength="30"
+              placeholder="01XXXXXXXXX"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="supplierEmail">
+              Email
+            </label>
+
+            <input
+              type="email"
+              id="supplierEmail"
+              maxlength="150"
+              placeholder="supplier@example.com"
+            >
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- Address -->
+
+        <div class="form-group">
+
+          <label for="supplierAddress">
+            Address
+          </label>
+
+          <textarea
+            id="supplierAddress"
+            rows="3"
+            maxlength="500"
+            placeholder="Supplier address"
+          ></textarea>
+
+        </div>
+
+
+
+        <!-- City / District -->
+
+        <div class="form-grid">
+
+
+          <div class="form-group">
+
+            <label for="supplierCity">
+              City
+            </label>
+
+            <input
+              type="text"
+              id="supplierCity"
+              maxlength="100"
+              placeholder="City"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="supplierDistrict">
+              District
+            </label>
+
+            <input
+              type="text"
+              id="supplierDistrict"
+              maxlength="100"
+              placeholder="District"
+            >
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- Balance / Status -->
+
+        <div class="form-grid">
+
+
+          <div class="form-group">
+
+            <label for="supplierOpeningBalance">
+              Opening Balance
+            </label>
+
+            <input
+              type="number"
+              id="supplierOpeningBalance"
+              min="0"
+              step="0.01"
+              value="0"
+              placeholder="0.00"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="supplierStatus">
+              Status
+            </label>
+
+            <select id="supplierStatus">
+
+              <option value="active">
+                Active
+              </option>
+
+              <option value="inactive">
+                Inactive
+              </option>
+
+            </select>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- Note -->
+
+        <div class="form-group">
+
+          <label for="supplierNote">
+            Note
+          </label>
+
+          <textarea
+            id="supplierNote"
+            rows="3"
+            maxlength="1000"
+            placeholder="Additional note..."
+          ></textarea>
+
+        </div>
+
+
+      </div>
+
+
+
+      <div class="modal-footer">
+
+
+        <button
+          type="button"
+          class="btn btn-secondary"
+          id="cancelSupplierBtn"
+        >
+
+          Cancel
+
+        </button>
+
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+          id="saveSupplierBtn"
+        >
+
+          <i class="bi bi-check-lg"></i>
+
+          Save Supplier
+
+        </button>
+
+
+      </div>
+
+
+    </form>
+
+
+  </div>
+
+</div>
+
+
+
+<!-- =======================================================
+     VIEW SUPPLIER MODAL
+     ======================================================= -->
+
+<div
+  class="modal-backdrop"
+  id="viewSupplierModal"
+  hidden
+>
+
+
+  <div
+    class="modal supplier-view-modal"
+    role="dialog"
+    aria-modal="true"
+  >
+
+
+    <div class="modal-header">
+
+
+      <div>
+
+        <h3>
+          Supplier Details
+        </h3>
+
+        <p>
+          Supplier information
+        </p>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="modal-close"
+        id="closeViewSupplierModal"
+      >
+
+        <i class="bi bi-x-lg"></i>
+
+      </button>
+
+
+    </div>
+
+
+
+    <div class="modal-body">
+
+
+      <div class="supplier-profile-card">
+
+
+        <div class="supplier-profile-icon">
+
+          <i class="bi bi-buildings"></i>
+
+        </div>
+
+
+        <div>
+
+          <h3 id="viewSupplierName">
+            -
+          </h3>
+
+          <p id="viewSupplierCompany">
+            -
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+
+      <div class="supplier-detail-grid">
+
+
+        <div class="detail-item">
+
+          <span>
+            Supplier Code
+          </span>
+
+          <strong id="viewSupplierCode">
+            -
+          </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+          <span>
+            Status
+          </span>
+
+          <strong id="viewSupplierStatus">
+            -
+          </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+          <span>
+            Phone
+          </span>
+
+          <strong id="viewSupplierPhone">
+            -
+          </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+          <span>
+            Email
+          </span>
+
+          <strong id="viewSupplierEmail">
+            -
+          </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+          <span>
+            City
+          </span>
+
+          <strong id="viewSupplierCity">
+            -
+          </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+          <span>
+            District
+          </span>
+
+          <strong id="viewSupplierDistrict">
+            -
+          </strong>
+
+        </div>
+
+
+        <div class="detail-item detail-wide">
+
+          <span>
+            Opening Balance
+          </span>
+
+          <strong id="viewSupplierBalance">
+            BDT 0
+          </strong>
+
+        </div>
+
+
+        <div class="detail-item detail-wide">
+
+          <span>
+            Address
+          </span>
+
+          <strong id="viewSupplierAddress">
+            -
+          </strong>
+
+        </div>
+
+
+        <div class="detail-item detail-wide">
+
+          <span>
+            Note
+          </span>
+
+          <strong id="viewSupplierNote">
+            -
+          </strong>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="modal-footer">
+
+
+      <button
+        type="button"
+        class="btn btn-secondary"
+        id="viewCloseBtn"
+      >
+
+        Close
+
+      </button>
+
+
+      <button
+        type="button"
+        class="btn btn-primary"
+        id="viewEditBtn"
+      >
+
+        <i class="bi bi-pencil"></i>
+
+        Edit Supplier
+
+      </button>
+
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+<!-- =======================================================
+     DELETE CONFIRM MODAL
+     ======================================================= -->
+
+<div
+  class="modal-backdrop"
+  id="deleteSupplierModal"
+  hidden
+>
+
+
+  <div
+    class="modal delete-modal"
+    role="dialog"
+    aria-modal="true"
+  >
+
+
+    <div class="delete-icon">
+
+      <i class="bi bi-trash"></i>
+
+    </div>
+
+
+    <h3>
+      Delete Supplier?
+    </h3>
+
+
+    <p>
+      This action cannot be undone. Are you sure you want to delete
+      <strong id="deleteSupplierName">
+        this supplier
+      </strong>?
+    </p>
+
+
+    <div class="modal-footer">
+
+
+      <button
+        type="button"
+        class="btn btn-secondary"
+        id="cancelDeleteSupplier"
+      >
+
+        Cancel
+
+      </button>
+
+
+      <button
+        type="button"
+        class="btn btn-danger"
+        id="confirmDeleteSupplier"
+      >
+
+        <i class="bi bi-trash"></i>
+
+        Delete Supplier
+
+      </button>
+
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+<!-- =======================================================
+     TOAST
+     ======================================================= -->
+
+<div
+  class="supplier-toast"
+  id="supplierToast"
+  role="status"
+  aria-live="polite"
+>
+
+  <i class="bi bi-check-circle"></i>
+
+  <span id="supplierToastMessage">
+    Done
+  </span>
+
+</div>
+
+
+
+<!-- =======================================================
+     SUPABASE
+     ======================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/config.js"></script>
+
+<script src="../js/supabase.js"></script>
+
+<!-- Master Admin -->
+
+<script src="js/admin.js"></script>
+
+<script src="js/admin-auth.js"></script>
+
+<!-- Suppliers -->
+
+<script src="js/suppliers.js"></script>
+
+
+</body>
+
+</html>

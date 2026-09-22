@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dashboard | MIXNBUY.BD Admin</title>
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  >
+
+  <!-- Master Admin CSS -->
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+<div class="admin-app">
+
+  <!-- =====================================================
+       SIDEBAR
+       ===================================================== -->
+
+  <aside class="admin-sidebar" id="adminSidebar">
+
+    <!-- Brand -->
+    <div class="sidebar-brand">
+      <a href="dashboard.html">
+
+        <div class="sidebar-brand-icon">
+          <i class="bi bi-bag-heart-fill"></i>
+        </div>
+
+        <div class="sidebar-brand-name">
+          MIXN<span>BUY</span><small>.BD</small>
+        </div>
+
+      </a>
+    </div>
+
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+
+      <!-- MAIN -->
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Main
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+            <a
+              href="dashboard.html"
+              class="sidebar-link active"
+            >
+              <i class="bi bi-grid-1x2-fill"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- SALES & PURCHASE -->
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Sales & Purchase
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+            <a href="purchases.html" class="sidebar-link">
+              <i class="bi bi-cart-plus"></i>
+              <span>Purchases</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="sales.html" class="sidebar-link">
+              <i class="bi bi-cash-stack"></i>
+              <span>Sales</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="sales-return.html" class="sidebar-link">
+              <i class="bi bi-arrow-return-left"></i>
+              <span>Sales Return</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="orders.html" class="sidebar-link">
+              <i class="bi bi-box-seam"></i>
+              <span>Orders</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="order-status.html" class="sidebar-link">
+              <i class="bi bi-arrow-repeat"></i>
+              <span>Order Status / Tracking</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- INVENTORY -->
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Inventory
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+            <a href="stock.html" class="sidebar-link">
+              <i class="bi bi-bar-chart-line"></i>
+              <span>Stock</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="suppliers.html" class="sidebar-link">
+              <i class="bi bi-buildings"></i>
+              <span>Suppliers</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="products.html" class="sidebar-link">
+              <i class="bi bi-tags"></i>
+              <span>Products</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- CUSTOMERS & MARKETING -->
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Customers & Marketing
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+            <a href="customers.html" class="sidebar-link">
+              <i class="bi bi-people"></i>
+              <span>Customers</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="coupons.html" class="sidebar-link">
+              <i class="bi bi-ticket-perforated"></i>
+              <span>Coupons</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- BUSINESS -->
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          Business
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+            <a href="reports.html" class="sidebar-link">
+              <i class="bi bi-file-earmark-bar-graph"></i>
+              <span>Reports</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="analysis.html" class="sidebar-link">
+              <i class="bi bi-pie-chart"></i>
+              <span>Analysis</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="profit-loss.html" class="sidebar-link">
+              <i class="bi bi-graph-up-arrow"></i>
+              <span>Profit / Loss</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- SYSTEM -->
+      <div class="sidebar-section">
+
+        <div class="sidebar-section-title">
+          System
+        </div>
+
+        <ul class="sidebar-menu">
+
+          <li>
+            <a href="settings.html" class="sidebar-link">
+              <i class="bi bi-gear"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="activity-logs.html" class="sidebar-link">
+              <i class="bi bi-journal-text"></i>
+              <span>Activity Logs</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </nav>
+
+
+    <!-- Sidebar Footer -->
+    <div class="sidebar-footer">
+
+      <a
+        href="#"
+        class="sidebar-link logout admin-logout"
+        data-admin-logout
+      >
+        <i class="bi bi-box-arrow-right"></i>
+        <span>Logout</span>
+      </a>
+
+    </div>
+
+  </aside>
+
+
+  <!-- Sidebar Overlay -->
+  <div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+  ></div>
+
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
+
+  <main class="admin-main">
+
+    <!-- ===================================================
+         TOPBAR
+         =================================================== -->
+
+    <header class="admin-topbar">
+
+      <div class="topbar-left">
+
+        <!-- Mobile Sidebar -->
+        <button
+          type="button"
+          class="mobile-sidebar-btn"
+          id="mobileSidebarBtn"
+          aria-label="Open menu"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+
+
+        <!-- Page Heading -->
+        <div class="page-heading">
+
+          <h1 id="pageTitle">
+            Dashboard
+          </h1>
+
+          <p id="pageSubtitle">
+            Welcome back to your MIXNBUY.BD admin panel
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- Topbar Right -->
+      <div class="topbar-right">
+
+        <!-- Notification -->
+        <button
+          type="button"
+          class="topbar-icon-btn"
+          title="Notifications"
+        >
+          <i class="bi bi-bell"></i>
+          <span class="notification-dot"></span>
+        </button>
+
+
+        <!-- Admin Profile -->
+        <div class="admin-profile">
+
+          <div
+            class="admin-avatar"
+            id="adminAvatar"
+          >
+            AD
+          </div>
+
+          <div class="admin-profile-info">
+
+            <div
+              class="admin-profile-name"
+              id="adminName"
+            >
+              Admin
+            </div>
+
+            <div
+              class="admin-profile-role"
+              id="adminRole"
+            >
+              Administrator
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- ===================================================
+         CONTENT
+         =================================================== -->
+
+    <section class="admin-content">
+
+      <!-- Header -->
+      <div class="content-header">
+
+        <div>
+
+          <h2>Business Overview</h2>
+
+          <p>
+            Monitor your store performance and daily activities.
+          </p>
+
+        </div>
+
+        <div class="quick-actions">
+
+          <a
+            href="purchases.html"
+            class="btn btn-secondary"
+          >
+            <i class="bi bi-cart-plus"></i>
+            New Purchase
+          </a>
+
+          <a
+            href="products.html"
+            class="btn btn-primary"
+          >
+            <i class="bi bi-plus-lg"></i>
+            Add Product
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           STAT CARDS
+           ================================================= -->
+
+      <div class="stats-grid">
+
+        <!-- Sales -->
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            <i class="bi bi-currency-dollar"></i>
+          </div>
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Total Sales
+            </div>
+
+            <div
+              class="stat-value"
+              id="totalSales"
+            >
+              BDT 0
+            </div>
+
+            <div class="stat-change up">
+              <i class="bi bi-arrow-up"></i>
+              Revenue
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Purchases -->
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            <i class="bi bi-cart-check"></i>
+          </div>
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Total Purchases
+            </div>
+
+            <div
+              class="stat-value"
+              id="totalPurchases"
+            >
+              BDT 0
+            </div>
+
+            <div class="stat-change">
+              Purchase Cost
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Orders -->
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            <i class="bi bi-box-seam"></i>
+          </div>
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Total Orders
+            </div>
+
+            <div
+              class="stat-value"
+              id="totalOrders"
+            >
+              0
+            </div>
+
+            <div class="stat-change">
+              All Orders
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Customers -->
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            <i class="bi bi-people"></i>
+          </div>
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Total Customers
+            </div>
+
+            <div
+              class="stat-value"
+              id="totalCustomers"
+            >
+              0
+            </div>
+
+            <div class="stat-change">
+              Registered Customers
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Stock -->
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            <i class="bi bi-boxes"></i>
+          </div>
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Current Stock Value
+            </div>
+
+            <div
+              class="stat-value"
+              id="stockValue"
+            >
+              BDT 0
+            </div>
+
+            <div class="stat-change">
+              Inventory Value
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Profit -->
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            <i class="bi bi-graph-up-arrow"></i>
+          </div>
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Profit / Loss
+            </div>
+
+            <div
+              class="stat-value"
+              id="profitLoss"
+            >
+              BDT 0
+            </div>
+
+            <div
+              class="stat-change"
+              id="profitLossStatus"
+            >
+              Current Result
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Pending -->
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            <i class="bi bi-hourglass-split"></i>
+          </div>
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Pending Orders
+            </div>
+
+            <div
+              class="stat-value"
+              id="pendingOrders"
+            >
+              0
+            </div>
+
+            <div class="stat-change">
+              Need Attention
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Low Stock -->
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            <i class="bi bi-exclamation-triangle"></i>
+          </div>
+
+          <div class="stat-info">
+
+            <div class="stat-label">
+              Low Stock Alerts
+            </div>
+
+            <div
+              class="stat-value"
+              id="lowStockAlerts"
+            >
+              0
+            </div>
+
+            <div class="stat-change down">
+              Inventory Alert
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           CHARTS
+           ================================================= -->
+
+      <div class="grid grid-2">
+
+        <!-- Sales vs Purchase -->
+        <div class="card chart-card">
+
+          <div class="card-header">
+
+            <div class="card-title">
+              Sales vs Purchase
+            </div>
+
+            <span class="badge badge-primary">
+              Overview
+            </span>
+
+          </div>
+
+          <div class="card-body">
+
+            <div
+              class="chart-container"
+              id="salesPurchaseChart"
+            >
+              <div class="empty-state">
+                <i class="bi bi-bar-chart"></i>
+                <div>
+                  Chart data will appear here.
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Monthly Revenue -->
+        <div class="card chart-card">
+
+          <div class="card-header">
+
+            <div class="card-title">
+              Monthly Revenue
+            </div>
+
+            <span class="badge badge-success">
+              Revenue
+            </span>
+
+          </div>
+
+          <div class="card-body">
+
+            <div
+              class="chart-container"
+              id="monthlyRevenueChart"
+            >
+              <div class="empty-state">
+                <i class="bi bi-graph-up"></i>
+                <div>
+                  Revenue chart will appear here.
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           RECENT DATA
+           ================================================= -->
+
+      <div class="grid grid-2 mt-4">
+
+        <!-- Recent Orders -->
+        <div class="card">
+
+          <div class="card-header">
+
+            <div class="card-title">
+              Recent Orders
+            </div>
+
+            <a
+              href="orders.html"
+              class="btn btn-secondary btn-sm"
+            >
+              View All
+            </a>
+
+          </div>
+
+          <div class="table-wrap">
+
+            <table class="admin-table">
+
+              <thead>
+                <tr>
+                  <th>Order</th>
+                  <th>Customer</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+
+              <tbody id="recentOrdersBody">
+
+                <tr>
+                  <td colspan="4">
+
+                    <div class="loading-state">
+                      <i class="bi bi-arrow-repeat"></i>
+                      <div>Loading orders...</div>
+                    </div>
+
+                  </td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+
+        <!-- Recent Sales -->
+        <div class="card">
+
+          <div class="card-header">
+
+            <div class="card-title">
+              Recent Sales
+            </div>
+
+            <a
+              href="sales.html"
+              class="btn btn-secondary btn-sm"
+            >
+              View All
+            </a>
+
+          </div>
+
+          <div class="table-wrap">
+
+            <table class="admin-table">
+
+              <thead>
+                <tr>
+                  <th>Sale</th>
+                  <th>Amount</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+
+              <tbody id="recentSalesBody">
+
+                <tr>
+                  <td colspan="4">
+
+                    <div class="loading-state">
+                      <i class="bi bi-arrow-repeat"></i>
+                      <div>Loading sales...</div>
+                    </div>
+
+                  </td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           PURCHASE SUMMARY + LOW STOCK
+           ================================================= -->
+
+      <div class="grid grid-2 mt-4">
+
+        <!-- Purchase Summary -->
+        <div class="card">
+
+          <div class="card-header">
+
+            <div class="card-title">
+              Purchase Summary
+            </div>
+
+            <a
+              href="purchases.html"
+              class="btn btn-secondary btn-sm"
+            >
+              View Purchases
+            </a>
+
+          </div>
+
+          <div class="card-body">
+
+            <div class="stats-grid">
+
+              <div class="stat-card">
+
+                <div class="stat-icon">
+                  <i class="bi bi-cart"></i>
+                </div>
+
+                <div class="stat-info">
+
+                  <div class="stat-label">
+                    Purchases
+                  </div>
+
+                  <div
+                    class="stat-value"
+                    id="purchaseCount"
+                  >
+                    0
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="stat-card">
+
+                <div class="stat-icon">
+                  <i class="bi bi-wallet2"></i>
+                </div>
+
+                <div class="stat-info">
+
+                  <div class="stat-label">
+                    Paid
+                  </div>
+
+                  <div
+                    class="stat-value"
+                    id="purchasePaid"
+                  >
+                    BDT 0
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Low Stock Products -->
+        <div class="card">
+
+          <div class="card-header">
+
+            <div class="card-title">
+              Low Stock Products
+            </div>
+
+            <a
+              href="stock.html"
+              class="btn btn-secondary btn-sm"
+            >
+              View Stock
+            </a>
+
+          </div>
+
+          <div class="table-wrap">
+
+            <table class="admin-table">
+
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Stock</th>
+                  <th>Minimum</th>
+                </tr>
+              </thead>
+
+              <tbody id="lowStockProductsBody">
+
+                <tr>
+                  <td colspan="3">
+
+                    <div class="loading-state">
+                      <i class="bi bi-arrow-repeat"></i>
+                      <div>Loading stock...</div>
+                    </div>
+
+                  </td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+<!-- =======================================================
+     SUPABASE
+     ======================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/config.js"></script>
+<script src="../js/supabase.js"></script>
+
+<!-- Master Admin -->
+<script src="js/admin.js"></script>
+<script src="js/admin-auth.js"></script>
+
+<!-- Dashboard -->
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>
