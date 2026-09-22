@@ -22,9 +22,117 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+        /* =========================================
+           ADMIN LOGIN BUTTON
+        ========================================= */
+
+        .admin-login-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+
+            min-height: 40px;
+            padding: 0 14px;
+
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+
+            background: #ffffff;
+            color: #374151;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            text-decoration: none;
+
+            white-space: nowrap;
+
+            transition:
+                background-color 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .admin-login-btn i {
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        .admin-login-btn:hover {
+            background: #111827;
+            border-color: #111827;
+            color: #ffffff;
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 5px 14px rgba(17, 24, 39, 0.15);
+        }
+
+        .admin-login-btn:active {
+            transform: translateY(0);
+        }
+
+
+        /* =========================================
+           MOBILE ADMIN BUTTON
+        ========================================= */
+
+        @media (max-width: 768px) {
+
+            .admin-login-btn {
+                width: 40px;
+                min-width: 40px;
+
+                height: 40px;
+                min-height: 40px;
+
+                padding: 0;
+
+                border-radius: 10px;
+            }
+
+            .admin-login-btn span {
+                display: none;
+            }
+
+            .admin-login-btn i {
+                font-size: 17px;
+            }
+
+        }
+
+
+        /* =========================================
+           SMALL MOBILE
+        ========================================= */
+
+        @media (max-width: 480px) {
+
+            .admin-login-btn {
+                width: 38px;
+                min-width: 38px;
+
+                height: 38px;
+                min-height: 38px;
+            }
+
+            .admin-login-btn i {
+                font-size: 16px;
+            }
+
+        }
+    </style>
+
 </head>
 
 <body>
+
 
 <!-- =========================================
      TOP BAR
@@ -35,24 +143,38 @@
     <div class="container topbar-inner">
 
         <div class="topbar-message">
+
             <i class="bi bi-stars"></i>
+
             Welcome to MIXNBUY.BD
+
         </div>
+
 
         <div class="topbar-links">
 
             <span>
+
                 <i class="bi bi-truck"></i>
+
                 Fast Delivery
+
             </span>
+
 
             <span>
+
                 <i class="bi bi-shield-check"></i>
+
                 Secure Shopping
+
             </span>
 
+
             <a href="track-order.html">
+
                 Track Order
+
             </a>
 
         </div>
@@ -60,6 +182,7 @@
     </div>
 
 </div>
+
 
 
 <!-- =========================================
@@ -70,19 +193,29 @@
 
     <div class="container header-main">
 
+
         <!-- LOGO -->
 
-        <a href="index.html" class="brand">
+        <a
+            href="index.html"
+            class="brand"
+        >
 
             <div class="brand-icon">
+
                 <i class="bi bi-bag-heart-fill"></i>
+
             </div>
 
+
             <div class="brand-name">
+
                 MIXN<span>BUY</span><small>.BD</small>
+
             </div>
 
         </a>
+
 
 
         <!-- SEARCH -->
@@ -94,6 +227,7 @@
 
             <i class="bi bi-search"></i>
 
+
             <input
                 type="search"
                 id="globalSearch"
@@ -101,32 +235,48 @@
                 autocomplete="off"
             >
 
+
             <button type="submit">
+
                 Search
+
             </button>
 
         </form>
+
 
 
         <!-- ACTIONS -->
 
         <div class="header-actions">
 
+
+            <!-- TRACK ORDER -->
+
             <a
                 href="track-order.html"
                 class="header-action"
                 title="Track Order"
+                aria-label="Track Order"
             >
+
                 <i class="bi bi-box-seam"></i>
+
             </a>
+
+
+
+            <!-- CART -->
 
             <a
                 href="cart.html"
                 class="header-action cart-action"
                 title="Cart"
+                aria-label="Cart"
             >
 
                 <i class="bi bi-cart3"></i>
+
 
                 <span
                     class="cart-count"
@@ -137,12 +287,38 @@
 
             </a>
 
+
+
+            <!-- =================================
+                 ADMIN LOGIN
+            ================================= -->
+
+            <a
+                href="admin/login.html"
+                class="admin-login-btn"
+                title="Admin Login"
+                aria-label="Admin Login"
+            >
+
+                <i class="bi bi-person-lock"></i>
+
+                <span>Admin</span>
+
+            </a>
+
+
+
+            <!-- MOBILE MENU -->
+
             <button
                 class="mobile-menu-btn"
                 id="mobileMenuBtn"
                 type="button"
+                aria-label="Open menu"
             >
+
                 <i class="bi bi-list"></i>
+
             </button>
 
         </div>
@@ -150,7 +326,10 @@
     </div>
 
 
-    <!-- NAVIGATION -->
+
+    <!-- =====================================
+         NAVIGATION
+    ===================================== -->
 
     <nav
         class="main-nav"
@@ -159,51 +338,74 @@
 
         <div class="container nav-inner">
 
+
             <a
                 href="index.html"
                 class="nav-item active"
             >
+
                 <i class="bi bi-house-door"></i>
+
                 Home
+
             </a>
+
 
             <a
                 href="products.html"
                 class="nav-item"
             >
+
                 <i class="bi bi-grid"></i>
+
                 All Products
+
             </a>
+
 
             <a
                 href="#categories"
                 class="nav-item"
             >
+
                 <i class="bi bi-ui-checks-grid"></i>
+
                 Categories
+
             </a>
+
 
             <a
                 href="#featured"
                 class="nav-item"
             >
+
                 <i class="bi bi-stars"></i>
+
                 Featured
+
             </a>
+
 
             <a
                 href="#why-us"
                 class="nav-item"
             >
+
                 Why MIXNBUY
+
             </a>
+
 
             <a
                 href="track-order.html"
                 class="nav-item"
             >
+
                 <i class="bi bi-search"></i>
+
                 Track Order
+
             </a>
 
         </div>
@@ -211,6 +413,7 @@
     </nav>
 
 </header>
+
 
 
 <!-- =========================================
@@ -225,57 +428,90 @@
 
         <div class="hero">
 
+
             <div class="hero-content">
 
+
                 <div class="hero-badge">
+
                     <i class="bi bi-lightning-charge-fill"></i>
+
                     SHOP SMART • SAVE MORE
+
                 </div>
 
+
                 <h1>
+
                     Everything You Love,
+
                     <span>All in One Place.</span>
+
                 </h1>
 
+
                 <p>
+
                     Discover quality products, exciting deals
                     and everyday essentials at MIXNBUY.BD.
+
                 </p>
 
+
                 <div class="hero-buttons">
+
 
                     <a
                         href="products.html"
                         class="hero-btn primary"
                     >
+
                         Shop Now
+
                         <i class="bi bi-arrow-right"></i>
+
                     </a>
+
 
                     <a
                         href="#featured"
                         class="hero-btn secondary"
                     >
+
                         Explore Deals
+
                     </a>
 
                 </div>
 
+
                 <div class="hero-benefits">
 
+
                     <span>
+
                         <i class="bi bi-check-circle-fill"></i>
+
                         Quality Products
+
                     </span>
 
+
                     <span>
+
                         <i class="bi bi-check-circle-fill"></i>
+
                         Great Prices
+
                     </span>
 
+
                     <span>
+
                         <i class="bi bi-check-circle-fill"></i>
+
                         Fast Delivery
+
                     </span>
 
                 </div>
@@ -283,12 +519,15 @@
             </div>
 
 
+
             <!-- HERO VISUAL -->
 
             <div class="hero-visual">
 
                 <div class="hero-circle circle-one"></div>
+
                 <div class="hero-circle circle-two"></div>
+
 
                 <div class="hero-bag">
 
@@ -298,24 +537,34 @@
 
                 </div>
 
+
                 <div class="floating-card card-one">
 
                     <i class="bi bi-cart-check-fill"></i>
 
+
                     <div>
+
                         <strong>Easy Shopping</strong>
+
                         <small>Simple & Secure</small>
+
                     </div>
 
                 </div>
+
 
                 <div class="floating-card card-two">
 
                     <i class="bi bi-percent"></i>
 
+
                     <div>
+
                         <strong>Great Deals</strong>
+
                         <small>Save More</small>
+
                     </div>
 
                 </div>
@@ -327,6 +576,7 @@
     </div>
 
 </section>
+
 
 
 <!-- =========================================
@@ -340,33 +590,47 @@
 
     <div class="container">
 
+
         <div class="section-header">
 
             <div>
 
                 <span class="section-label">
+
                     EXPLORE
+
                 </span>
 
+
                 <h2>
+
                     Shop by Category
+
                 </h2>
 
+
                 <p>
+
                     Find products that match your needs
+
                 </p>
 
             </div>
+
 
             <a
                 href="products.html"
                 class="section-link"
             >
+
                 View All
+
                 <i class="bi bi-arrow-right"></i>
+
             </a>
 
         </div>
+
 
 
         <div
@@ -375,8 +639,11 @@
         >
 
             <div class="loading-card">
+
                 <span class="loading-spinner"></span>
+
                 Loading categories...
+
             </div>
 
         </div>
@@ -384,6 +651,7 @@
     </div>
 
 </section>
+
 
 
 <!-- =========================================
@@ -397,33 +665,47 @@
 
     <div class="container">
 
+
         <div class="section-header">
 
             <div>
 
                 <span class="section-label">
+
                     HANDPICKED FOR YOU
+
                 </span>
 
+
                 <h2>
+
                     Featured Products
+
                 </h2>
 
+
                 <p>
+
                     Popular products selected for you
+
                 </p>
 
             </div>
+
 
             <a
                 href="products.html"
                 class="section-link"
             >
+
                 View All
+
                 <i class="bi bi-arrow-right"></i>
+
             </a>
 
         </div>
+
 
 
         <div
@@ -432,8 +714,11 @@
         >
 
             <div class="loading-card">
+
                 <span class="loading-spinner"></span>
+
                 Loading products...
+
             </div>
 
         </div>
@@ -441,6 +726,7 @@
     </div>
 
 </section>
+
 
 
 <!-- =========================================
@@ -453,42 +739,69 @@
 
         <div class="offer-banner">
 
+
             <div class="offer-content">
 
                 <span>
+
                     <i class="bi bi-fire"></i>
+
                     SPECIAL OFFER
+
                 </span>
 
+
                 <h2>
+
                     Great Products.
+
                     <br>
+
                     Great Prices.
+
                 </h2>
 
+
                 <p>
+
                     Shop your favorites and enjoy
                     a better shopping experience.
+
                 </p>
+
 
                 <a
                     href="products.html"
                     class="offer-btn"
                 >
+
                     Shop Now
+
                     <i class="bi bi-arrow-right"></i>
+
                 </a>
 
             </div>
+
 
 
             <div class="offer-art">
 
                 <div class="offer-circle"></div>
 
+
                 <div class="offer-percent">
+
                     <strong>৳</strong>
-                    <span>BEST<br>VALUE</span>
+
+                    <span>
+
+                        BEST<br>
+
+                        VALUE
+
+                    </span>
+
                 </div>
 
             </div>
@@ -498,6 +811,7 @@
     </div>
 
 </section>
+
 
 
 <!-- =========================================
@@ -511,21 +825,30 @@
 
     <div class="container">
 
+
         <div class="section-header centered">
 
             <div>
 
                 <span class="section-label">
+
                     WHY CHOOSE US
+
                 </span>
 
+
                 <h2>
+
                     Shopping Made Better
+
                 </h2>
 
+
                 <p>
+
                     Everything you need for a smooth
                     and reliable shopping experience.
+
                 </p>
 
             </div>
@@ -533,75 +856,112 @@
         </div>
 
 
+
         <div class="benefit-grid">
+
 
             <div class="benefit-card">
 
                 <div class="benefit-icon purple">
+
                     <i class="bi bi-truck"></i>
+
                 </div>
 
+
                 <h3>
+
                     Fast Delivery
+
                 </h3>
 
+
                 <p>
+
                     Reliable delivery service
                     for your orders.
+
                 </p>
 
             </div>
+
 
 
             <div class="benefit-card">
 
                 <div class="benefit-icon orange">
+
                     <i class="bi bi-shield-check"></i>
+
                 </div>
 
+
                 <h3>
+
                     Secure Shopping
+
                 </h3>
 
+
                 <p>
+
                     Your shopping experience
                     is designed with security in mind.
+
                 </p>
 
             </div>
+
 
 
             <div class="benefit-card">
 
                 <div class="benefit-icon green">
+
                     <i class="bi bi-award"></i>
+
                 </div>
 
+
                 <h3>
+
                     Quality Products
+
                 </h3>
 
+
                 <p>
+
                     Products selected with
                     quality and value in mind.
+
                 </p>
 
             </div>
 
 
+
             <div class="benefit-card">
 
                 <div class="benefit-icon pink">
+
                     <i class="bi bi-headset"></i>
+
                 </div>
 
+
                 <h3>
+
                     Customer Support
+
                 </h3>
 
+
                 <p>
+
                     We're here to help
                     when you need us.
+
                 </p>
 
             </div>
@@ -615,6 +975,7 @@
 </main>
 
 
+
 <!-- =========================================
      FOOTER
 ========================================= -->
@@ -623,9 +984,12 @@
 
     <div class="container">
 
+
         <div class="footer-main">
 
+
             <div class="footer-brand">
+
 
                 <a
                     href="index.html"
@@ -633,36 +997,60 @@
                 >
 
                     <div class="brand-icon">
+
                         <i class="bi bi-bag-heart-fill"></i>
+
                     </div>
 
+
                     <div class="brand-name">
+
                         MIXN<span>BUY</span><small>.BD</small>
+
                     </div>
 
                 </a>
 
+
                 <p>
+
                     Your everyday destination for
                     quality products, great prices
                     and convenient shopping.
+
                 </p>
+
 
                 <div class="social-links">
 
-                    <a href="https://www.facebook.com/MixNbuy.BD" aria-label="Facebook">
-                        <i class="bi bi-facebook"></i>
-                    </a>
-
-                    <a href="https://m.me/MixNbuy.BD" aria-label="Messenger">
-                        <i class="bi bi-messenger"></i>
-                    </a>
 
                     <a
-                        href="mailto:MIXNBUY.BD@GMAIL.COM"
+                        href="https://www.facebook.com/MixNbuy.BD"
+                        aria-label="Facebook"
+                    >
+
+                        <i class="bi bi-facebook"></i>
+
+                    </a>
+
+
+                    <a
+                        href="https://m.me/MixNbuy.BD"
+                        aria-label="Messenger"
+                    >
+
+                        <i class="bi bi-messenger"></i>
+
+                    </a>
+
+
+                    <a
+                        href="mailto:mixnbuy.bd@gmail.com"
                         aria-label="Email"
                     >
+
                         <i class="bi bi-envelope"></i>
+
                     </a>
 
                 </div>
@@ -670,53 +1058,120 @@
             </div>
 
 
+
             <div class="footer-column">
 
                 <h3>
+
                     Quick Links
+
                 </h3>
 
-                <a href="index.html">Home</a>
-                <a href="products.html">All Products</a>
-                <a href="#categories">Categories</a>
-                <a href="track-order.html">Track Order</a>
+
+                <a href="index.html">
+
+                    Home
+
+                </a>
+
+
+                <a href="products.html">
+
+                    All Products
+
+                </a>
+
+
+                <a href="#categories">
+
+                    Categories
+
+                </a>
+
+
+                <a href="track-order.html">
+
+                    Track Order
+
+                </a>
 
             </div>
+
 
 
             <div class="footer-column">
 
                 <h3>
+
                     Customer Care
+
                 </h3>
 
-                <a href="#">Contact Us</a>
-                <a href="#">Delivery Information</a>
-                <a href="#">Return Policy</a>
-                <a href="#">Privacy Policy</a>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h3>
-                    Contact Us
-                </h3>
-
-                <a href="tel:01401637310">
-                    <i class="bi bi-telephone"></i>
-                    01401-637310
-                </a>
-
-                <a href="mailto:MIXNBUY.BD@GMAIL.COM">
-                    <i class="bi bi-envelope"></i>
-                    mixnbuy.bd@gmail.com
-                </a>
 
                 <a href="#">
+
+                    Contact Us
+
+                </a>
+
+
+                <a href="#">
+
+                    Delivery Information
+
+                </a>
+
+
+                <a href="#">
+
+                    Return Policy
+
+                </a>
+
+
+                <a href="#">
+
+                    Privacy Policy
+
+                </a>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h3>
+
+                    Contact Us
+
+                </h3>
+
+
+                <a href="tel:01401637310">
+
+                    <i class="bi bi-telephone"></i>
+
+                    01401-637310
+
+                </a>
+
+
+                <a href="mailto:mixnbuy.bd@gmail.com">
+
+                    <i class="bi bi-envelope"></i>
+
+                    mixnbuy.bd@gmail.com
+
+                </a>
+
+
+                <a href="#">
+
                     <i class="bi bi-geo-alt"></i>
+
                     Jashore, Bangladesh
+
                 </a>
 
             </div>
@@ -724,14 +1179,20 @@
         </div>
 
 
+
         <div class="footer-bottom">
 
             <span>
+
                 © 2026 MIXNBUY.BD. All Rights Reserved.
+
             </span>
 
+
             <span>
+
                 Made for better shopping.
+
             </span>
 
         </div>
@@ -741,6 +1202,7 @@
 </footer>
 
 
+
 <!-- =========================================
      SCRIPTS
 ========================================= -->
@@ -748,19 +1210,25 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script src="js/config.js"></script>
+
 <script src="js/supabase.js"></script>
+
 <script src="js/common.js"></script>
+
 
 
 <script>
 
 document.addEventListener("DOMContentLoaded", async () => {
 
+
     const categoryGrid =
         document.getElementById("categoryGrid");
 
+
     const productGrid =
         document.getElementById("featuredProducts");
+
 
 
     /* =====================================
@@ -770,24 +1238,31 @@ document.addEventListener("DOMContentLoaded", async () => {
     const searchForm =
         document.getElementById("searchForm");
 
-    searchForm?.addEventListener("submit", event => {
 
-        event.preventDefault();
+    searchForm?.addEventListener(
+        "submit",
+        event => {
 
-        const keyword =
-            document
-                .getElementById("globalSearch")
-                .value
-                .trim();
+            event.preventDefault();
 
-        if (keyword) {
 
-            window.location.href =
-                `products.html?search=${encodeURIComponent(keyword)}`;
+            const keyword =
+                document
+                    .getElementById("globalSearch")
+                    .value
+                    .trim();
+
+
+            if (keyword) {
+
+                window.location.href =
+                    `products.html?search=${encodeURIComponent(keyword)}`;
+
+            }
 
         }
+    );
 
-    });
 
 
     /* =====================================
@@ -797,19 +1272,26 @@ document.addEventListener("DOMContentLoaded", async () => {
     const mobileBtn =
         document.getElementById("mobileMenuBtn");
 
+
     const mainNav =
         document.getElementById("mainNav");
 
-    mobileBtn?.addEventListener("click", () => {
 
-        mainNav.classList.toggle("open");
+    mobileBtn?.addEventListener(
+        "click",
+        () => {
 
-        mobileBtn.innerHTML =
-            mainNav.classList.contains("open")
-            ? '<i class="bi bi-x-lg"></i>'
-            : '<i class="bi bi-list"></i>';
+            mainNav.classList.toggle("open");
 
-    });
+
+            mobileBtn.innerHTML =
+                mainNav.classList.contains("open")
+                ? '<i class="bi bi-x-lg"></i>'
+                : '<i class="bi bi-list"></i>';
+
+        }
+    );
+
 
 
     /* =====================================
@@ -818,110 +1300,192 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
 
+
         const categories =
             await MXB.getCategories();
 
+
         if (!categories.length) {
 
+
             categoryGrid.innerHTML = `
+
                 <div class="empty-card">
+
                     <div class="empty-icon">
+
                         <i class="bi bi-grid"></i>
+
                     </div>
-                    <h3>No categories yet</h3>
-                    <p>Categories will appear here.</p>
+
+
+                    <h3>
+
+                        No categories yet
+
+                    </h3>
+
+
+                    <p>
+
+                        Categories will appear here.
+
+                    </p>
+
                 </div>
+
             `;
+
 
         } else {
 
+
             const categoryIcons = [
+
                 "bi-phone",
+
                 "bi-bag",
+
                 "bi-heart-pulse",
+
                 "bi-house",
+
                 "bi-headphones",
+
                 "bi-stars"
+
             ];
 
+
             categoryGrid.innerHTML =
-                categories.slice(0, 10)
-                .map((category, index) => {
 
-                    const icon =
-                        categoryIcons[
-                            index % categoryIcons.length
-                        ];
+                categories
+                    .slice(0, 10)
+                    .map((category, index) => {
 
-                    return `
 
-                        <a
-                            class="category-card"
-                            href="products.html?category=${encodeURIComponent(category.id)}"
-                        >
+                        const icon =
 
-                            <div class="category-visual">
+                            categoryIcons[
+                                index %
+                                categoryIcons.length
+                            ];
 
-                                ${
-                                    category.image_url
-                                    ?
-                                    `
-                                        <img
-                                            src="${MXB.escape(category.image_url)}"
-                                            alt="${MXB.escape(category.name)}"
-                                            onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
-                                        >
 
-                                        <div
-                                            class="category-icon"
-                                            style="display:none;"
-                                        >
-                                            <i class="bi ${icon}"></i>
-                                        </div>
-                                    `
-                                    :
-                                    `
-                                        <div class="category-icon">
-                                            <i class="bi ${icon}"></i>
-                                        </div>
-                                    `
-                                }
+                        return `
 
-                            </div>
+                            <a
+                                class="category-card"
+                                href="products.html?category=${encodeURIComponent(category.id)}"
+                            >
 
-                            <h3>
-                                ${MXB.escape(category.name)}
-                            </h3>
+                                <div class="category-visual">
 
-                            <span>
-                                Explore
-                                <i class="bi bi-arrow-right"></i>
-                            </span>
+                                    ${
+                                        category.image_url
+                                        ?
 
-                        </a>
+                                        `
 
-                    `;
+                                            <img
+                                                src="${MXB.escape(category.image_url)}"
+                                                alt="${MXB.escape(category.name)}"
+                                                onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
+                                            >
 
-                })
-                .join("");
+
+                                            <div
+                                                class="category-icon"
+                                                style="display:none;"
+                                            >
+
+                                                <i class="bi ${icon}"></i>
+
+                                            </div>
+
+                                        `
+
+                                        :
+
+                                        `
+
+                                            <div class="category-icon">
+
+                                                <i class="bi ${icon}"></i>
+
+                                            </div>
+
+                                        `
+                                    }
+
+                                </div>
+
+
+                                <h3>
+
+                                    ${MXB.escape(category.name)}
+
+                                </h3>
+
+
+                                <span>
+
+                                    Explore
+
+                                    <i class="bi bi-arrow-right"></i>
+
+                                </span>
+
+                            </a>
+
+                        `;
+
+                    })
+
+                    .join("");
 
         }
 
+
     } catch (error) {
 
-        console.error("Categories:", error);
+
+        console.error(
+            "Categories:",
+            error
+        );
+
 
         categoryGrid.innerHTML = `
+
             <div class="empty-card">
+
                 <div class="empty-icon">
+
                     <i class="bi bi-wifi-off"></i>
+
                 </div>
-                <h3>Unable to load categories</h3>
-                <p>Please refresh the page.</p>
+
+
+                <h3>
+
+                    Unable to load categories
+
+                </h3>
+
+
+                <p>
+
+                    Please refresh the page.
+
+                </p>
+
             </div>
+
         `;
 
     }
+
 
 
     /* =====================================
@@ -930,218 +1494,327 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
 
+
         const products =
             await MXB.getProducts();
 
+
         const featured =
+
             products
-                .filter(product =>
-                    product.is_featured === true
+
+                .filter(
+                    product =>
+                        product.is_featured === true
                 )
+
                 .slice(0, 8);
 
+
         const list =
+
             featured.length
                 ? featured
                 : products.slice(0, 8);
 
 
+
         if (!list.length) {
 
+
             productGrid.innerHTML = `
+
                 <div class="empty-card">
+
                     <div class="empty-icon">
+
                         <i class="bi bi-box-seam"></i>
+
                     </div>
-                    <h3>No products yet</h3>
-                    <p>Products will appear here.</p>
+
+
+                    <h3>
+
+                        No products yet
+
+                    </h3>
+
+
+                    <p>
+
+                        Products will appear here.
+
+                    </p>
+
                 </div>
+
             `;
+
 
         } else {
 
+
             productGrid.innerHTML =
-                list.map(product => {
 
-                    const regularPrice =
-                        Number(
-                            product.selling_price || 0
-                        );
+                list
 
-                    const salePrice =
-                        Number(
-                            product.discount_price ??
-                            product.selling_price ??
-                            0
-                        );
-
-                    const hasDiscount =
-                        product.discount_price !== null &&
-                        product.discount_price !== undefined &&
-                        salePrice < regularPrice;
-
-                    const stock =
-                        Number(
-                            product.current_stock || 0
-                        );
-
-                    const image =
-                        MXB.productImage(product);
-
-                    return `
-
-                        <article class="product-card">
-
-                            <a
-                                href="product.html?id=${encodeURIComponent(product.id)}"
-                                class="product-image-link"
-                            >
-
-                                <div class="product-image">
-
-                                    ${
-                                        hasDiscount
-                                        ?
-                                        `
-                                            <span class="sale-badge">
-                                                SALE
-                                            </span>
-                                        `
-                                        : ""
-                                    }
-
-                                    ${
-                                        product.is_featured
-                                        ?
-                                        `
-                                            <span class="featured-badge">
-                                                <i class="bi bi-star-fill"></i>
-                                                Featured
-                                            </span>
-                                        `
-                                        : ""
-                                    }
-
-                                    <img
-                                        src="${MXB.escape(image)}"
-                                        alt="${MXB.escape(product.name)}"
-                                        loading="lazy"
-                                        onerror="this.src='assets/images/product-placeholder.svg';"
-                                    >
-
-                                </div>
-
-                            </a>
+                    .map(product => {
 
 
-                            <div class="product-info">
+                        const regularPrice =
 
-                                ${
-                                    product.brand
-                                    ?
-                                    `
-                                        <span class="product-brand">
-                                            ${MXB.escape(product.brand)}
-                                        </span>
-                                    `
-                                    :
-                                    `
-                                        <span class="product-brand">
-                                            MIXNBUY
-                                        </span>
-                                    `
-                                }
+                            Number(
+                                product.selling_price || 0
+                            );
+
+
+                        const salePrice =
+
+                            Number(
+                                product.discount_price ??
+                                product.selling_price ??
+                                0
+                            );
+
+
+                        const hasDiscount =
+
+                            product.discount_price !== null &&
+
+                            product.discount_price !== undefined &&
+
+                            salePrice < regularPrice;
+
+
+                        const stock =
+
+                            Number(
+                                product.current_stock || 0
+                            );
+
+
+                        const image =
+
+                            MXB.productImage(product);
+
+
+
+                        return `
+
+                            <article class="product-card">
 
 
                                 <a
                                     href="product.html?id=${encodeURIComponent(product.id)}"
+                                    class="product-image-link"
                                 >
 
-                                    <h3 class="product-name">
-                                        ${MXB.escape(product.name)}
-                                    </h3>
+                                    <div class="product-image">
+
+
+                                        ${
+                                            hasDiscount
+                                            ?
+
+                                            `
+
+                                                <span class="sale-badge">
+
+                                                    SALE
+
+                                                </span>
+
+                                            `
+
+                                            : ""
+
+                                        }
+
+
+                                        ${
+                                            product.is_featured
+                                            ?
+
+                                            `
+
+                                                <span class="featured-badge">
+
+                                                    <i class="bi bi-star-fill"></i>
+
+                                                    Featured
+
+                                                </span>
+
+                                            `
+
+                                            : ""
+
+                                        }
+
+
+                                        <img
+                                            src="${MXB.escape(image)}"
+                                            alt="${MXB.escape(product.name)}"
+                                            loading="lazy"
+                                            onerror="this.src='assets/images/product-placeholder.svg';"
+                                        >
+
+                                    </div>
 
                                 </a>
 
 
-                                <div class="product-price">
 
-                                    <strong>
-                                        ${MXB.money(salePrice)}
-                                    </strong>
+                                <div class="product-info">
+
 
                                     ${
-                                        hasDiscount
+                                        product.brand
+
                                         ?
+
                                         `
-                                            <del>
-                                                ${MXB.money(regularPrice)}
-                                            </del>
+
+                                            <span class="product-brand">
+
+                                                ${MXB.escape(product.brand)}
+
+                                            </span>
+
                                         `
-                                        : ""
+
+                                        :
+
+                                        `
+
+                                            <span class="product-brand">
+
+                                                MIXNBUY
+
+                                            </span>
+
+                                        `
                                     }
 
-                                </div>
 
 
-                                <div class="product-bottom">
-
-                                    <span
-                                        class="
-                                            stock-status
-                                            ${stock > 0 ? "in-stock" : "out-stock"}
-                                        "
+                                    <a
+                                        href="product.html?id=${encodeURIComponent(product.id)}"
                                     >
 
-                                        <i
-                                            class="
-                                                bi
-                                                ${stock > 0
-                                                    ? "bi-check-circle-fill"
-                                                    : "bi-x-circle-fill"}
-                                            "
-                                        ></i>
+                                        <h3 class="product-name">
+
+                                            ${MXB.escape(product.name)}
+
+                                        </h3>
+
+                                    </a>
+
+
+
+                                    <div class="product-price">
+
+
+                                        <strong>
+
+                                            ${MXB.money(salePrice)}
+
+                                        </strong>
+
 
                                         ${
-                                            stock > 0
-                                            ? "In Stock"
-                                            : "Out of Stock"
-                                        }
+                                            hasDiscount
 
-                                    </span>
+                                            ?
 
+                                            `
 
-                                    <button
-                                        type="button"
-                                        class="add-cart-btn"
-                                        ${
-                                            stock <= 0
-                                            ? "disabled"
+                                                <del>
+
+                                                    ${MXB.money(regularPrice)}
+
+                                                </del>
+
+                                            `
+
                                             : ""
-                                        }
-                                        data-product-id="${MXB.escape(product.id)}"
-                                    >
 
-                                        <i class="bi bi-cart-plus"></i>
-
-                                        ${
-                                            stock > 0
-                                            ? "Add"
-                                            : "Unavailable"
                                         }
 
-                                    </button>
+                                    </div>
+
+
+
+                                    <div class="product-bottom">
+
+
+                                        <span
+                                            class="
+                                                stock-status
+                                                ${stock > 0
+                                                    ? "in-stock"
+                                                    : "out-stock"}
+                                            "
+                                        >
+
+
+                                            <i
+                                                class="
+                                                    bi
+                                                    ${stock > 0
+                                                        ? "bi-check-circle-fill"
+                                                        : "bi-x-circle-fill"}
+                                                "
+                                            ></i>
+
+
+                                            ${
+                                                stock > 0
+                                                ? "In Stock"
+                                                : "Out of Stock"
+                                            }
+
+
+                                        </span>
+
+
+
+                                        <button
+                                            type="button"
+                                            class="add-cart-btn"
+                                            ${
+                                                stock <= 0
+                                                ? "disabled"
+                                                : ""
+                                            }
+                                            data-product-id="${MXB.escape(product.id)}"
+                                        >
+
+
+                                            <i class="bi bi-cart-plus"></i>
+
+
+                                            ${
+                                                stock > 0
+                                                ? "Add"
+                                                : "Unavailable"
+                                            }
+
+
+                                        </button>
+
+                                    </div>
 
                                 </div>
 
-                            </div>
+                            </article>
 
-                        </article>
+                        `;
 
-                    `;
+                    })
 
-                })
-                .join("");
+                    .join("");
+
 
 
             /* =================================
@@ -1149,19 +1822,25 @@ document.addEventListener("DOMContentLoaded", async () => {
             ================================= */
 
             productGrid
+
                 .querySelectorAll(".add-cart-btn")
+
                 .forEach(button => {
+
 
                     button.addEventListener(
                         "click",
                         () => {
 
+
                             const product =
+
                                 list.find(
                                     item =>
                                         item.id ===
                                         button.dataset.productId
                                 );
+
 
                             if (product) {
 
@@ -1179,18 +1858,42 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         }
 
+
     } catch (error) {
 
-        console.error("Products:", error);
+
+        console.error(
+            "Products:",
+            error
+        );
+
 
         productGrid.innerHTML = `
+
             <div class="empty-card">
+
                 <div class="empty-icon">
+
                     <i class="bi bi-wifi-off"></i>
+
                 </div>
-                <h3>Unable to load products</h3>
-                <p>Please refresh the page.</p>
+
+
+                <h3>
+
+                    Unable to load products
+
+                </h3>
+
+
+                <p>
+
+                    Please refresh the page.
+
+                </p>
+
             </div>
+
         `;
 
     }
@@ -1198,6 +1901,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 </script>
+
 
 </body>
 </html>
