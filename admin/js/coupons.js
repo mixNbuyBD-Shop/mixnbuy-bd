@@ -405,14 +405,24 @@
           coupon.code || ""
         ).trim().toUpperCase(),
 
+      /*
+       * IMPORTANT:
+       * Supabase column = discount_type
+       * Frontend uses = type
+       */
       type:
         String(
-          coupon.type || "percentage"
+          coupon.discount_type || "percentage"
         ).toLowerCase(),
 
+      /*
+       * IMPORTANT:
+       * Supabase column = discount_value
+       * Frontend uses = value
+       */
       value:
         Number(
-          coupon.value || 0
+          coupon.discount_value || 0
         ),
 
       minimum_order:
@@ -835,7 +845,9 @@
               data-action="view"
               data-id="${coupon.id}"
             >
+
               <i class="bi bi-eye"></i>
+
             </button>
 
 
@@ -846,7 +858,9 @@
               data-action="edit"
               data-id="${coupon.id}"
             >
+
               <i class="bi bi-pencil"></i>
+
             </button>
 
 
@@ -861,11 +875,13 @@
               data-action="toggle"
               data-id="${coupon.id}"
             >
+
               <i class="bi ${
                 coupon.status === "active"
                   ? "bi-toggle-on"
                   : "bi-toggle-off"
               }"></i>
+
             </button>
 
 
@@ -876,7 +892,9 @@
               data-action="delete"
               data-id="${coupon.id}"
             >
+
               <i class="bi bi-trash"></i>
+
             </button>
 
           </div>
@@ -1423,13 +1441,27 @@
 
     try {
 
+      /*
+       * IMPORTANT SUPABASE FIELD NAMES
+       *
+       * Database:
+       * discount_type
+       * discount_value
+       *
+       * NOT:
+       * type
+       * value
+       */
+
       const payload = {
 
         code,
 
-        type,
+        discount_type:
+          type,
 
-        value,
+        discount_value:
+          value,
 
         minimum_order:
           minimumOrder,
