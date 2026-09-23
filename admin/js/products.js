@@ -1,16 +1,12 @@
 "use strict";
 
-
 /* =========================================================
    GLOBAL STATE
 ========================================================= */
 
 let allProducts = [];
-
 let filteredProducts = [];
-
 let allCategories = [];
-
 let categoryMap = new Map();
 
 
@@ -47,21 +43,17 @@ function getProductsClient() {
         return window.getClient();
     }
 
-
     if (
         typeof window.supabaseClient !== "undefined"
     ) {
         return window.supabaseClient;
     }
 
-
     console.error(
         "Supabase client not found."
     );
 
-
     return null;
-
 }
 
 
@@ -70,7 +62,6 @@ function getProductsClient() {
 ========================================================= */
 
 function bindProductEvents() {
-
 
     document
         .getElementById("addProductBtn")
@@ -87,7 +78,6 @@ function bindProductEvents() {
             async () => {
 
                 await loadCategories();
-
                 await loadProducts();
 
             }
@@ -115,6 +105,14 @@ function bindProductEvents() {
         ?.addEventListener(
             "change",
             applyProductFilters
+        );
+
+
+    document
+        .getElementById("clearFiltersBtn")
+        ?.addEventListener(
+            "click",
+            clearProductFilters
         );
 
 
@@ -218,44 +216,28 @@ async function loadCategories() {
     const client =
         getProductsClient();
 
-
     if (!client) {
         return;
     }
-
 
     const modalSelect =
         document.getElementById(
             "productCategory"
         );
 
-
     const filterSelect =
         document.getElementById(
             "categoryFilter"
         );
 
-
     try {
-
-
-        /*
-         * IMPORTANT:
-         *
-         * Live categories table is returning
-         * 400 when slug/is_active are requested.
-         *
-         * Therefore ONLY id,name are requested.
-         */
 
         const {
             data,
             error
         } = await client
             .from("categories")
-            .select(
-                "id,name"
-            )
+            .select("id,name")
             .order(
                 "name",
                 {
@@ -314,14 +296,11 @@ async function loadCategories() {
                             "option"
                         );
 
-
                     option.value =
                         category.id;
 
-
                     option.textContent =
                         category.name;
-
 
                     modalSelect.appendChild(
                         option
@@ -354,14 +333,11 @@ async function loadCategories() {
                             "option"
                         );
 
-
                     option.value =
                         category.id;
 
-
                     option.textContent =
                         category.name;
-
 
                     filterSelect.appendChild(
                         option
@@ -379,7 +355,6 @@ async function loadCategories() {
             "Category load error:",
             error
         );
-
 
         allCategories = [];
 
@@ -443,15 +418,6 @@ async function loadProducts() {
 
     try {
 
-
-        /*
-         * IMPORTANT:
-         *
-         * category_id is used.
-         *
-         * We do NOT request category text.
-         */
-
         const {
             data,
             error
@@ -470,6 +436,8 @@ async function loadProducts() {
                 selling_price,
                 discount_price,
                 current_stock,
+                minimum_stock,
+                maximum_stock,
                 image_url,
                 gallery,
                 is_featured,
@@ -506,10 +474,9 @@ async function loadProducts() {
         normalizeProducts();
 
 
-        filteredProducts =
-            [
-                ...allProducts
-            ];
+        filteredProducts = [
+            ...allProducts
+        ];
 
 
         updateProductStats();
@@ -599,6 +566,24 @@ function normalizeProducts() {
                         product.current_stock || 0
                     ),
 
+                minimum_stock:
+                    Number(
+                        product.minimum_stock || 5
+                    ),
+
+                maximum_stock:
+                    Number(
+                        product.maximum_stock || 100
+                    ),
+
+                image_url:
+                    product.image_url ||
+                    "",
+
+                gallery:
+                    product.gallery ||
+                    [],
+
                 is_featured:
                     Boolean(
                         product.is_featured
@@ -621,9 +606,7 @@ function getCategoryName(
     categoryId
 ) {
 
-    if (
-        !categoryId
-    ) {
+    if (!categoryId) {
 
         return "Uncategorized";
 
@@ -671,7 +654,6 @@ function applyProductFilters() {
     filteredProducts =
         allProducts.filter(
             product => {
-
 
                 const matchesSearch =
                     !search ||
@@ -727,6 +709,48 @@ function applyProductFilters() {
 
 
     renderProducts();
+
+}
+
+
+/* =========================================================
+   CLEAR FILTERS
+========================================================= */
+
+function clearProductFilters() {
+
+    const search =
+        document.getElementById(
+            "productSearch"
+        );
+
+    const category =
+        document.getElementById(
+            "categoryFilter"
+        );
+
+    const status =
+        document.getElementById(
+            "statusFilter"
+        );
+
+
+    if (search) {
+        search.value = "";
+    }
+
+
+    if (category) {
+        category.value = "";
+    }
+
+
+    if (status) {
+        status.value = "";
+    }
+
+
+    applyProductFilters();
 
 }
 
@@ -834,7 +858,12 @@ function renderProductRow(
             "stock-out";
 
     }
-    else if (stock <= 5) {
+    else if (
+        stock <=
+        Number(
+            product.minimum_stock || 5
+        )
+    ) {
 
         stockClass =
             "stock-low";
@@ -846,11 +875,9 @@ function renderProductRow(
 
         <tr>
 
-
             <td>
 
                 <div class="product-cell">
-
 
                     <div class="product-image">
 
@@ -860,7 +887,9 @@ function renderProductRow(
 
                                     <img
                                         src="${escapeHtml(
-                                            product.image_url
+                                            normalizeImageUrl(
+                                                product.image_url
+                                            )
                                         )}"
                                         alt="${escapeHtml(
                                             product.name
@@ -1015,7 +1044,6 @@ function renderProductRow(
 
                 <div class="product-actions">
 
-
                     <button
                         type="button"
                         class="product-action-btn view"
@@ -1067,11 +1095,9 @@ function renderProductRow(
 
                     </button>
 
-
                 </div>
 
             </td>
-
 
         </tr>
 
@@ -1109,7 +1135,10 @@ function updateProductStats() {
             product =>
                 Number(
                     product.current_stock || 0
-                ) <= 5
+                ) <=
+                Number(
+                    product.minimum_stock || 5
+                )
         ).length;
 
 
@@ -1161,6 +1190,36 @@ function openAddProductModal() {
     setValue(
         "currentStock",
         "0"
+    );
+
+
+    setValue(
+        "purchasePrice",
+        "0"
+    );
+
+
+    setValue(
+        "sellingPrice",
+        "0"
+    );
+
+
+    setValue(
+        "discountPrice",
+        ""
+    );
+
+
+    setValue(
+        "imageUrl",
+        ""
+    );
+
+
+    setValue(
+        "galleryUrls",
+        ""
     );
 
 
@@ -1254,12 +1313,6 @@ function editProduct(
     );
 
 
-    /*
-     * IMPORTANT:
-     *
-     * Category dropdown stores category UUID.
-     */
-
     setValue(
         "productCategory",
         product.category_id || ""
@@ -1302,23 +1355,35 @@ function editProduct(
     );
 
 
+    /* =============================================
+       IMPORTANT:
+       HTML field ID = imageUrl
+    ============================================== */
+
     setValue(
-        "productImage",
-        product.image_url || ""
+        "imageUrl",
+        normalizeImageUrl(
+            product.image_url || ""
+        )
+    );
+
+
+    /* =============================================
+       IMPORTANT:
+       HTML field ID = galleryUrls
+    ============================================== */
+
+    setValue(
+        "galleryUrls",
+        getGalleryText(
+            product.gallery
+        )
     );
 
 
     setValue(
         "productDescription",
         product.description || ""
-    );
-
-
-    setValue(
-        "productGallery",
-        getGalleryText(
-            product.gallery
-        )
     );
 
 
@@ -1357,6 +1422,68 @@ function editProduct(
 
 
     openProductModal();
+
+}
+
+
+/* =========================================================
+   GENERATE PRODUCT CODE
+========================================================= */
+
+function generateProductCode() {
+
+    let maxNumber = 0;
+
+
+    allProducts.forEach(
+        product => {
+
+            const code =
+                String(
+                    product.product_code || ""
+                ).trim();
+
+
+            const match =
+                code.match(
+                    /^PRD-(\d+)$/
+                );
+
+
+            if (match) {
+
+                const number =
+                    parseInt(
+                        match[1],
+                        10
+                    );
+
+
+                if (
+                    Number.isFinite(number) &&
+                    number > maxNumber
+                ) {
+
+                    maxNumber =
+                        number;
+
+                }
+
+            }
+
+        }
+    );
+
+
+    return (
+        "PRD-" +
+        String(
+            maxNumber + 1
+        ).padStart(
+            6,
+            "0"
+        )
+    );
 
 }
 
@@ -1448,112 +1575,151 @@ async function saveProduct(
     }
 
 
-    /*
-     * IMPORTANT:
-     *
-     * There is NO "category" field here.
-     *
-     * The database uses category_id.
-     */
+    const enteredProductCode =
+        getValue(
+            "productCode"
+        ).trim();
+
+
+    const productCode =
+        enteredProductCode ||
+        (
+            productId
+                ? null
+                : generateProductCode()
+        );
+
+
+    const imageUrl =
+        normalizeImageUrl(
+            getValue(
+                "imageUrl"
+            )
+        );
+
+
+    const gallery =
+        buildGalleryValue(
+            getValue(
+                "galleryUrls"
+            )
+        );
+
+
+    const purchasePrice =
+        Number(
+            getValue(
+                "purchasePrice"
+            ) || 0
+        );
+
+
+    const discountRaw =
+        getValue(
+            "discountPrice"
+        ).trim();
+
+
+    const currentStock =
+        Number(
+            getValue(
+                "currentStock"
+            ) || 0
+        );
+
 
     const payload = {
 
-
         product_code:
-            getValue(
-                "productCode"
-            ).trim() || null,
-
+            productCode,
 
         sku:
             getValue(
                 "productSku"
             ).trim() || null,
 
-
         name,
-
 
         category_id:
             categoryId,
-
 
         brand:
             getValue(
                 "productBrand"
             ).trim() || null,
 
-
         unit:
             getValue(
                 "productUnit"
-            ) || "pcs",
-
+            ).trim() || "pcs",
 
         purchase_price:
-            Number(
-                getValue(
-                    "purchasePrice"
-                ) || 0
-            ),
-
+            purchasePrice,
 
         selling_price:
             sellingPrice,
 
-
         discount_price:
-            getValue(
-                "discountPrice"
-            ) === ""
+            discountRaw === ""
                 ? null
                 : Number(
-                    getValue(
-                        "discountPrice"
-                    )
+                    discountRaw
                 ),
 
-
         current_stock:
-            Number(
-                getValue(
-                    "currentStock"
-                ) || 0
-            ),
+            currentStock,
 
+        /*
+         * IMPORTANT FIX
+         *
+         * HTML field is #imageUrl
+         * Database column is image_url
+         */
 
         image_url:
-            getValue(
-                "productImage"
-            ).trim() || null,
+            imageUrl ||
+            null,
 
+        /*
+         * HTML field is #galleryUrls
+         * Database column is gallery
+         */
 
         gallery:
-            buildGalleryValue(
-                getValue(
-                    "productGallery"
-                )
-            ),
-
+            gallery,
 
         description:
             getValue(
                 "productDescription"
             ).trim() || null,
 
-
         is_featured:
             isChecked(
                 "isFeatured"
             ),
 
-
         is_active:
             isChecked(
                 "isActive"
-            )
+            ),
+
+        updated_at:
+            new Date().toISOString()
 
     };
+
+
+    /*
+     * For a new product,
+     * explicitly set created_at.
+     */
+
+    if (!productId) {
+
+        payload.created_at =
+            new Date().toISOString();
+
+    }
 
 
     const saveBtn =
@@ -1570,7 +1736,6 @@ async function saveProduct(
 
     try {
 
-
         let result;
 
 
@@ -1579,7 +1744,6 @@ async function saveProduct(
         ============================================== */
 
         if (productId) {
-
 
             result =
                 await client
@@ -1603,7 +1767,6 @@ async function saveProduct(
 
         else {
 
-
             result =
                 await client
                     .from("products")
@@ -1625,10 +1788,15 @@ async function saveProduct(
                 result.error
             );
 
-
             throw result.error;
 
         }
+
+
+        console.log(
+            "Product saved successfully:",
+            result.data
+        );
 
 
         alert(
@@ -1714,23 +1882,35 @@ function viewProduct(
         );
 
 
+    const imageUrl =
+        normalizeImageUrl(
+            product.image_url
+        );
+
+
+    const gallery =
+        Array.isArray(
+            product.gallery
+        )
+            ? product.gallery
+            : [];
+
+
     container.innerHTML = `
 
         <div class="product-details">
 
-
             <div class="product-details-top">
-
 
                 <div class="product-details-image">
 
                     ${
-                        product.image_url
+                        imageUrl
                             ? `
 
                                 <img
                                     src="${escapeHtml(
-                                        product.image_url
+                                        imageUrl
                                     )}"
                                     alt="${escapeHtml(
                                         product.name
@@ -1770,12 +1950,10 @@ function viewProduct(
 
                 </div>
 
-
             </div>
 
 
             <div class="product-details-grid">
-
 
                 ${detailItem(
                     "Category",
@@ -1836,6 +2014,22 @@ function viewProduct(
 
 
                 ${detailItem(
+                    "Minimum Stock",
+                    formatNumber(
+                        product.minimum_stock
+                    )
+                )}
+
+
+                ${detailItem(
+                    "Maximum Stock",
+                    formatNumber(
+                        product.maximum_stock
+                    )
+                )}
+
+
+                ${detailItem(
                     "Status",
                     product.is_active
                         ? "Active"
@@ -1877,6 +2071,68 @@ function viewProduct(
                     : ""
             }
 
+
+            ${
+                gallery.length
+                    ? `
+
+                        <div class="product-detail-description">
+
+                            <span>
+                                Gallery
+                            </span>
+
+                            <div
+                                style="
+                                    display:grid;
+                                    grid-template-columns:repeat(auto-fill,minmax(100px,1fr));
+                                    gap:10px;
+                                    margin-top:10px;
+                                "
+                            >
+
+                                ${gallery
+                                    .map(
+                                        url => {
+
+                                            const safeUrl =
+                                                normalizeImageUrl(
+                                                    url
+                                                );
+
+                                            if (!safeUrl) {
+                                                return "";
+                                            }
+
+                                            return `
+
+                                                <img
+                                                    src="${escapeHtml(
+                                                        safeUrl
+                                                    )}"
+                                                    alt="Product image"
+                                                    style="
+                                                        width:100%;
+                                                        height:100px;
+                                                        object-fit:cover;
+                                                        border-radius:8px;
+                                                        border:1px solid #ddd;
+                                                    "
+                                                >
+
+                                            `;
+
+                                        }
+                                    )
+                                    .join("")}
+
+                            </div>
+
+                        </div>
+
+                    `
+                    : ""
+            }
 
         </div>
 
@@ -1953,14 +2209,16 @@ async function toggleProductStatus(
 
     try {
 
-
         const {
             error
         } = await client
             .from("products")
             .update({
                 is_active:
-                    nextStatus
+                    nextStatus,
+
+                updated_at:
+                    new Date().toISOString()
             })
             .eq(
                 "id",
@@ -2010,11 +2268,13 @@ function buildGalleryValue(
 
 
     const urls =
-        value
-            .split(",")
+        String(value)
+            .split(/[\n,]+/)
             .map(
                 item =>
-                    item.trim()
+                    normalizeImageUrl(
+                        item
+                    )
             )
             .filter(
                 Boolean
@@ -2039,9 +2299,15 @@ function getGalleryText(
         Array.isArray(gallery)
     ) {
 
-        return gallery.join(
-            ", "
-        );
+        return gallery
+            .map(
+                url =>
+                    normalizeImageUrl(
+                        url
+                    )
+            )
+            .filter(Boolean)
+            .join(", ");
 
     }
 
@@ -2050,6 +2316,37 @@ function getGalleryText(
         typeof gallery ===
         "string"
     ) {
+
+        try {
+
+            const parsed =
+                JSON.parse(
+                    gallery
+                );
+
+            if (
+                Array.isArray(
+                    parsed
+                )
+            ) {
+
+                return parsed
+                    .map(
+                        url =>
+                            normalizeImageUrl(
+                                url
+                            )
+                    )
+                    .filter(Boolean)
+                    .join(", ");
+
+            }
+
+        }
+        catch (error) {
+            // normal string
+        }
+
 
         return gallery;
 
@@ -2063,9 +2360,17 @@ function getGalleryText(
             "object"
         ) {
 
-            return JSON.stringify(
+            return Object.values(
                 gallery
-            );
+            )
+            .map(
+                url =>
+                    normalizeImageUrl(
+                        url
+                    )
+            )
+            .filter(Boolean)
+            .join(", ");
 
         }
 
@@ -2073,6 +2378,113 @@ function getGalleryText(
     catch (error) {
 
         return "";
+
+    }
+
+
+    return "";
+
+}
+
+
+/* =========================================================
+   IMAGE URL NORMALIZER
+========================================================= */
+
+function normalizeImageUrl(
+    url
+) {
+
+    if (!url) {
+        return "";
+    }
+
+
+    let imageUrl =
+        String(url).trim();
+
+
+    if (!imageUrl) {
+        return "";
+    }
+
+
+    /*
+     * Google Drive:
+     *
+     * https://drive.google.com/file/d/FILE_ID/view
+     *
+     * converted to:
+     *
+     * https://drive.google.com/uc?export=view&id=FILE_ID
+     */
+
+    const driveFileMatch =
+        imageUrl.match(
+            /drive\.google\.com\/file\/d\/([^/]+)/
+        );
+
+
+    if (driveFileMatch) {
+
+        return (
+            "https://drive.google.com/uc?export=view&id=" +
+            driveFileMatch[1]
+        );
+
+    }
+
+
+    /*
+     * Google Drive open?id=FILE_ID
+     */
+
+    const driveOpenMatch =
+        imageUrl.match(
+            /drive\.google\.com\/open\?id=([^&]+)/
+        );
+
+
+    if (driveOpenMatch) {
+
+        return (
+            "https://drive.google.com/uc?export=view&id=" +
+            driveOpenMatch[1]
+        );
+
+    }
+
+
+    /*
+     * Google Drive uc?id=FILE_ID
+     */
+
+    const driveUcMatch =
+        imageUrl.match(
+            /drive\.google\.com\/uc\?(?:export=view&)?id=([^&]+)/
+        );
+
+
+    if (driveUcMatch) {
+
+        return (
+            "https://drive.google.com/uc?export=view&id=" +
+            driveUcMatch[1]
+        );
+
+    }
+
+
+    /*
+     * Already direct URL
+     */
+
+    if (
+        imageUrl.startsWith("http://") ||
+        imageUrl.startsWith("https://")
+    ) {
+
+        return imageUrl;
 
     }
 
@@ -2230,18 +2642,22 @@ function detailItem(
         <div class="product-detail-item">
 
             <span>
+
                 ${escapeHtml(
                     label
                 )}
+
             </span>
 
 
             <strong>
+
                 ${escapeHtml(
                     String(
                         value ?? "-"
                     )
                 )}
+
             </strong>
 
         </div>
@@ -2478,77 +2894,4 @@ window.MIXNBUY_PRODUCTS = {
 
     openAddProductModal
 
-}; 
-function normalizeImageUrl(url) {
-
-    if (!url) {
-        return "";
-    }
-
-    let imageUrl = String(url).trim();
-
-    if (!imageUrl) {
-        return "";
-    }
-
-    /*
-     * Google Drive:
-     *
-     * https://drive.google.com/file/d/FILE_ID/view
-     *
-     * converted to:
-     *
-     * https://drive.google.com/uc?export=view&id=FILE_ID
-     */
-
-    const driveFileMatch =
-        imageUrl.match(
-            /drive\.google\.com\/file\/d\/([^/]+)/
-        );
-
-    if (driveFileMatch) {
-
-        return (
-            "https://drive.google.com/uc?export=view&id=" +
-            driveFileMatch[1]
-        );
-
-    }
-
-
-    /*
-     * Google Drive open?id=FILE_ID
-     */
-
-    const driveOpenMatch =
-        imageUrl.match(
-            /drive\.google\.com\/open\?id=([^&]+)/
-        );
-
-    if (driveOpenMatch) {
-
-        return (
-            "https://drive.google.com/uc?export=view&id=" +
-            driveOpenMatch[1]
-        );
-
-    }
-
-
-    /*
-     * Already direct URL
-     */
-
-    if (
-        imageUrl.startsWith("http://") ||
-        imageUrl.startsWith("https://")
-    ) {
-
-        return imageUrl;
-
-    }
-
-
-    return "";
-
-}
+};
