@@ -2389,105 +2389,195 @@ function getGalleryText(
 
 /* =========================================================
    IMAGE URL NORMALIZER
+   Google Drive + Direct Image URL Support
 ========================================================= */
 
-function normalizeImageUrl(
-    url
-) {
+function normalizeImageUrl(url) {
 
     if (!url) {
         return "";
     }
 
-
-    let imageUrl =
-        String(url).trim();
-
+    let imageUrl = String(url).trim();
 
     if (!imageUrl) {
         return "";
     }
 
 
-    /*
-     * Google Drive:
-     *
-     * https://drive.google.com/file/d/FILE_ID/view
-     *
-     * converted to:
-     *
-     * https://drive.google.com/uc?export=view&id=FILE_ID
-     */
+    /* =====================================================
+       GOOGLE DRIVE FILE ID ONLY
+
+       Example:
+       1AbCdEfGhIjKlMnOpQrStUvWxYz
+    ===================================================== */
+
+    if (
+        /^[a-zA-Z0-9_-]{20,}$/.test(imageUrl)
+    ) {
+
+        return (
+            "https://drive.google.com/thumbnail?id=" +
+            encodeURIComponent(imageUrl) +
+            "&sz=w1200"
+        );
+
+    }
+
+
+    /* =====================================================
+       GOOGLE DRIVE
+
+       https://drive.google.com/file/d/FILE_ID/view
+    ===================================================== */
 
     const driveFileMatch =
         imageUrl.match(
-            /drive\.google\.com\/file\/d\/([^/]+)/
+            /drive\.google\.com\/file\/d\/([^/?#]+)/
         );
-
 
     if (driveFileMatch) {
 
+        const fileId =
+            driveFileMatch[1];
+
         return (
-            "https://drive.google.com/uc?export=view&id=" +
-            driveFileMatch[1]
+            "https://drive.google.com/thumbnail?id=" +
+            encodeURIComponent(fileId) +
+            "&sz=w1200"
         );
 
     }
 
 
-    /*
-     * Google Drive open?id=FILE_ID
-     */
+    /* =====================================================
+       GOOGLE DRIVE
+
+       https://drive.google.com/open?id=FILE_ID
+    ===================================================== */
 
     const driveOpenMatch =
         imageUrl.match(
-            /drive\.google\.com\/open\?id=([^&]+)/
+            /drive\.google\.com\/open\?id=([^&#]+)/
         );
-
 
     if (driveOpenMatch) {
 
+        const fileId =
+            driveOpenMatch[1];
+
         return (
-            "https://drive.google.com/uc?export=view&id=" +
-            driveOpenMatch[1]
+            "https://drive.google.com/thumbnail?id=" +
+            encodeURIComponent(fileId) +
+            "&sz=w1200"
         );
 
     }
 
 
-    /*
-     * Google Drive uc?id=FILE_ID
-     */
+    /* =====================================================
+       GOOGLE DRIVE
+
+       https://drive.google.com/uc?id=FILE_ID
+    ===================================================== */
 
     const driveUcMatch =
         imageUrl.match(
-            /drive\.google\.com\/uc\?(?:export=view&)?id=([^&]+)/
+            /drive\.google\.com\/uc\?(?:export=[^&]+&)?id=([^&#]+)/
         );
-
 
     if (driveUcMatch) {
 
+        const fileId =
+            driveUcMatch[1];
+
         return (
-            "https://drive.google.com/uc?export=view&id=" +
-            driveUcMatch[1]
+            "https://drive.google.com/thumbnail?id=" +
+            encodeURIComponent(fileId) +
+            "&sz=w1200"
         );
 
     }
 
 
-    /*
-     * Already direct URL
-     */
+    /* =====================================================
+       GOOGLE DRIVE THUMBNAIL
+
+       https://drive.google.com/thumbnail?id=FILE_ID
+    ===================================================== */
+
+    const driveThumbnailMatch =
+        imageUrl.match(
+            /drive\.google\.com\/thumbnail\?id=([^&#]+)/
+        );
+
+    if (driveThumbnailMatch) {
+
+        const fileId =
+            driveThumbnailMatch[1];
+
+        return (
+            "https://drive.google.com/thumbnail?id=" +
+            encodeURIComponent(fileId) +
+            "&sz=w1200"
+        );
+
+    }
+
+
+    /* =====================================================
+       GOOGLE DRIVE VIEW LINK
+
+       https://drive.google.com/viewerng/viewer?url=...
+    ===================================================== */
 
     if (
-        imageUrl.startsWith("http://") ||
-        imageUrl.startsWith("https://")
+        imageUrl.includes(
+            "drive.google.com"
+        )
+    ) {
+
+        const idMatch =
+            imageUrl.match(
+                /[?&]id=([^&#]+)/
+            );
+
+        if (idMatch) {
+
+            const fileId =
+                idMatch[1];
+
+            return (
+                "https://drive.google.com/thumbnail?id=" +
+                encodeURIComponent(fileId) +
+                "&sz=w1200"
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       NORMAL HTTP / HTTPS IMAGE URL
+
+       Example:
+       https://example.com/image.jpg
+       ===================================================== */
+
+    if (
+        imageUrl.startsWith("https://") ||
+        imageUrl.startsWith("http://")
     ) {
 
         return imageUrl;
 
     }
 
+
+    /* =====================================================
+       INVALID URL
+    ===================================================== */
 
     return "";
 
